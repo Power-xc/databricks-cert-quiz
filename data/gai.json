@@ -1,0 +1,1151 @@
+[
+  {
+    "text": "### 📝 문제 55 (55/75) 📚\n\n생성형 AI 엔지니어가 새로운 스포츠를 배우는 동안 기술 규정과 관련된 사용자 질문에 답변하기 위한 RAG 애플리케이션을 설계하고 있습니다. 이 RAG 애플리케이션을 구축하고 배포하는 데 필요한 단계는 무엇입니까?",
+    "choices": [
+      "A. 소스에서 문서 수집 (Ingest documents from a source) -> 문서를 색인하고 Vector Search 에 저장 (Index the documents and save to Vector Search) -> 모델 평가 (Evaluate model) -> Model Serving 을 사용하여 배포 (Deploy it using Model Serving)",
+      "B. 소스에서 문서 수집 (Ingest documents from a source) -> 문서를 색인하고 Vector Search 에 저장 (Index the documents and save to Vector Search) -> 사용자가 LLM 에 대해 쿼리 제출 (User submits queries against an LLM) -> LLM 이 관련 문서 검색 (LLM retrieves relevant documents) -> LLM 이 응답 생성 (LLM generates a response) -> 모델 평가 (Evaluate model) -> Model Serving 을 사용하여 배포 (Deploy it using Model Serving)",
+      "C. 소스에서 문서 수집 (Ingest documents from a source) -> 문서를 색인하고 Vector Search 에 저장 (Index the documents and saves to Vector Search) -> 사용자가 LLM 에 대해 쿼리 제출 (User submits queries against an LLM) -> LLM 이 관련 문서 검색 (LLM retrieves relevant documents) -> 모델 평가 (Evaluate model) -> LLM 이 응답 생성 (LLM generates a response) -> Model Serving 을 사용하여 배포 (Deploy it using Model Serving)",
+      "D. 사용자가 LLM 에 대해 쿼리 제출 (User submits queries against an LLM) -> 소스에서 문서 수집 (Ingest documents from a source) -> 문서를 색인하고 Vector Search 에 저장 (Index the documents and save to Vector Search) -> LLM 이 관련 문서 검색 (LLM retrieves relevant documents) -> LLM 이 응답 생성 (LLM generates a response) -> 모델 평가 (Evaluate model) -> Model Serving 을 사용하여 배포 (Deploy it using Model Serving)"
+    ],
+    "is_multi": false,
+    "code": "",
+    "explanation": "✅ 정답 보기",
+    "index": 1
+  },
+  {
+    "text": "### 📝 문제 56 (56/75) 📚\n\n생성형 AI 엔지니어가 인기 있는 에이전트 작성 라이브러리를 사용하여 에이전트 시스템을 개발하고 있습니다. 이 에이전트는 여러 개의 병렬 및 순차 체인으로 구성됩니다. 엔지니어는 에이전트가 단계 중 하나에서 실패하여 근본 원인을 디버깅하기 어려운 상황에 직면했습니다. 그들은 이 문제를 조사하고 실패의 원인을 파악할 수 있는 적절한 방법을 찾아야 합니다. 그들은 어떤 접근 방식을 선택해야 할까요?\n\n```markdown\nMLflow\nMLflow.evaluate\n```",
+    "choices": [
+      "A. MLflow.evaluate를 실행하여 실패한 단계의 근본 원인을 파악합니다.",
+      "B. MLflow tracing(MLflow 추적)을 활성화하여 각 에이전트의 동작과 실행 단계에 대한 가시성을 확보합니다.",
+      "C. 디버깅을 단순화하기 위해 에이전트를 독립적인 단계로 분해(deconstruct)합니다.",
+      "D. 에이전트 코드 내에 구조화된 로깅(structured logging)을 구현하여 상세한 실행 정보를 수집합니다."
+    ],
+    "is_multi": false,
+    "code": "",
+    "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 A → 현재 화면 정답 B",
+    "index": 2,
+    "answer_letters": [
+      "B"
+    ]
+  },
+  {
+    "text": "### 📝 문제 57 (57/75) 📚\n\n생성형 AI 엔지니어가 특정 기능에 대한 텍스트 설명을 기반으로 식용 버섯의 종을 분류하기 위해 LLM 을 사용하고 있습니다. 모델은 테스트에서 정확한 응답을 반환하고 있으며, 생성형 AI 엔지니어는 가능한 라벨 목록이 정확하다고 확신합니다. 하지만 생성형 AI 엔지니어가 추가 텍스트 없이 라벨만 반환하기를 원할 때 출력에는 종종 추가적인 추론이 포함됩니다. 이 LLM 에서 원하는 동작을 유도하기 위해 어떤 조치를 취해야 합니까?",
+    "choices": [
+      "A. few shot prompting(소수 샷 프롬프팅) 을 사용하여 모델에 예상되는 출력 형식을 지시합니다",
+      "B. system prompt(시스템 프롬프트) 를 사용하여 모델이 답변을 간결하게 하도록 지시합니다",
+      "C. zero shot prompting(제로 샷 프롬프팅) 을 사용하여 모델에 예상되는 출력 형식을 지시합니다",
+      "D. verbose output format(말풍선 출력 형식) 을 방지하기 위해 zero shot chain-of-thought prompting(제로 샷 사고의 사슬 프롬프팅) 을 사용합니다"
+    ],
+    "is_multi": false,
+    "code": "",
+    "explanation": "",
+    "index": 3
+  },
+  {
+    "text": "### 📝 문제 58 (58/75) 📚\n\n다음 모두 Databricks foundation models 를 쿼리하는 데 사용되는 Python API 입니다. 인터랙티브 노트북에서 실행할 때, 다음 라이브러리 중 현재 세션 자격 증명을 자동으로 사용하지 않는 것은 무엇입니까?",
+    "choices": [
+      "A. requests library 를 통한 REST API",
+      "B. OpenAI client",
+      "C. Databricks Python SDK",
+      "D. MLflow Deployments SDK"
+    ],
+    "is_multi": false,
+    "code": "",
+    "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 B → 현재 화면 정답 A",
+    "index": 4,
+    "answer_letters": [
+      "A"
+    ]
+  },
+  {
+    "text": "### 📝 문제 59 (59/75) 📚\n\n생성형 AI 엔지니어는 LLM이 이메일에서 포맷된 JSON을 생성하기를 원합니다. 이를 위해 다음 정보를 파싱하고 추출해야 합니다: 주문 ID, 날짜, 발신자 이메일. 여기 샘플 이메일이 있습니다: 그들은 출력 정확도가 가장 높은 수준으로 관련 정보를 JSON 형식으로 추출할 프롬프트를 작성해야 합니다. 어떤 프롬프트가 그 일을 할 수 있을까요?\n\n```json\n{\"date\": \"April 16, 2024\", \"sender_email\": \"sarah.lee925@gmail.com\", \"order_id\": \"RE987D\"}\n```",
+    "choices": [
+      "A. 고객 이메일을 수신하고 날짜, 발신자 이메일, 주문 ID를 추출해야 합니다. 추출한 정보를 JSON 형식으로 반환하세요.",
+      "B. 고객 이메일을 수신하고 날짜, 발신자 이메일, 주문 ID를 추출해야 합니다. 추출한 정보를 사람이 읽을 수 있는 형식으로 반환하세요.",
+      "C. 고객 이메일을 수신하고 날짜, 발신자 이메일, 주문 ID를 추출해야 합니다. 날짜, 발신자 이메일 및 주문 ID 정보를 JSON 형식으로 반환해야 합니다.",
+      "D. 고객 이메일을 수신하고 날짜, 발신자 이메일, 주문 ID를 추출해야 합니다. 추출한 정보를 JSON 형식으로 반환하세요. 예시입니다: {\"date\": \"April 16, 2024\", \"sender_email\": \"sarah.lee925@gmail.com\", \"order_id\": \"RE987D\"}"
+    ],
+    "is_multi": false,
+    "code": "",
+    "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 B → 현재 화면 정답 D",
+    "index": 5,
+    "answer_letters": [
+      "D"
+    ]
+  },
+  {
+    "text": "### 📝 문제 60 (60/75) 📚\n\n생성형 AI 엔지니어가 현재 PDF 형식인 소스 문서에서 검색된 컨텍스트에 의존하는 RAG(Retrieval-Augmented Generation) 애플리케이션을 구축하고 있습니다. 이 PDF 파일에는 텍스트와 이미지가 모두 포함될 수 있습니다. 그들은 최소한의 코드 라인으로 솔루션을 개발하고자 합니다. 소스 문서에서 텍스트를 추출하기 위해 어떤 Python 패키지를 사용해야 합니까?\n\n> ⚠️ 이 문제는 이미지 참고가 필요합니다.",
+    "choices": [
+      "A. flask",
+      "B. numpy",
+      "C. beautifulsoup",
+      "D. unstructured"
+    ],
+    "is_multi": false,
+    "code": "",
+    "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 B → 현재 화면 정답 C",
+    "index": 6,
+    "answer_letters": [
+      "C"
+    ]
+  },
+  {
+    "text": "### 📝 문제 61 (61/75) 📚\n\n생성형 AI 엔지니어는 회사의 내부 HelpDesk 콜센터 팀이 관련 티켓을 더 빠르게 찾고 해결책을 제시할 수 있도록 챗봇을 개발하는 역할을 맡고 있습니다. 이 프로젝트의 GenAI 애플리케이션 작업 분해 작업을 작성하면서, 이 애플리케이션에 사용할 데이터 소스(Unity Catalog volume 또는 Delta table)를 계획해야 함을 깨닫습니다. 고려할 몇 가지 후보 데이터 소스를 수집했습니다:",
+    "choices": [
+      "A. call_detail",
+      "B. maintenance_schedule",
+      "C. call_cust_history",
+      "D. call_rep_history",
+      "E. transcript Volume"
+    ],
+    "is_multi": true,
+    "code": "",
+    "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 D, E → 현재 화면 정답 A, E",
+    "index": 7,
+    "answer_letters": [
+      "A",
+      "E"
+    ]
+  },
+  {
+    "text": "### 📝 문제 62 (62/75) 📚\n\n자동차 회사의 생성형 AI 엔지니어는 고객이 차량에 대한 구체적인 질문을 할 수 있도록 도와주는 질의응답 챗봇을 구축하고자 합니다. 그들은 다음과 같은 자료를 보유하고 있습니다:",
+    "choices": [
+      "A. 모델의 컨텍스트 윈도우(context window) 와 일치하도록 청크(chunk) 크기를 설정하여 커버리지(coverage) 를 극대화함",
+      "B. 자동차 용어(automotive terminology) 에 대해 임베딩(embedding) 모델을 파인튜닝(fine-tuning) 함",
+      "C. 차종과 연식(car models and years) 기반 메타데이터 필터링(metadata filtering) 구현",
+      "D. 응답 생성(response generation) 을 위한 퓨샷(few-shot) 예시 추가"
+    ],
+    "is_multi": false,
+    "code": "",
+    "explanation": "✅ 정답 보기",
+    "index": 8
+  },
+  {
+    "text": "### 📝 문제 63 (63/75) 📚\n\n생성형 AI 엔지니어는 회사의 소규모 내부 전문가 그룹이 특정 질문에 답변하는 것을 돕기 위해 내부 지식 베이스로 보강된 RAG(Retrieval-Augmented Generation) 애플리케이션을 개발할 임무를 맡았습니다. 그들은 가능한 최고의 품질의 답변을 원하며, 사용자 그룹이 작고 최상의 답변을 기다려주므로 지연 시간(latency)이나 처리량(throughput)은 큰 문제가 아닙니다. 주제는 민감한 성격을 띠고 데이터는 기밀성이 매우 높으므로 규제 요구 사항에 따라 모든 정보가 제3자에게 전송되어서는 안 됩니다. 이 상황에서 생성형 AI 엔지니어의 요구 사항을 모두 충족하는 모델은 무엇입니까?",
+    "choices": [
+      "A. OpenAI GPT-4",
+      "B. Llama2-70B",
+      "C. BGE-large",
+      "D. Dolly 1.5B"
+    ],
+    "is_multi": false,
+    "code": "",
+    "explanation": "",
+    "index": 9
+  },
+  {
+    "text": "### 📝 문제 64 (64/75) 📚\n\n생성형 AI 엔지니어가 비정형 문서를 성공적으로 수집하고 문서 섹션별로 청킹(chunking)했습니다. 이제 이 청크들을 Vector Search 인덱스에 저장하려고 합니다. 현재 데이터프레임의 형식은 두 개의 열로 구성되어 있습니다: (i) 원본 문서 파일 이름, (ii) 각 문서에 대한 텍스트 청크 배열. 이 데이터프레임을 저장하는 가장 성능이 좋은 방법은 무엇입니까?",
+    "choices": [
+      "A. 데이터프레임을 행당 하나의 청크가 되도록 평탄화(flatten)하고, 각 행마다 고유 식별자를 만든 다음 Delta table에 저장합니다",
+      "B. 각 청크를 Unity Catalog Volume에 독립적인 JSON 파일로 저장합니다. 각 JSON 파일에서 키는 문서 섹션 이름이고 값은 해당 섹션의 텍스트 청크 배열입니다",
+      "C. 먼저 각 문서마다 고유 식별자를 만든 다음 Delta table에 저장합니다",
+      "D. 데이터를 train set과 test set으로 나누고, 각 문서마다 고유 식별자를 만든 다음 Delta table에 저장합니다"
+    ],
+    "is_multi": false,
+    "code": "",
+    "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 B → 현재 화면 정답 A",
+    "index": 10,
+    "answer_letters": [
+      "A"
+    ]
+  },
+  {
+    "text": "### 📝 문제 65 (65/75) 📚\n\n생성형 AI 엔지니어가 중요한 전사 (음성-텍스트) 작업이 있는 LLM 기반 애플리케이션을 구축하고 있습니다. 속도는 애플리케이션의 성공에 필수적입니다. 어떤 오픈 생성형 AI 모델을 사용해야 합니까?",
+    "choices": [
+      "A. MPT-30B-Instruct",
+      "B. DBRX",
+      "C. L!ama-2-70b-chat-hf",
+      "D. whisper-large-v3 (1.6B)"
+    ],
+    "is_multi": false,
+    "code": "",
+    "explanation": "✅ 정답 보기",
+    "index": 11
+  },
+  {
+    "text": "### 📝 문제 66 (66/75) 📚\n\n생성형 AI 엔지니어는 Confluence 페이지나 Google Drive와 같은 내부 지식 기반에서 답변을 검색할 수 있도록 도와주는 RAG 애플리케이션을 개발했습니다. 프로토타입 애플리케이션은 현재 회사 내부 테스터들로부터 일부 긍정적인 피드백을 받으며 작동 중입니다. 이제 생성형 AI 엔지니어는 시스템의 성능을 공식적으로 평가하고 시스템을 더 개선하기 위해 어디에 집중해야 할지 이해하고자 합니다. 생성형 AI 엔지니어는 시스템을 어떻게 평가해야 합니까?",
+    "choices": [
+      "A. 코사인 유사도 점수(cosine similarity score)를 사용하여 최종 생성된 답변의 품질을 포괄적으로 평가합니다.",
+      "B. 시스템의 검색(retrieval) 및 생성(generation) 구성 요소를 개별적으로 테스트할 수 있는 데이터셋을 구축합니다. MLflow의 내장 평가 지표(built-in evaluation metrics)를 사용하여 검색 및 생성 구성 요소에 대한 평가를 수행합니다.",
+      "C. LLM-as-a-judge를 사용하여 생성된 최종 답변의 품질을 평가합니다.",
+      "D. 동일한 데이터로 여러 LLM의 벤치마크를 수행하고 해당 작업에 가장 적합한 LLM을 선택합니다."
+    ],
+    "is_multi": false,
+    "code": "",
+    "explanation": "✅ 정답 보기",
+    "index": 12
+  },
+  {
+    "text": "### 📝 문제 67 (67/75) 📚\n\n생성형 AI 엔지니어가 작가의 웹 포럼에서 제기되는 판타지 소설 시리즈에 대한 질문의 답변을 찾아내는 RAG 애플리케이션을 개발했습니다. 판타지 소설 텍스트는 메타데이터 (페이지 번호, 장 번호, 책 제목) 와 함께 벡터 스토어에 청킹(chunking) 및 임베딩(embedding) 되어 사용자의 쿼리로 검색된 후 응답 생성을 위해 LLM 에 제공됩니다. 생성형 AI 엔지니어는 직관을 통해 청킹 전략과 관련 구성을 선택했지만 이제 더 체계적으로 최적의 값을 선택하고자 합니다.",
+    "choices": [
+      "A. 임베딩 모델을 변경하고 성능을 비교합니다.",
+      "B. 이전 질문이 가장 적절한 청크(chunk) 로 얼마나 잘 답변되었는지 평가하기 위한 LLM-as-a-judge(판단자로서의 LLM) 지표를 만듭니다. 지표의 값에 따라 청킹 매개변수를 최적화합니다.",
+      "C. 적절한 평가 지표 (recall 또는 NDCG 등) 를 선택하고 청킹 전략의 변경 사항 (예: 단락이나 장별로 청크를 분할) 을 실험합니다. 가장 좋은 성능 지표를 제공하는 전략을 선택합니다.",
+      "D. 사용자 쿼리에 대해 어떤 책이 답변을 가장 잘 포함할지 예측하는 분류기(classifier) 를 추가합니다. 이를 사용하여 검색을 필터링합니다.",
+      "E. 알려진 질문과 최상의 답변을 LLM 에 전달하여 LLM 이 최적의 토큰 개수를 제공하도록 지시합니다. 최적의 토큰 개수의 요약 통계량 (평균, 중앙값 등) 을 사용하여 청크 크기를 선택합니다."
+    ],
+    "is_multi": true,
+    "code": "",
+    "explanation": "",
+    "index": 13
+  },
+  {
+    "text": "### 📝 문제 68 (68/75) 📚\n\n생성형 AI 엔지니어가 아래 코드를 사용하여 LangChain에서 간단한 프롬프트 템플릿을 테스트하고 있지만 오류가 발생합니다.\n\n```python\nfrom langchain.chains import LLMChain\nfrom langchain_community.llms import OpenAI\nfrom langchain_core.prompts import PromptTemplate\n\nprompt_template = \"Tell me a {adjective} joke\"\n\nprompt = PromptTemplate(\ninput_variables=[\"adjective\"],\ntemplate=prompt_template\n)\n\nllm = LLMChain(prompt=prompt)\nllm.generate([{\"adjective\": \"funny\"}])\n```",
+    "choices": [
+      "A. C. prompt_template = \"Tell me a {adjective} joke\"\nprompt = PromptTemplate(\ninput_variables=[\"adjective\"],\ntemplate=prompt_template\n)\nllm = LLMChain(prompt=prompt, llm=OpenAI())\nllm.generate([{\"adjective\": \"funny\"}])",
+      "B. A. prompt_template = \"Tell me a {adjective} joke\"\nprompt = PromptTemplate(\ninput_variables=[\"adjective\"],\ntemplate=prompt_template\n)\nllm = LLMChain(prompt=prompt)\nllm.generate(\"funny\")",
+      "C. B. prompt_template = \"Tell me a {adjective} joke\"\nprompt = PromptTemplate(\ninput_variables=[\"adjective\"],\ntemplate=prompt_template\n)\nllm = LLMChain(prompt=prompt.format(\"funny\"))\nllm.generate()",
+      "D. D. prompt_template = \"Tell me a {adjective} joke\"\nprompt = PromptTemplate(\ninput_variables=[\"adjective\"],\ntemplate=prompt_template\n)\nllm = LLMChain(llm=OpenAI(), prompt=prompt)\nllm.generate([{\"adjective\": \"funny\"}])"
+    ],
+    "is_multi": false,
+    "code": "",
+    "explanation": "",
+    "index": 14
+  },
+  {
+    "text": "### 📝 문제 69 (69/75) 📚\n\n자동차 회사의 생성형 AI 엔지니어는 고객이 차량에 대해 문의할 수 있는 질의응답 챗봇을 구축하기를 원합니다. 그들은 다양한 차종, 하드웨어 부품 및 일반적인 유지보수 정보가 포함된 문서가 있는 데이터베이스를 보유하고 있습니다. 이러한 챗봇을 구축하는 데 다음 구성 요소 중 어떤 것이 유용하지 않을 것입니까?",
+    "choices": [
+      "A. 임베딩 모델 (Embedding model)",
+      "B. 사용자가 간결한 질문 대신 긴 질문을 제출하도록 유도하기",
+      "C. 벡터 데이터베이스 (Vector database)",
+      "D. 응답 생성 LLM (Response-generating LLM)"
+    ],
+    "is_multi": false,
+    "code": "",
+    "explanation": "✅ 정답 보기",
+    "index": 15
+  },
+  {
+    "text": "### 📝 문제 70 (70/75) 📚\n\n생성형 AI 엔지니어는 RAG(Retrieval-Augmented Generation)의 자극적인 출력을 해결하여 RAG 품질을 개선하는 작업을 맡았습니다. 공격적인 텍스트 출력 문제를 완화하는 데 가장 효과적인 조치는 무엇입니까?",
+    "choices": [
+      "A. 업스트림 데이터 업데이트 빈도 증가",
+      "B. 데이터 소스에 대한 접근 권한을 제한된 수의 사용자만 허용하도록 제한하기",
+      "C. 사용자에게 예상되는 RAG 동작에 대해 알리기",
+      "D. RAG 시스템에 입력되기 전에 수동 검토를 포함하여 업스트림 데이터를 적절히 큐레이션(Curate)하기"
+    ],
+    "is_multi": false,
+    "code": "",
+    "explanation": "✅ 정답 보기",
+    "index": 16
+  },
+  {
+    "text": "### 📝 문제 71 (71/75) 📚\n\n생성형 AI 엔지니어가 LLM 기반 애플리케이션을 개발하고 있습니다. 리트리버(retriever)를 위한 문서들은 각각 최대 512 토큰(chunked to a maximum of 512 tokens each)으로 분할되었습니다. 해당 생성형 AI 엔지니어는 이 애플리케이션에 있어 비용(cost)과 지연 시간(latency)이 품질(quality)보다 더 중요하다는 것을 알고 있습니다. 선택 가능한 여러 컨텍스트 길이(context length) 수준이 있습니다.",
+    "choices": [
+      "A. context length 512: smallest model is 0.13GB and embedding dimension 384",
+      "B. context length 514; smallest model is 0.44GB and embedding dimension 768",
+      "C. context length 32768: smallest model is 14GB and embedding dimension 4096",
+      "D. context length 2048: smallest model is 11GB and embedding dimension 2560"
+    ],
+    "is_multi": false,
+    "code": "",
+    "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 D → 현재 화면 정답 A",
+    "index": 17,
+    "answer_letters": [
+      "A"
+    ]
+  },
+  {
+    "text": "### 📝 문제 72 (72/75) 📚\n\n생성형 AI 엔지니어가 아래 코드를 사용하여 벡터 스토어 설정을 테스트하고 있습니다.",
+    "choices": [
+      "A. vsc.get_index()",
+      "B. vsc.create_direct_access_index()",
+      "C. vsc.similarity_search()",
+      "D. vsc.create_delta_sync_index()"
+    ],
+    "is_multi": false,
+    "code": "",
+    "explanation": "",
+    "index": 18
+  },
+  {
+    "text": "### 📝 문제 73 (73/75) 📚\n\n생성형 AI 엔지니어가 환자 대상 의료 중심 챗봇을 개발하고 있습니다. 환자의 질문이 의료 비상 상황이 아니라면, 챗봇은 의사의 사무실로 전달할 추가 정보를 환자에게 요청하고 몇 가지 관련 사전 승인된 의학 기사를 읽도록 제안해야 합니다. 환자의 질문이 긴급하다면 환자에게 지역 응급 서비스에 전화하도록 안내해야 합니다. 다음 사용자 입력이 주어졌을 때: \"지난 이틀 동안 심한 두통과 어지러움을 경험하고 있습니다.\" 챗봇이 생성하기에 가장 적절한 응답은 무엇입니까?\n\n```python\nfrom databricks.vector_search.client import VectorSearchClient\n\nvsc = VectorSearchClient()\n\nvsc.create_endpoint(\nname= \"vector_search_test\",\nendpoint_type= \"STANDARD\"\n)\n```",
+    "choices": [
+      "A. 두통은 힘들 수 있죠. 곧 나아지길 바랍니다!",
+      "B. 나이나 최근 활동, 그리고 두통과 어지러움과 함께 발견한 다른 증상들을 알려주세요.",
+      "C. 지역 응급 서비스에 전화해 주세요.",
+      "D. 여기 몇 가지 관련 기사가 있으니 참고하세요. 읽으신 후 질문이 있으면 알려주세요."
+    ],
+    "is_multi": false,
+    "code": "",
+    "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 B → 현재 화면 정답 C",
+    "index": 19,
+    "answer_letters": [
+      "C"
+    ]
+  },
+  {
+    "text": "### 📝 문제 74 (74/75) 📚\n\n생성형 AI 엔지니어가 벡터 데이터베이스의 인덱싱을 위해 LSH (Locality Sensitive Hashing) 와 HNSW (Hierarchical Navigable Small World) 중 어떤 것을 사용할지 결정하고 있습니다. 그들의 최우선 순위는 의미론적 정확성입니다. 이 두 기술을 평가하기 위해 생성형 AI 엔지니어는 어떤 접근 방식을 사용해야 합니까?",
+    "choices": [
+      "A. 반환된 결과와 테스트 입력의 대표 샘플 간의 Levenshtein 거리를 비교합니다",
+      "B. 테스트 입력의 대표 샘플에 대해 반환된 결과의 Bilingual Evaluation Understudy (BLEU) 점수를 비교합니다",
+      "C. 테스트 입력의 대표 샘플에 대해 반환된 결과의 Recall-Oriented-Understudy for Gistmg Evaluation (ROUGE) 점수를 비교합니다",
+      "D. 반환된 결과의 임베딩과 테스트 입력의 대표 샘플 간의 코사인 유사도(cosine similarities) 를 비교합니다"
+    ],
+    "is_multi": false,
+    "code": "",
+    "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 A → 현재 화면 정답 D",
+    "index": 20,
+    "answer_letters": [
+      "D"
+    ]
+  },
+  {
+    "text": "### 📝 문제 75 (75/75) 📚\n\n생성형 AI 엔지니어는 일반적인 고객 문의를 자동으로 처리하여 레스토랑의 예약 관련 온라인 고객 경험을 개선하는 LLM 기반 솔루션을 구축하고자 합니다. 이 솔루션의 목표는 개인화된 상호작용을 유지하면서 인간 개입과 전화 통화로 인한 에스컬레이션(전환)을 최소화하는 것입니다. 솔루션을 설계하기 위해 생성형 AI 엔지니어는 LLM 에 입력할 데이터와 수행해야 할 작업을 정의해야 합니다. 다음 중 어떤 입력/출력 쌍이 이러한 목표를 지원합니까?",
+    "choices": [
+      "A. 입력: 온라인 채팅 로그; 출력: 취소 옵션",
+      "B. 입력: 고객 리뷰; 출력: 리뷰 감정 분류",
+      "C. 입력: 온라인 채팅 로그; 출력: 예약 세부 사항에 대한 선택지를 나타내는 버튼",
+      "D. 입력: 온라인 채팅 로그; 출력: 사용자별로 채팅 로그를 그룹화한 후 각 사용자의 상호작용 요약"
+    ],
+    "is_multi": false,
+    "code": "",
+    "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 B → 현재 화면 정답 C",
+    "index": 21,
+    "answer_letters": [
+      "C"
+    ]
+  },
+  {
+    "index": 22,
+    "text": "### 📝 문제 22 (22/75) 📚\n\n생성형 AI 엔지니어가 벡터 데이터베이스의 인덱싱을 위해 LSH (Locality Sensitive Hashing) 와 HNSW (Hierarchical Navigable Small World) 중 어떤 것을 사용할지 결정하고 있습니다. 최우선 순위는 의미적 정확도입니다. 이 두 기술을 평가하기 위해 생성형 AI 엔지니어는 어떤 접근 방식을 사용해야 합니까?",
+    "choices": [
+      "A. 테스트 입력의 대표 샘플에 대해 반환된 결과의 ROUGE (Recall-Oriented Understudy for Gisting Evaluation) 점수를 비교합니다",
+      "B. 테스트 입력의 대표 샘플에 대해 반환된 결과의 BLEU (Bilingual Evaluation Understudy) 점수를 비교합니다",
+      "C. 반환된 결과와 테스트 입력의 대표 샘플 간의 Levenshtein 거리를 비교합니다",
+      "D. 반환된 결과의 임베딩과 테스트 입력의 대표 샘플 간의 코사인 유사도를 비교합니다"
+    ],
+    "is_multi": false,
+    "code": "",
+    "explanation": "> ℹ️ 저장된 Explanation이 없습니다.\n\n\n✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 A → 현재 화면 정답 D",
+    "answer_letters": [
+      "D"
+    ]
+  },
+  {
+    "index": 23,
+    "text": "### 📝 문제 23 (23/75) 📚\n\nRAG 파이프라인에서 응답 생성 LLM 을 GPT-4 에서 회사가 자체 호스팅하는 더 짧은 컨텍스트 길이를 가진 모델로 변경한 후, 생성형 AI 엔지니어는 다음과 같은 오류를 받고 있습니다:\n\n```json\n{\"error_code\": \"BAD_REQUEST\", \"message\": \"Bad request: rpc error: code = InvalidArgument desc = prompt token count (4595) cannot exceed 4096...\"}\n```",
+    "choices": [
+      "A. 더 작은 임베딩 모델을 사용하여 생성합니다",
+      "B. 벡터 데이터베이스에서 검색된 레코드 수를 줄입니다",
+      "C. 새 모델의 최대 출력 토큰을 줄입니다",
+      "D. ALiBi 를 사용하여 응답 생성 모델을 재학습합니다",
+      "E. 임베딩된 문서의 청크(chunk) 크기를 줄입니다"
+    ],
+    "is_multi": true,
+    "code": "",
+    "explanation": "> ℹ️ 저장된 Explanation이 없습니다.\n\n\n✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 C, D → 현재 화면 정답 E, B",
+    "answer_letters": [
+      "E",
+      "B"
+    ]
+  },
+  {
+    "index": 24,
+    "text": "### 📝 문제 24 (24/75) 📚\n\n전자 회사의 생성형 AI 엔지니어가 고객이 회사가 취급하는 제품에 대해 질문할 수 있도록 RAG(Retrieval-Augmented Generation) 애플리케이션을 배포했습니다. 그러나 RAG 응답이 종종 관련 없는 제품에 대한 정보를 반환한다는 피드백을 받았습니다. 엔지니어는 RAG 응답의 관련성을 개선하기 위해 무엇을 할 수 있습니까?",
+    "choices": [
+      "A. 자주 묻는 질문(FAQ)에 대한 캐싱(caching) 구현",
+      "B. 검색된 컨텍스트(context)의 품질 평가",
+      "C. 생성된 응답 개선을 위한 다른 LLM 사용",
+      "D. 다른 시맨틱 유사성 검색 알고리즘 사용"
+    ],
+    "is_multi": false,
+    "code": "",
+    "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 A → 현재 화면 정답 B",
+    "answer_letters": [
+      "B"
+    ]
+  },
+  {
+    "index": 25,
+    "text": "### 📝 문제 25 (25/75) 📚\n\n생성형 AI 엔지니어가 새로 정의된 프로젝트에 가장 잘 맞는 직원 팀원을 추천하는 생성형 AI 시스템을 구축하고 있습니다. 팀원은 매우 큰 팀에서 선택됩니다. 매칭은 프로젝트 날짜별 가용성과 직원의 프로필이 프로젝트 범위와 얼마나 잘 일치하는지에 따라 이루어져야 합니다. 직원 프로필과 프로젝트 범위는 모두 비정형 텍스트입니다. 생성형 AI 엔지니어는 시스템을 어떻게 설계해야 할까요?",
+    "choices": [
+      "A. 프로젝트 날짜를 기반으로 사용 가능한 팀원을 찾는 도구를 만듭니다. 팀 프로필을 벡터 저장소에 임베딩하고 프로젝트 범위와 필터링(filtering)을 사용하여 검색을 수행하여 사용 가능한 가장 잘 맞는 팀원을 찾습니다.",
+      "B. 프로젝트 날짜를 기반으로 팀원 가용성을 찾는 도구와 프로젝트 범위에서 키워드를 추출하는 데 LLM을 사용하는 또 다른 도구를 만듭니다. 사용 가능한 팀원들의 프로필을 순회(iterate)하며 키워드 매칭(keyword matching)을 수행하여 가장 적합한 사용 가능한 팀원을 찾습니다.",
+      "C. 프로젝트 날짜를 기반으로 사용 가능한 팀원을 찾는 도구를 만듭니다. 모든 프로젝트 범위를 벡터 저장소(vector store)에 임베딩(embedding)한 후, 팀원 프로필을 사용하여 검색(retrieval)을 수행하여 최고의 팀원을 찾습니다.",
+      "D. 프로젝트 날짜를 기반으로 사용 가능한 팀원을 찾는 도구를 만듭니다. 팀원 프로필과 프로젝트 범위의 조합에 대해 유사도 점수(similarity score)를 계산할 수 있는 두 번째 도구를 만듭니다. 팀원을 순회하며 최고 점수로 순위(rank)를 매겨 팀원을 선택합니다."
+    ],
+    "is_multi": false,
+    "code": "",
+    "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 D → 현재 화면 정답 A",
+    "answer_letters": [
+      "A"
+    ]
+  },
+  {
+    "index": 26,
+    "text": "### 📝 문제 26 (26/75) 📚\n\n생성형 AI 엔지니어가 두 언어 간 사용자 텍스트를 자동으로 번역하는 LLM 기반 시스템을 구축했습니다. 이제 이 작업에 대해 여러 LLM의 벤치마크를 수행하고 가장 적합한 모델을 선택하려고 합니다. 알려진 고품질 번역 예제가 포함된 평가 세트를 보유하고 있으며, 성능이 좋은 지표를 사용하여 각 LLM을 평가하고자 합니다. 이 평가를 위해 어떤 지표를 선택해야 할까요?",
+    "choices": [
+      "A. BLEU metric",
+      "B. RECALL metric",
+      "C. NDCG metric",
+      "D. ROUGE metric"
+    ],
+    "is_multi": false,
+    "code": "",
+    "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 B → 현재 화면 정답 A",
+    "answer_letters": [
+      "A"
+    ]
+  },
+  {
+    "index": 27,
+    "text": "### 📝 문제 27 (27/75) 📚\n\n생성형 AI 엔지니어는 고객 경험을 향상시키기 위해 일반적인 고객 문의를 자동으로 처리하려는 소매업체와 함께 일하고 있습니다. 그들은 응답 시간을 단축하면서도 개인화된 상호작용을 유지해야 하는 LLM 기반 AI 솔루션을 개발 중입니다. 이를 위해 적절한 입력과 LLM 작업을 정의하고자 합니다. 다음 중 어떤 입력/출력 쌍이 이 목적을 달성할 수 있습니까?",
+    "choices": [
+      "A. 입력: 고객 서비스 채팅 로그; 출력: 채팅 로그를 사용자별로 그룹화한 후 각 사용자의 상호작용을 요약하고 응답",
+      "B. 입력: 고객 리뷰; 출력: 리뷰를 사용자별로 그룹화하고 사용자별 평균 평점을 집계한 후 응답",
+      "C. 입력: 고객 리뷰; 출력: 리뷰 감정 분류",
+      "D. 입력: 고객 서비스 채팅 로그; 출력: 유사한 질문에 대한 답변을 찾아 요약하여 응답"
+    ],
+    "is_multi": false,
+    "code": "",
+    "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 C → 현재 화면 정답 D",
+    "answer_letters": [
+      "D"
+    ]
+  },
+  {
+    "index": 28,
+    "text": "### 📝 문제 28 (28/75) 📚\n\n생성형 AI 엔지니어는 회사의 LLM 기반 질의응답 어시스턴트의 문제를 검토해 왔으며, 프롬프트 체이닝(prompt chaining)이라는 기법이 일부 성능 문제를 완화하는 데 도움이 될 것이라고 판단했습니다. 그러나 팀에 이를 제안하려면 이것이 어떻게 작동하며 질의응답 어시스턴트에 어떤 이점을 제공하는지 명확하게 설명해야 합니다. 팀에게 전달할 설명은 무엇입니까?",
+    "choices": [
+      "A. 일반적인 요청의 평균 비용을 낮춥니다. 체인은 적은 토큰으로 더 높은 품질의 응답을 생성하기 위해 생성된 토큰을 더 효율적으로 사용합니다.",
+      "B. 프롬프트 작성에 필요한 노력을 줄일 수 있게 해줍니다. 체인을 사용하면 여러 다른 사용 사례에서 프롬프트 텍스트를 재사용할 수 있습니다.",
+      "C. 애플리케이션의 지연 시간(latency)을 줄일 수 있게 해줍니다. 여러 개의 체인이 응답에 참여함으로써 응답 생성 속도를 높입니다.",
+      "D. 복잡한 작업을 여러 개의 독립적인 하위 작업으로 분해할 수 있게 해줍니다. 이를 통해 어시스턴트가 더 포괄적이고 정확한 응답을 생성할 수 있습니다."
+    ],
+    "is_multi": false,
+    "code": "",
+    "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 A → 현재 화면 정답 D",
+    "answer_letters": [
+      "D"
+    ]
+  },
+  {
+    "index": 29,
+    "text": "### 📝 문제 29 (29/75) 📚\n\nAI 개발자 팀은 코드 생성 사용 사례에서 뛰어난 성능을 발휘하도록 오픈-웨이트(open-weight) 모델을 파인튜닝(fine-tune)하려고 합니다. 그들은 시작할 가장 적합한 모델을 선택하려고 노력하고 있습니다. 모델 호스팅 비용을 최소화하고자 하며, Hugging Face 모델 카드(model cards)와 스페이스(spaces)를 사용하여 모델을 탐색하고 있습니다. 팀이 선택을 위해 집중해야 할 두 가지 모델 속성(attributes)과 지표(metrics)는 무엇입니까?",
+    "choices": [
+      "A. MTEB Leaderboard",
+      "B. Number of model parameters",
+      "C. Chatbot Arena Leaderboard",
+      "D. Number of model downloads last month",
+      "E. Big Code Models Leaderboard"
+    ],
+    "is_multi": true,
+    "code": "",
+    "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 A, B → 현재 화면 정답 E, B",
+    "answer_letters": [
+      "E",
+      "B"
+    ]
+  },
+  {
+    "index": 30,
+    "text": "### 📝 문제 30 (30/75) 📚\n\n생성형 AI 엔지니어가 온라인 비디오 게임을 하는 동안 플랫폼에서 사용자를 참여시키려는 게임 회사의 챗봇을 설계하고 있습니다. 플랫폼의 사용자 참여도와 유지율을 높이는 데 도움이 되는 지표는 무엇입니까?",
+    "choices": [
+      "A. Randomness (무작위성)",
+      "B. Diversity of responses (응답의 다양성)",
+      "C. Repetition of responses (응답의 반복)",
+      "D. Lack of relevance (관련성 부족)"
+    ],
+    "is_multi": false,
+    "code": "",
+    "explanation": "✅ 정답 보기"
+  },
+  {
+    "index": 31,
+    "text": "### 📝 문제 31 (31/75) 📚\n\nLLM 애플리케이션을 개발할 때, 법적 리스크를 피하기 위해 모델을 학습하는 데 사용되는 데이터가 라이선스 요구사항을 준수하는지 확인하는 것이 중요합니다. 법적 리스크를 피하기 위해 적절하지 않은 조치는 무엇입니까?",
+    "choices": [
+      "A. 훈련된 모델을 사용한 후에 데이터 큐레이터에게 직접 연락하여 알립니다.",
+      "B. 훈련된 모델을 사용하기 전에 데이터 큐레이터에게 직접 연락하여 알립니다.",
+      "C. 완전히 원작이며 사용할 라이선스를 스스로 결정할 수 있는 개인이 생성한 모든 사용 가능한 데이터를 사용합니다.",
+      "D. 명시적으로 오픈 라이선스로 표시된 데이터만 사용하고 라이선스 조건이 준수되도록 합니다."
+    ],
+    "is_multi": false,
+    "code": "",
+    "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 D → 현재 화면 정답 A",
+    "answer_letters": [
+      "A"
+    ]
+  },
+  {
+    "index": 32,
+    "text": "### 📝 문제 32 (32/75) 📚\n\n생성형 AI 엔지니어가 영화관이 웹사이트 챗봇을 확장하여 현재 상영 중인 영화의 특정 상영 시간에 대한 질문에 응답할 수 있도록 지원하고 있습니다. 그들은 이미 위치 서비스로부터 에이전트에 제공된 사용자 위치와, 위치에 따라 최신 상영 시간 정보가 지속적으로 업데이트되는 Delta 테이블을 보유하고 있습니다. 그들은 이 새로운 기능을 RAG 애플리케이션에 구현하고자 합니다. 다음 중 가장 적은 노력으로 가장 성능이 좋은 방법은 무엇입니까?",
+    "choices": [
+      "A. Delta 테이블에서 동기화된 온라인 스토어를 참조하는 FeatureSpec 에서 Feature Serving Endpoint 를 생성합니다. 에이전트 로직/도구 구현의 일부로 Feature Serving Endpoint 를 쿼리합니다.",
+      "B. Databricks Workflows 에서 Delta 테이블의 정보를 MySQL 과 같은 외부 데이터베이스에 주기적으로 작성하도록 작업을 설정하고, 에이전트 로직/도구 구현의 일부로 그곳에서 정보를 쿼리합니다.",
+      "C. 에이전트 로직/도구에서 text-to-SQL LLM 을 사용하여 사용자의 입력에서 구성된 SQL 쿼리를 통해 Delta 테이블을 직접 쿼리합니다.",
+      "D. Delta 테이블 내용을 텍스트 열에 작성한 다음 임베딩 모델을 사용하여 해당 텍스트를 임베딩하고 벡터 인덱스에 저장합니다. 에이전트 로직/도구 구현의 일부로 임베딩 기반으로 정보를 조회합니다."
+    ],
+    "is_multi": false,
+    "code": "",
+    "explanation": "> ℹ️ 저장된 Explanation이 없습니다.\n\n\n✅ 정답 보기"
+  },
+  {
+    "index": 33,
+    "text": "### 📝 문제 33 (33/75) 📚\n\n생성형 AI 엔지니어는 보험 관련 문의를 도와주는 챗봇을 개발하고 있습니다. 이 챗봇은 대규모 언어 모델 (LLM) 을 기반으로 구축되었으며 대화형입니다. 그러나 챗봇의 집중도를 유지하고 회사 정책을 준수하기 위해 정치에 관한 질문에는 답변을 제공해서는 안 됩니다. 대신, 정치적 문의가 제기될 경우 챗봇은 표준 메시지로 응답해야 합니다: \"죄송합니다. 저는 보험 관련 질문에만 답변할 수 있는 챗봇입니다.\" 이를 해결하기 위해 어떤 프레임워크 유형을 구현해야 합니까?",
+    "choices": [
+      "A. Compliance Guardrail",
+      "B. Safety Guardrail",
+      "C. Security Guardrail",
+      "D. Contextual Guardrail"
+    ],
+    "is_multi": false,
+    "code": "",
+    "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 A → 현재 화면 정답 B",
+    "answer_letters": [
+      "B"
+    ]
+  },
+  {
+    "index": 34,
+    "text": "### 📝 문제 34 (34/75) 📚\n\n생성형 AI 엔지니어가 LLM 기반의 실시간 스포츠 해설 플랫폼을 설계하고 있습니다. 이 플랫폼은 사용자가 잠재적으로 구식인 뉴스 기사들을 읽는 대신 라이브 요약본을 원할 경우, 실시간 업데이트와 LLM이 생성한 분석을 제공합니다. 아래 도구 중 어떤 도구가 최신 경기 점수에 기반하여 경기 분석을 생성하기 위해 플랫폼에 실시간 데이터 접근을 제공할까요?",
+    "choices": [
+      "A. AutoML",
+      "B. Feature Serving (피처 서빙)",
+      "C. Foundation Model APIs (기초 모델 API)",
+      "D. DatabricksIQ"
+    ],
+    "is_multi": false,
+    "code": "",
+    "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 C → 현재 화면 정답 B",
+    "answer_letters": [
+      "B"
+    ]
+  },
+  {
+    "index": 35,
+    "text": "### 📝 문제 35 (35/75) 📚\n\n생성형 AI 엔지니어는 내부 회사 정책에 대한 질문을 답변하는 LLM 애플리케이션을 개발했습니다. 생성형 AI 엔지니어는 해당 애플리케이션이 환각(hallucination) 현상이 발생하거나 기밀 데이터가 유출되지 않도록 해야 합니다. 환각 또는 기밀 데이터 유출을 완화하기 위해 사용해서는 안 되는 접근 방식은 무엇입니까?",
+    "choices": [
+      "A. 모델이 적절한 것과 아닌 것을 배울 것이라고 기대하며 자체 데이터로 모델을 파인튜닝(Fine-tune) 함",
+      "B. 사용자가 보기 전에 LLM 의 출력(output) 을 필터링하기 위한 가드레일(guardrails) 추가",
+      "C. 사용자의 액세스 수준에 따라 사용할 수 있는 데이터를 제한",
+      "D. 모델이 요구 사항과 일치하도록 강력한 시스템 프롬프트(system prompt) 사용"
+    ],
+    "is_multi": false,
+    "code": "",
+    "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 B → 현재 화면 정답 A",
+    "answer_letters": [
+      "A"
+    ]
+  },
+  {
+    "index": 36,
+    "text": "### 📝 문제 36 (36/75) 📚\n\n생성형 AI 엔지니어가 기사 내용을 바탕으로 하이쿠와 같은 시의 형태로 기사 요약문을 생성하는 LLM 을 구축하고 있습니다. 그러나 LLM 의 초기 출력은 원하는 톤이나 스타일과 일치하지 않습니다. 원하는 응답을 달성하기 위해 LLM 의 응답을 개선하지 **않는** 방법은 무엇입니까?",
+    "choices": [
+      "A. 중화기 (neutralizer) 를 사용하여 기본 문서의 톤과 스타일을 정규화",
+      "B. LLM 에 대한 프롬프트에 퓨샷 (few-shot) 예제를 포함",
+      "C. 원하는 톤과 스타일의 데이터셋으로 LLM 을 파인튜닝",
+      "D. 원하는 톤과 스타일로 텍스트를 생성하도록 명시적으로 지시하는 프롬프트를 LLM 에게 제공"
+    ],
+    "is_multi": false,
+    "code": "",
+    "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 B → 현재 화면 정답 A",
+    "answer_letters": [
+      "A"
+    ]
+  },
+  {
+    "index": 37,
+    "text": "### 📝 문제 37 (37/75) 📚\n\n한 팀은 소프트웨어 개발자를 위한 보조 도구로 코드 생성 모델을 제공하고자 합니다. 이 모델은 여러 프로그래밍 언어를 지원해야 하며, 품질이 최우선 목표입니다. Databricks Foundation Model API 또는 마켓플레이스에서 사용할 수 있는 모델 중 가장 적합한 것은 무엇입니까?",
+    "choices": [
+      "A. Llama2-70b",
+      "B. BGE-large",
+      "C. MPT-7b",
+      "D. CodeLlama-34B"
+    ],
+    "is_multi": false,
+    "code": "",
+    "explanation": "✅ 정답 보기"
+  },
+  {
+    "index": 38,
+    "text": "### 📝 문제 38 (38/75) 📚\n\n생성형 AI 엔지니어가 Databricks의 소매업체 고객 지원 시스템을 위해 MLflow의 ChatAgent 인터페이스로 작성된 AI 에이전트를 배포하고 있습니다. 이 에이전트는 매일 수천 건의 문의를 처리해야 하며, 엔지니어는 서비스 수준 계약(SLA)을 준수하는지 확인하기 위해 성능과 품질을 실시간으로 추적해야 합니다. Mosaic AI Agent Framework를 사용하여 에이전트를 배포할 때 기본적으로 자동으로 캡처되어 모니터링에 사용 가능한 지표는 무엇입니까?",
+    "choices": [
+      "A. 정확성(correctness) 및 가이드라인 준수(guideline adherence)와 같은 품질 지표(Quality metrics)",
+      "B. 운영 지표와 품질 지표 모두",
+      "C. 요청량, 지연 시간(latency), 오류와 같은 운영 지표(Operational metrics)",
+      "D. 자동으로 캡처되는 지표는 없음"
+    ],
+    "is_multi": false,
+    "code": "",
+    "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 A → 현재 화면 정답 C",
+    "answer_letters": [
+      "C"
+    ]
+  },
+  {
+    "index": 39,
+    "text": "### 📝 문제 39 (39/75) 📚\n\n생성형 AI 엔지니어가 지정된 날짜로부터 10 일 이내에 주제별로 뉴스 기사를 조회하는 Databricks Vector Search 를 설정하고 있습니다. 예시 쿼리는 \"1992 년 1 월 5 일前后的 몬스터 트럭 뉴스에 대해 알려줘\" 일 수 있습니다. 그들은 최소한의 노력으로 이를 수행하고자 합니다. 이 사용 사례를 지원하기 위해 Vector Search 인덱스를 어떻게 설정할 수 있습니까?",
+    "choices": [
+      "A. 기사를 10 일 단위로 분할하고 쿼리에 가장 가까운 블록을 반환합니다.",
+      "B. 쿼리를 직접 벡터 검색 인덱스에 전달하고 가장 좋은 기사를 반환합니다.",
+      "C. 주제별로 별도의 인덱스를 만들고 분류기 모델을 추가하여 가장 적합한 인덱스를 선택합니다.",
+      "D. 메타데이터 필터링을 지원하기 위해 기사 날짜 및 주제에 대한 메타데이터 열을 포함합니다."
+    ],
+    "is_multi": false,
+    "code": "",
+    "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 B → 현재 화면 정답 D",
+    "answer_letters": [
+      "D"
+    ]
+  },
+  {
+    "index": 40,
+    "text": "### 📝 문제 40 (40/75) 📚\n\n생성형 AI 엔지니어가 1918 년도의 뉴스 기사를 검색하고 사용자의 쿼리와 관련된 내용을 요약하는 LLM 시스템을 구축하고 있습니다. 엔지니어는 요약이 잘 생성되지만, 종종 요약이 어떻게 생성되었는지에 대한 설명도 포함되어 바람직하지 않다는 것을 발견했습니다. 이 문제를 완화하기 위해 생성형 AI 엔지니어가 수행할 수 있는 변경 사항은 무엇입니까?",
+    "choices": [
+      "A. 시스템 및/또는 사용자 프롬프트에 원하는 출력 형식의 퓨샷(few-shot) 예시를 제공합니다.",
+      "B. 문서 수집(document ingestion) 로직을 재검토하여 뉴스 기사가 적절하게 수집되고 있는지 확인합니다.",
+      "C. 뉴스 기사의 청크(chunk) 크기를 조정하거나 다른 임베딩(embedding) 모델을 실험합니다.",
+      "D. LLM 출력을 줄바꿈 문자로 나누어 요약 설명을 잘라냅니다."
+    ],
+    "is_multi": false,
+    "code": "",
+    "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 D → 현재 화면 정답 A",
+    "answer_letters": [
+      "A"
+    ]
+  },
+  {
+    "index": 41,
+    "text": "### 📝 문제 41 (41/75) 📚\n\n생성형 AI 엔지니어가 Mosaic Agent Framework 에서 에이전트를 구성하기 위해 매개변수를 사용하는 것을 실험하고 있습니다. 그러나 다음 구성으로 에이전트가 관련 정보를 응답하도록 하는 데 어려움을 겪고 있습니다: config = {\"prompt_template\": \"You are a trivia bot. Generate a question based on the user's input: {user_input}\", \"input_vars\": [\"user_input\"], \"parameters\": {\"temperature\": 0.01, \"max_tokens\": 500}} 어떤 오류가 문제를 일으키고 있습니까?\n\n> ⚠️ 이 문제는 이미지 참고가 필요합니다.",
+    "choices": [
+      "A. 프롬프트가 사용자의 입력 변수를 파싱하지 못함",
+      "B. 프롬프트가 ChatModel 로 감싸지지 않음",
+      "C. 프롬프트가 retriever schema 를 설정하지 않음",
+      "D. 프롬프트가 LLM 이 호출할 수 있는 사용 가능한 에이전트를 나열하지 않음"
+    ],
+    "is_multi": false,
+    "code": "",
+    "explanation": "✅ 정답 보기"
+  },
+  {
+    "index": 42,
+    "text": "### 📝 문제 42 (42/75) 📚\n\n다단계 LLM 기반 워크플로우를 구축하는 데 가장 적합한 라이브러리는 무엇입니까?",
+    "choices": [
+      "A. PySpark",
+      "B. TensorFlow",
+      "C. LangChain",
+      "D. Pandas"
+    ],
+    "is_multi": false,
+    "code": "",
+    "explanation": "> ℹ️ 저장된 Explanation이 없습니다.\n\n\n✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 D → 현재 화면 정답 C",
+    "answer_letters": [
+      "C"
+    ]
+  },
+  {
+    "index": 43,
+    "text": "### 📝 문제 43 (43/75) 📚\n\n생성형 AI 엔지니어는 오픈 소스 대규모 언어 모델 (LLM) 을 기반으로 한 애플리케이션을 개발하는 업무를 맡았습니다. 그들은 큰 컨텍스트 윈도우를 가진 파운데이션 LLM 이 필요합니다. 어떤 모델이 이 요구 사항에 부합하나요?",
+    "choices": [
+      "A. MPT-30B",
+      "B. Llama2-70B",
+      "C. DistilBERT",
+      "D. DBRX"
+    ],
+    "is_multi": false,
+    "code": "",
+    "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 C → 현재 화면 정답 B",
+    "answer_letters": [
+      "B"
+    ]
+  },
+  {
+    "index": 44,
+    "text": "### 📝 문제 44 (44/75) 📚\n\n생성형 AI 엔지니어는 최신 뉴스 기사와 주가 데이터에 접근해야 하는 LLM 기반 애플리케이션을 개발하고 있습니다. 설계 요구사항에는 Delta 테이블에 저장된 주가 데이터를 활용하고, 인터넷 검색을 통해 최신 관련 뉴스 기사를 찾는 작업이 포함되어야 합니다. 생성형 AI 엔지니어는 LLM 시스템을 어떻게 아키텍처링해야 할까요?",
+    "choices": [
+      "A. 뉴스 기사와 주가 정보를 다운로드하여 벡터 스토어 (Vector Store) 에 저장합니다. RAG(Retrieval-Augmented Generation) 아키텍처를 사용하여 런타임 시 검색 및 생성을 수행합니다.",
+      "B. Delta 테이블의 SQL 쿼리와 웹 검색을 위한 도구를 갖춘 에이전트 (Agent) 를 생성하고, 검색된 값을 LLM 에 제공하여 응답을 생성하도록 합니다.",
+      "C. LLM 을 사용하여 최신 뉴스 기사를 요약한 후, 해당 요약본에서 주식 티커를 찾아 주가를 확인합니다.",
+      "D. 변동성이 큰 주가를 위해 Delta 테이블을 쿼리하고, LLM 을 사용하여 주식 변동성의 잠재적 원인을 조사하기 위한 검색 쿼리를 생성합니다."
+    ],
+    "is_multi": false,
+    "code": "",
+    "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 D → 현재 화면 정답 B",
+    "answer_letters": [
+      "B"
+    ]
+  },
+  {
+    "index": 45,
+    "text": "### 📝 문제 45 (45/75) 📚\n\n생성형 AI 엔지니어가 RAG 애플리케이션의 일부로 프로비저닝된 처리량 모델 서빙 엔드포인트(provisioned throughput model serving endpoint)를 보유하고 있으며, 해당 서빙 엔드포인트의 들어오는 요청(incoming requests)과 나가는 응답(outgoing responses)을 모니터링하고 싶습니다. 현재 접근 방식은 엔드포인트와 사용자 인터페이스 사이에 마이크로 서비스(micro-service)를 포함하여 원격 서버에 로그를 기록하는 것입니다. 대신 동일한 작업을 수행할 Databricks 기능은 무엇입니까?",
+    "choices": [
+      "A. DBSQL",
+      "B. Vector Search",
+      "C. Lakeview",
+      "D. Inference Tables"
+    ],
+    "is_multi": false,
+    "code": "",
+    "explanation": "✅ 정답 보기"
+  },
+  {
+    "index": 46,
+    "text": "### 📝 문제 46 (46/75) 📚\n\n생성형 AI 엔지니어는 제품 재고에 대해 문의하는 고객 통화로 훈련된 프롬프트/응답 동작을 가진 LLM과 인터페이스합니다. 이 LLM은 제품이 있으면 \"In Stock\"을, 없으면 \"Out of Stock\"이라는 용어만 출력하도록 설계되었습니다. 엔지니어가 통화 분류 레이블에 올바르게 응답할 수 있도록 하는 프롬프트는 무엇입니까?",
+    "choices": [
+      "A. 고객이 제품을 요청하면 \"In Stock\"으로 응답하세요.",
+      "B. 고객에게 제품 가용성에 대해 문의하는 고객 통화 전사본이 제공됩니다. 제품이 있으면 \"In Stock\"으로, 없으면 \"Out of Stock\"으로 응답하세요.",
+      "C. 고객에게 제품 가용성에 대해 묻는 고객 통화 전사본이 제공됩니다. 출력은 \"In Stock\" 또는 \"Out of Stock\" 중 하나입니다. 출력을 JSON 형식으로 작성하세요. 예를 들어: {\"call_id\": \"123\", \"label\": \"In Stock\"}.",
+      "D. 고객이 제품을 요청하면 \"Out of Stock\"으로 응답하세요."
+    ],
+    "is_multi": false,
+    "code": "",
+    "explanation": "> ℹ️ 저장된 Explanation이 없습니다.\n\n\n✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 B → 현재 화면 정답 C",
+    "answer_letters": [
+      "C"
+    ]
+  },
+  {
+    "index": 47,
+    "text": "### 📝 문제 47 (47/75) 📚\n\n암 연구 분야의 소규모 비용 절감형 스타트업이 Foundation Model API 를 사용하여 RAG 애플리케이션을 구축하고자 합니다. 이 스타트업이 비용을 절감하면서도 고객 요구에 부응할 수 있는 양질의 RAG 애플리케이션을 구축할 수 있게 해주는 전략은 무엇입니까?",
+    "choices": [
+      "A. 고객이 하루에 보낼 수 있는 쿼리 수를 제한합니다",
+      "B. RAG 애플리케이션에서 검색할 수 있는 관련 문서의 수를 제한합니다",
+      "C. 일반적인 쿼리에 대해 가장 좋은 성능을 제공하므로 가능한 가장 큰 LLM 을 사용합니다",
+      "D. 도메인 특화 (domain-specific) 인 더 작은 LLM 을 선택합니다"
+    ],
+    "is_multi": false,
+    "code": "",
+    "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 B → 현재 화면 정답 D",
+    "answer_letters": [
+      "D"
+    ]
+  },
+  {
+    "index": 48,
+    "text": "### 📝 문제 48 (48/75) 📚\n\n생성형 AI 엔지니어가 고객 서비스 문의 답변을 지원하는 LLM 애플리케이션을 디지털 마케팅 회사에 배포했습니다. 프로덕션 환경의 고객 서비스 LLM 애플리케이션을 위해 어떤 지표를 모니터링해야 합니까?",
+    "choices": [
+      "A. 모델 학습을 위한 최종 퍼플렉시티(perplexity) 점수",
+      "B. 쿼리당 에너지 사용량",
+      "C. 기본(base) LLM 의 HuggingFace Leaderboard 값",
+      "D. 단위 시간당 처리된 고객 문의 수"
+    ],
+    "is_multi": false,
+    "code": "",
+    "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 A → 현재 화면 정답 D",
+    "answer_letters": [
+      "D"
+    ]
+  },
+  {
+    "index": 49,
+    "text": "### 📝 문제 49 (49/75) 📚\n\n한 회사가 웹사이트에 일반적인 RAG(Retrieval-Augmented Generation) 기능을 갖춘 고객용 챗봇을 보유하고 있습니다. 최종 출력이 반환되기 전에 사용자의 질문이 거치는 구성 요소의 올바른 순서를 선택하십시오. 위의 다이어그램을 참고하십시오.\n\n> ⚠️ 이 문제는 이미지 참고가 필요합니다.",
+    "choices": [
+      "A. 1.response-generating LLM, 2.context-augmented prompt, 3.vector search, 4.embedding model",
+      "B. 1.embedding model, 2.vector search, 3.context-augmented prompt, 4.response-generating LLM",
+      "C. 1.context-augmented prompt, 2.vector search, 3.embedding model, 4.response-generating LLM",
+      "D. 1.response-generating LLM, 2.vector search, 3.context-augmented prompt, 4.embedding model"
+    ],
+    "is_multi": false,
+    "code": "",
+    "explanation": "> ℹ️ 저장된 Explanation이 없습니다.\n\n\n✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 A → 현재 화면 정답 B",
+    "answer_letters": [
+      "B"
+    ]
+  },
+  {
+    "index": 50,
+    "text": "### 📝 문제 50 (50/75) 📚\n\n대화 기능, 지식 검색 및 문맥 기억을 포함하는 기본적인 LLM(대규모 언어 모델) 지원 채팅 애플리케이션을 구축하려면 어떤 두 가지 체인 구성 요소가 필요한가요?",
+    "choices": [
+      "A. Conversation Buffer Memory(대화 버퍼 메모리)",
+      "B. Chat loaders(채트 로더)",
+      "C. (Q)",
+      "D. External tools(외부 도구)",
+      "E. Vector Stores(벡터 스토어)"
+    ],
+    "is_multi": true,
+    "code": "",
+    "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 B, C → 현재 화면 정답 E, A",
+    "answer_letters": [
+      "E",
+      "A"
+    ]
+  },
+  {
+    "index": 51,
+    "text": "### 📝 문제 51 (51/75) 📚\n\n생성형 AI 엔지니어가 최신 주식 뉴스 기사에 대한 질문을 답변하는 시스템을 구축하고 있습니다. 다음 중 출력물이 금융 뉴스와 관련이 있도록 보장하는 데 도움이 되지 않는 것은 무엇입니까?",
+    "choices": [
+      "A. 금융 분야에 맞춘 콘텐츠 필터링 정책을 포함하는 포괄적인 가드레일 (guardrail) 프레임워크를 구현합니다.",
+      "B. 질문의 처리 속도를 개선하여 더 큰 관련성 분석을 가능하게 하기 위해 컴퓨팅 (compute) 자원을 늘립니다.",
+      "C. 불쾌한 언어를 걸러내기 위해 욕설 필터 (profanity filter) 를 구현합니다.",
+      "D. 사용자에게 전송하기 전에 문제 있는 출력을 수정하기 위해 수동 검토 (manual reviews) 를 도입합니다."
+    ],
+    "is_multi": false,
+    "code": "",
+    "explanation": "✅ 정답 보기"
+  },
+  {
+    "index": 52,
+    "text": "### 📝 문제 52 (52/75) 📚\n\n생성형 AI 엔지니어가 아래 코드를 사용하여 LangChain에서 간단한 프롬프트 템플릿을 테스트하고 있지만 오류가 발생합니다.\n\n```python\nfrom langchain.chains import LLMChain\nfrom langchain_community.llms import OpenAI\nfrom langchain_core.prompts import PromptTemplate\nprompt_template = \"Tell me a {adjective} joke\"\nprompt = PromptTemplate(input_variables=[\"adjective\"], template=prompt_template)\n# ... (Error-prone section)\n```",
+    "choices": [
+      "A. (잘못된 구조)",
+      "B. (잘못된 구조)",
+      "C. (잘못된 구조)",
+      "D. prompt_template = \"Tell me a {adjective} joke\""
+    ],
+    "is_multi": false,
+    "code": "",
+    "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 C → 현재 화면 정답 D",
+    "answer_letters": [
+      "D"
+    ]
+  },
+  {
+    "index": 53,
+    "text": "### 📝 문제 53 (53/75) 📚\n\n생성형 AI 엔지니어가 Foundation Model API 를 사용하여 작성된 LLM 애플리케이션을 배포할 준비를 하고 있습니다. 그들은 프로덕션 시나리오에 대한 보안 모범 사례를 따르고자 합니다. 어떤 인증 방법을 선택해야 합니까?",
+    "choices": [
+      "A. 임의의 워크스페이스 사용자에게 속한 액세스 토큰 사용",
+      "B. OAuth 머신 투 머신(machine-to-machine) 인증 사용",
+      "C. 서비스 주체(service principals) 에 속한 액세스 토큰 사용",
+      "D. 워크스페이스 사용자 또는 서비스 주체(service principal) 에 속하는 자주 회전(rotation) 되는 액세스 토큰 사용"
+    ],
+    "is_multi": false,
+    "code": "",
+    "explanation": "> ℹ️ 저장된 Explanation이 없습니다.\n\n\n✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 A → 현재 화면 정답 C",
+    "answer_letters": [
+      "C"
+    ]
+  },
+  {
+    "index": 54,
+    "text": "### 📝 문제 54 (54/75) 📚\n\n생성형 AI 엔지니어가 구조화된 HR 정책의 내부 문서 Q&A 를 수행하기 위해 회사의 RAG 시스템을 개발하고 있습니다. 그러나 반환되는 답변은 자주 불완정하고 비구조화되어 있습니다. retriever 가 모든 관련 context 를 반환하지 못하는 것으로 보입니다. 생성형 AI 엔지니어는 다른 embedding 과 response generating LLM 들을 실험해 보았지만 결과가 개선되지 않았습니다.\n\n> ⚠️ 이 문제는 이미지 참고가 필요합니다.",
+    "choices": [
+      "A. 더 큰 embedding 모델을 사용합니다",
+      "B. chunk 에 섹션 헤더를 접두사로 추가합니다",
+      "C. response generation 모델을 fine tune 합니다",
+      "D. 문서 chunk 크기를 증가시킵니다",
+      "E. 문서를 문장 단위로 분할합니다"
+    ],
+    "is_multi": true,
+    "code": "",
+    "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 A, B → 현재 화면 정답 B, D",
+    "answer_letters": [
+      "B",
+      "D"
+    ]
+  },
+  {
+    "index": 55,
+    "text": "### 📝 문제 55 (55/75) 📚\n\n생성형 AI 엔지니어가 새로운 스포츠를 배우는 동안 기술 규정과 관련된 사용자 질문에 답변하기 위한 RAG 애플리케이션을 설계하고 있습니다. 이 RAG 애플리케이션을 구축하고 배포하는 데 필요한 단계는 무엇입니까?",
+    "choices": [
+      "A. 사용자가 LLM 에 대해 쿼리 제출 (User submits queries against an LLM) -> 소스에서 문서 수집 (Ingest documents from a source) -> 문서를 색인하고 Vector Search 에 저장 (Index the documents and save to Vector Search) -> LLM 이 관련 문서 검색 (LLM retrieves relevant documents) -> LLM 이 응답 생성 (LLM generates a response) -> 모델 평가 (Evaluate model) -> Model Serving 을 사용하여 배포 (Deploy it using Model Serving)",
+      "B. 소스에서 문서 수집 (Ingest documents from a source) -> 문서를 색인하고 Vector Search 에 저장 (Index the documents and saves to Vector Search) -> 사용자가 LLM 에 대해 쿼리 제출 (User submits queries against an LLM) -> LLM 이 관련 문서 검색 (LLM retrieves relevant documents) -> 모델 평가 (Evaluate model) -> LLM 이 응답 생성 (LLM generates a response) -> Model Serving 을 사용하여 배포 (Deploy it using Model Serving)",
+      "C. 소스에서 문서 수집 (Ingest documents from a source) -> 문서를 색인하고 Vector Search 에 저장 (Index the documents and save to Vector Search) -> 모델 평가 (Evaluate model) -> Model Serving 을 사용하여 배포 (Deploy it using Model Serving)",
+      "D. 소스에서 문서 수집 (Ingest documents from a source) -> 문서를 색인하고 Vector Search 에 저장 (Index the documents and save to Vector Search) -> 사용자가 LLM 에 대해 쿼리 제출 (User submits queries against an LLM) -> LLM 이 관련 문서 검색 (LLM retrieves relevant documents) -> LLM 이 응답 생성 (LLM generates a response) -> 모델 평가 (Evaluate model) -> Model Serving 을 사용하여 배포 (Deploy it using Model Serving)"
+    ],
+    "is_multi": false,
+    "code": "",
+    "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 B → 현재 화면 정답 D",
+    "answer_letters": [
+      "D"
+    ]
+  },
+  {
+    "index": 56,
+    "text": "### 📝 문제 56 (56/75) 📚\n\n생성형 AI 엔지니어가 인기 있는 에이전트 작성 라이브러리를 사용하여 에이전트 시스템을 개발하고 있습니다. 이 에이전트는 여러 개의 병렬 및 순차 체인으로 구성됩니다. 엔지니어는 에이전트가 단계 중 하나에서 실패하여 근본 원인을 디버깅하기 어려운 상황에 직면했습니다. 그들은 이 문제를 조사하고 실패의 원인을 파악할 수 있는 적절한 방법을 찾아야 합니다. 그들은 어떤 접근 방식을 선택해야 할까요?\n\n```markdown\nMLflow\nMLflow.evaluate\n```",
+    "choices": [
+      "A. 에이전트 코드 내에 구조화된 로깅(structured logging)을 구현하여 상세한 실행 정보를 수집합니다.",
+      "B. MLflow tracing(MLflow 추적)을 활성화하여 각 에이전트의 동작과 실행 단계에 대한 가시성을 확보합니다.",
+      "C. MLflow.evaluate를 실행하여 실패한 단계의 근본 원인을 파악합니다.",
+      "D. 디버깅을 단순화하기 위해 에이전트를 독립적인 단계로 분해(deconstruct)합니다."
+    ],
+    "is_multi": false,
+    "code": "",
+    "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 A → 현재 화면 정답 B",
+    "answer_letters": [
+      "B"
+    ]
+  },
+  {
+    "index": 57,
+    "text": "### 📝 문제 57 (57/75) 📚\n\n생성형 AI 엔지니어가 특정 기능에 대한 텍스트 설명을 기반으로 식용 버섯의 종을 분류하기 위해 LLM 을 사용하고 있습니다. 모델은 테스트에서 정확한 응답을 반환하고 있으며, 생성형 AI 엔지니어는 가능한 라벨 목록이 정확하다고 확신합니다. 하지만 생성형 AI 엔지니어가 추가 텍스트 없이 라벨만 반환하기를 원할 때 출력에는 종종 추가적인 추론이 포함됩니다. 이 LLM 에서 원하는 동작을 유도하기 위해 어떤 조치를 취해야 합니까?",
+    "choices": [
+      "A. few shot prompting(소수 샷 프롬프팅) 을 사용하여 모델에 예상되는 출력 형식을 지시합니다",
+      "B. zero shot prompting(제로 샷 프롬프팅) 을 사용하여 모델에 예상되는 출력 형식을 지시합니다",
+      "C. system prompt(시스템 프롬프트) 를 사용하여 모델이 답변을 간결하게 하도록 지시합니다",
+      "D. verbose output format(말풍선 출력 형식) 을 방지하기 위해 zero shot chain-of-thought prompting(제로 샷 사고의 사슬 프롬프팅) 을 사용합니다"
+    ],
+    "is_multi": false,
+    "code": "",
+    "explanation": "> ℹ️ 저장된 Explanation이 없습니다.\n\n\n✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 D → 현재 화면 정답 C",
+    "answer_letters": [
+      "C"
+    ]
+  },
+  {
+    "index": 58,
+    "text": "### 📝 문제 58 (58/75) 📚\n\n다음 모두 Databricks foundation models 를 쿼리하는 데 사용되는 Python API 입니다. 인터랙티브 노트북에서 실행할 때, 다음 라이브러리 중 현재 세션 자격 증명을 자동으로 사용하지 않는 것은 무엇입니까?",
+    "choices": [
+      "A. Databricks Python SDK",
+      "B. MLflow Deployments SDK",
+      "C. requests library 를 통한 REST API",
+      "D. OpenAI client"
+    ],
+    "is_multi": false,
+    "code": "",
+    "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 B → 현재 화면 정답 C",
+    "answer_letters": [
+      "C"
+    ]
+  },
+  {
+    "index": 59,
+    "text": "### 📝 문제 59 (59/75) 📚\n\n생성형 AI 엔지니어는 LLM이 이메일에서 포맷된 JSON을 생성하기를 원합니다. 이를 위해 다음 정보를 파싱하고 추출해야 합니다: 주문 ID, 날짜, 발신자 이메일. 여기 샘플 이메일이 있습니다: 그들은 출력 정확도가 가장 높은 수준으로 관련 정보를 JSON 형식으로 추출할 프롬프트를 작성해야 합니다. 어떤 프롬프트가 그 일을 할 수 있을까요?\n\n```json\n{\"date\": \"April 16, 2024\", \"sender_email\": \"sarah.lee925@gmail.com\", \"order_id\": \"RE987D\"}\n```",
+    "choices": [
+      "A. 고객 이메일을 수신하고 날짜, 발신자 이메일, 주문 ID를 추출해야 합니다. 추출한 정보를 JSON 형식으로 반환하세요.",
+      "B. 고객 이메일을 수신하고 날짜, 발신자 이메일, 주문 ID를 추출해야 합니다. 추출한 정보를 JSON 형식으로 반환하세요. 예시입니다: {\"date\": \"April 16, 2024\", \"sender_email\": \"sarah.lee925@gmail.com\", \"order_id\": \"RE987D\"}",
+      "C. 고객 이메일을 수신하고 날짜, 발신자 이메일, 주문 ID를 추출해야 합니다. 날짜, 발신자 이메일 및 주문 ID 정보를 JSON 형식으로 반환해야 합니다.",
+      "D. 고객 이메일을 수신하고 날짜, 발신자 이메일, 주문 ID를 추출해야 합니다. 추출한 정보를 사람이 읽을 수 있는 형식으로 반환하세요."
+    ],
+    "is_multi": false,
+    "code": "",
+    "explanation": "✅ 정답 보기"
+  },
+  {
+    "index": 60,
+    "text": "### 📝 문제 60 (60/75) 📚\n\n생성형 AI 엔지니어가 현재 PDF 형식인 소스 문서에서 검색된 컨텍스트에 의존하는 RAG(Retrieval-Augmented Generation) 애플리케이션을 구축하고 있습니다. 이 PDF 파일에는 텍스트와 이미지가 모두 포함될 수 있습니다. 그들은 최소한의 코드 라인으로 솔루션을 개발하고자 합니다. 소스 문서에서 텍스트를 추출하기 위해 어떤 Python 패키지를 사용해야 합니까?\n\n> ⚠️ 이 문제는 이미지 참고가 필요합니다.",
+    "choices": [
+      "A. flask",
+      "B. numpy",
+      "C. unstructured",
+      "D. beautifulsoup"
+    ],
+    "is_multi": false,
+    "code": "",
+    "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 B → 현재 화면 정답 D",
+    "answer_letters": [
+      "D"
+    ]
+  },
+  {
+    "index": 61,
+    "text": "### 📝 문제 61 (61/75) 📚\n\n생성형 AI 엔지니어는 회사의 내부 HelpDesk 콜센터 팀이 관련 티켓을 더 빠르게 찾고 해결책을 제시할 수 있도록 챗봇을 개발하는 역할을 맡고 있습니다. 이 프로젝트의 GenAI 애플리케이션 작업 분해 작업을 작성하면서, 이 애플리케이션에 사용할 데이터 소스(Unity Catalog volume 또는 Delta table)를 계획해야 함을 깨닫습니다. 고려할 몇 가지 후보 데이터 소스를 수집했습니다:",
+    "choices": [
+      "A. maintenance_schedule",
+      "B. call_cust_history",
+      "C. transcript Volume",
+      "D. call_rep_history",
+      "E. call_detail"
+    ],
+    "is_multi": true,
+    "code": "",
+    "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 D, E → 현재 화면 정답 E, C",
+    "answer_letters": [
+      "E",
+      "C"
+    ]
+  },
+  {
+    "index": 62,
+    "text": "### 📝 문제 62 (62/75) 📚\n\n자동차 회사의 생성형 AI 엔지니어는 고객이 차량에 대한 구체적인 질문을 할 수 있도록 도와주는 질의응답 챗봇을 구축하고자 합니다. 그들은 다음과 같은 자료를 보유하고 있습니다:",
+    "choices": [
+      "A. 모델의 컨텍스트 윈도우(context window) 와 일치하도록 청크(chunk) 크기를 설정하여 커버리지(coverage) 를 극대화함",
+      "B. 차종과 연식(car models and years) 기반 메타데이터 필터링(metadata filtering) 구현",
+      "C. 응답 생성(response generation) 을 위한 퓨샷(few-shot) 예시 추가",
+      "D. 자동차 용어(automotive terminology) 에 대해 임베딩(embedding) 모델을 파인튜닝(fine-tuning) 함"
+    ],
+    "is_multi": false,
+    "code": "",
+    "explanation": "✅ 정답 보기"
+  },
+  {
+    "index": 63,
+    "text": "### 📝 문제 63 (63/75) 📚\n\n생성형 AI 엔지니어는 회사의 소규모 내부 전문가 그룹이 특정 질문에 답변하는 것을 돕기 위해 내부 지식 베이스로 보강된 RAG(Retrieval-Augmented Generation) 애플리케이션을 개발할 임무를 맡았습니다. 그들은 가능한 최고의 품질의 답변을 원하며, 사용자 그룹이 작고 최상의 답변을 기다려주므로 지연 시간(latency)이나 처리량(throughput)은 큰 문제가 아닙니다. 주제는 민감한 성격을 띠고 데이터는 기밀성이 매우 높으므로 규제 요구 사항에 따라 모든 정보가 제3자에게 전송되어서는 안 됩니다. 이 상황에서 생성형 AI 엔지니어의 요구 사항을 모두 충족하는 모델은 무엇입니까?",
+    "choices": [
+      "A. Dolly 1.5B",
+      "B. OpenAI GPT-4",
+      "C. BGE-large",
+      "D. Llama2-70B"
+    ],
+    "is_multi": false,
+    "code": "",
+    "explanation": "> ℹ️ 저장된 Explanation이 없습니다.\n\n\n✅ 정답 보기"
+  },
+  {
+    "index": 64,
+    "text": "### 📝 문제 64 (64/75) 📚\n\n생성형 AI 엔지니어가 비정형 문서를 성공적으로 수집하고 문서 섹션별로 청킹(chunking)했습니다. 이제 이 청크들을 Vector Search 인덱스에 저장하려고 합니다. 현재 데이터프레임의 형식은 두 개의 열로 구성되어 있습니다: (i) 원본 문서 파일 이름, (ii) 각 문서에 대한 텍스트 청크 배열. 이 데이터프레임을 저장하는 가장 성능이 좋은 방법은 무엇입니까?",
+    "choices": [
+      "A. 데이터프레임을 행당 하나의 청크가 되도록 평탄화(flatten)하고, 각 행마다 고유 식별자를 만든 다음 Delta table에 저장합니다",
+      "B. 데이터를 train set과 test set으로 나누고, 각 문서마다 고유 식별자를 만든 다음 Delta table에 저장합니다",
+      "C. 먼저 각 문서마다 고유 식별자를 만든 다음 Delta table에 저장합니다",
+      "D. 각 청크를 Unity Catalog Volume에 독립적인 JSON 파일로 저장합니다. 각 JSON 파일에서 키는 문서 섹션 이름이고 값은 해당 섹션의 텍스트 청크 배열입니다"
+    ],
+    "is_multi": false,
+    "code": "",
+    "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 B → 현재 화면 정답 A",
+    "answer_letters": [
+      "A"
+    ]
+  },
+  {
+    "index": 65,
+    "text": "### 📝 문제 65 (65/75) 📚\n\n생성형 AI 엔지니어가 중요한 전사 (음성-텍스트) 작업이 있는 LLM 기반 애플리케이션을 구축하고 있습니다. 속도는 애플리케이션의 성공에 필수적입니다. 어떤 오픈 생성형 AI 모델을 사용해야 합니까?",
+    "choices": [
+      "A. MPT-30B-Instruct",
+      "B. DBRX",
+      "C. L!ama-2-70b-chat-hf",
+      "D. whisper-large-v3 (1.6B)"
+    ],
+    "is_multi": false,
+    "code": "",
+    "explanation": "✅ 정답 보기"
+  },
+  {
+    "index": 66,
+    "text": "### 📝 문제 66 (66/75) 📚\n\n생성형 AI 엔지니어는 Confluence 페이지나 Google Drive와 같은 내부 지식 기반에서 답변을 검색할 수 있도록 도와주는 RAG 애플리케이션을 개발했습니다. 프로토타입 애플리케이션은 현재 회사 내부 테스터들로부터 일부 긍정적인 피드백을 받으며 작동 중입니다. 이제 생성형 AI 엔지니어는 시스템의 성능을 공식적으로 평가하고 시스템을 더 개선하기 위해 어디에 집중해야 할지 이해하고자 합니다. 생성형 AI 엔지니어는 시스템을 어떻게 평가해야 합니까?",
+    "choices": [
+      "A. 코사인 유사도 점수(cosine similarity score)를 사용하여 최종 생성된 답변의 품질을 포괄적으로 평가합니다.",
+      "B. 동일한 데이터로 여러 LLM의 벤치마크를 수행하고 해당 작업에 가장 적합한 LLM을 선택합니다.",
+      "C. 시스템의 검색(retrieval) 및 생성(generation) 구성 요소를 개별적으로 테스트할 수 있는 데이터셋을 구축합니다. MLflow의 내장 평가 지표(built-in evaluation metrics)를 사용하여 검색 및 생성 구성 요소에 대한 평가를 수행합니다.",
+      "D. LLM-as-a-judge를 사용하여 생성된 최종 답변의 품질을 평가합니다."
+    ],
+    "is_multi": false,
+    "code": "",
+    "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 B → 현재 화면 정답 C",
+    "answer_letters": [
+      "C"
+    ]
+  },
+  {
+    "index": 67,
+    "text": "### 📝 문제 67 (67/75) 📚\n\n생성형 AI 엔지니어가 작가의 웹 포럼에서 제기되는 판타지 소설 시리즈에 대한 질문의 답변을 찾아내는 RAG 애플리케이션을 개발했습니다. 판타지 소설 텍스트는 메타데이터 (페이지 번호, 장 번호, 책 제목) 와 함께 벡터 스토어에 청킹(chunking) 및 임베딩(embedding) 되어 사용자의 쿼리로 검색된 후 응답 생성을 위해 LLM 에 제공됩니다. 생성형 AI 엔지니어는 직관을 통해 청킹 전략과 관련 구성을 선택했지만 이제 더 체계적으로 최적의 값을 선택하고자 합니다.",
+    "choices": [
+      "A. 사용자 쿼리에 대해 어떤 책이 답변을 가장 잘 포함할지 예측하는 분류기(classifier) 를 추가합니다. 이를 사용하여 검색을 필터링합니다.",
+      "B. 이전 질문이 가장 적절한 청크(chunk) 로 얼마나 잘 답변되었는지 평가하기 위한 LLM-as-a-judge(판단자로서의 LLM) 지표를 만듭니다. 지표의 값에 따라 청킹 매개변수를 최적화합니다.",
+      "C. 적절한 평가 지표 (recall 또는 NDCG 등) 를 선택하고 청킹 전략의 변경 사항 (예: 단락이나 장별로 청크를 분할) 을 실험합니다. 가장 좋은 성능 지표를 제공하는 전략을 선택합니다.",
+      "D. 임베딩 모델을 변경하고 성능을 비교합니다.",
+      "E. 알려진 질문과 최상의 답변을 LLM 에 전달하여 LLM 이 최적의 토큰 개수를 제공하도록 지시합니다. 최적의 토큰 개수의 요약 통계량 (평균, 중앙값 등) 을 사용하여 청크 크기를 선택합니다."
+    ],
+    "is_multi": true,
+    "code": "",
+    "explanation": "> ℹ️ 저장된 Explanation이 없습니다.\n\n\n✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 B, E → 현재 화면 정답 B, C",
+    "answer_letters": [
+      "B",
+      "C"
+    ]
+  },
+  {
+    "index": 68,
+    "text": "### 📝 문제 68 (68/75) 📚\n\n생성형 AI 엔지니어가 아래 코드를 사용하여 LangChain에서 간단한 프롬프트 템플릿을 테스트하고 있지만 오류가 발생합니다.\n\n```python\nfrom langchain.chains import LLMChain\nfrom langchain_community.llms import OpenAI\nfrom langchain_core.prompts import PromptTemplate\n\nprompt_template = \"Tell me a {adjective} joke\"\n\nprompt = PromptTemplate(\ninput_variables=[\"adjective\"],\ntemplate=prompt_template\n)\n\nllm = LLMChain(prompt=prompt)\nllm.generate([{\"adjective\": \"funny\"}])\n```",
+    "choices": [
+      "A. B. prompt_template = \"Tell me a {adjective} joke\"\nprompt = PromptTemplate(\ninput_variables=[\"adjective\"],\ntemplate=prompt_template\n)\nllm = LLMChain(prompt=prompt.format(\"funny\"))\nllm.generate()",
+      "B. D. prompt_template = \"Tell me a {adjective} joke\"\nprompt = PromptTemplate(\ninput_variables=[\"adjective\"],\ntemplate=prompt_template\n)\nllm = LLMChain(llm=OpenAI(), prompt=prompt)\nllm.generate([{\"adjective\": \"funny\"}])",
+      "C. A. prompt_template = \"Tell me a {adjective} joke\"\nprompt = PromptTemplate(\ninput_variables=[\"adjective\"],\ntemplate=prompt_template\n)\nllm = LLMChain(prompt=prompt)\nllm.generate(\"funny\")",
+      "D. C. prompt_template = \"Tell me a {adjective} joke\"\nprompt = PromptTemplate(\ninput_variables=[\"adjective\"],\ntemplate=prompt_template\n)\nllm = LLMChain(prompt=prompt, llm=OpenAI())\nllm.generate([{\"adjective\": \"funny\"}])"
+    ],
+    "is_multi": false,
+    "code": "",
+    "explanation": "> ℹ️ 저장된 Explanation이 없습니다.\n\n\n✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 C → 현재 화면 정답 D",
+    "answer_letters": [
+      "D"
+    ]
+  },
+  {
+    "index": 69,
+    "text": "### 📝 문제 69 (69/75) 📚\n\n자동차 회사의 생성형 AI 엔지니어는 고객이 차량에 대해 문의할 수 있는 질의응답 챗봇을 구축하기를 원합니다. 그들은 다양한 차종, 하드웨어 부품 및 일반적인 유지보수 정보가 포함된 문서가 있는 데이터베이스를 보유하고 있습니다. 이러한 챗봇을 구축하는 데 다음 구성 요소 중 어떤 것이 유용하지 않을 것입니까?",
+    "choices": [
+      "A. 사용자가 간결한 질문 대신 긴 질문을 제출하도록 유도하기",
+      "B. 벡터 데이터베이스 (Vector database)",
+      "C. 임베딩 모델 (Embedding model)",
+      "D. 응답 생성 LLM (Response-generating LLM)"
+    ],
+    "is_multi": false,
+    "code": "",
+    "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 B → 현재 화면 정답 A",
+    "answer_letters": [
+      "A"
+    ]
+  },
+  {
+    "index": 70,
+    "text": "### 📝 문제 70 (70/75) 📚\n\n생성형 AI 엔지니어는 RAG(Retrieval-Augmented Generation)의 자극적인 출력을 해결하여 RAG 품질을 개선하는 작업을 맡았습니다. 공격적인 텍스트 출력 문제를 완화하는 데 가장 효과적인 조치는 무엇입니까?",
+    "choices": [
+      "A. 데이터 소스에 대한 접근 권한을 제한된 수의 사용자만 허용하도록 제한하기",
+      "B. RAG 시스템에 입력되기 전에 수동 검토를 포함하여 업스트림 데이터를 적절히 큐레이션(Curate)하기",
+      "C. 사용자에게 예상되는 RAG 동작에 대해 알리기",
+      "D. 업스트림 데이터 업데이트 빈도 증가"
+    ],
+    "is_multi": false,
+    "code": "",
+    "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 D → 현재 화면 정답 B",
+    "answer_letters": [
+      "B"
+    ]
+  },
+  {
+    "index": 71,
+    "text": "### 📝 문제 71 (71/75) 📚\n\n생성형 AI 엔지니어가 LLM 기반 애플리케이션을 개발하고 있습니다. 리트리버(retriever)를 위한 문서들은 각각 최대 512 토큰(chunked to a maximum of 512 tokens each)으로 분할되었습니다. 해당 생성형 AI 엔지니어는 이 애플리케이션에 있어 비용(cost)과 지연 시간(latency)이 품질(quality)보다 더 중요하다는 것을 알고 있습니다. 선택 가능한 여러 컨텍스트 길이(context length) 수준이 있습니다.",
+    "choices": [
+      "A. context length 32768: smallest model is 14GB and embedding dimension 4096",
+      "B. context length 512: smallest model is 0.13GB and embedding dimension 384",
+      "C. context length 514; smallest model is 0.44GB and embedding dimension 768",
+      "D. context length 2048: smallest model is 11GB and embedding dimension 2560"
+    ],
+    "is_multi": false,
+    "code": "",
+    "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 D → 현재 화면 정답 B",
+    "answer_letters": [
+      "B"
+    ]
+  },
+  {
+    "index": 72,
+    "text": "### 📝 문제 72 (72/75) 📚\n\n생성형 AI 엔지니어가 아래 코드를 사용하여 벡터 스토어 설정을 테스트하고 있습니다.",
+    "choices": [
+      "A. vsc.create_direct_access_index()",
+      "B. vsc.create_delta_sync_index()",
+      "C. vsc.get_index()",
+      "D. vsc.similarity_search()"
+    ],
+    "is_multi": false,
+    "code": "",
+    "explanation": "> ℹ️ 저장된 Explanation이 없습니다.\n\n\n✅ 정답 보기"
+  },
+  {
+    "index": 73,
+    "text": "### 📝 문제 73 (73/75) 📚\n\n생성형 AI 엔지니어가 환자 대상 의료 중심 챗봇을 개발하고 있습니다. 환자의 질문이 의료 비상 상황이 아니라면, 챗봇은 의사의 사무실로 전달할 추가 정보를 환자에게 요청하고 몇 가지 관련 사전 승인된 의학 기사를 읽도록 제안해야 합니다. 환자의 질문이 긴급하다면 환자에게 지역 응급 서비스에 전화하도록 안내해야 합니다. 다음 사용자 입력이 주어졌을 때: \"지난 이틀 동안 심한 두통과 어지러움을 경험하고 있습니다.\" 챗봇이 생성하기에 가장 적절한 응답은 무엇입니까?\n\n```python\nfrom databricks.vector_search.client import VectorSearchClient\n\nvsc = VectorSearchClient()\n\nvsc.create_endpoint(\nname= \"vector_search_test\",\nendpoint_type= \"STANDARD\"\n)\n```",
+    "choices": [
+      "A. 지역 응급 서비스에 전화해 주세요.",
+      "B. 여기 몇 가지 관련 기사가 있으니 참고하세요. 읽으신 후 질문이 있으면 알려주세요.",
+      "C. 두통은 힘들 수 있죠. 곧 나아지길 바랍니다!",
+      "D. 나이나 최근 활동, 그리고 두통과 어지러움과 함께 발견한 다른 증상들을 알려주세요."
+    ],
+    "is_multi": false,
+    "code": "",
+    "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 B → 현재 화면 정답 A",
+    "answer_letters": [
+      "A"
+    ]
+  },
+  {
+    "index": 74,
+    "text": "### 📝 문제 74 (74/75) 📚\n\n생성형 AI 엔지니어가 벡터 데이터베이스의 인덱싱을 위해 LSH (Locality Sensitive Hashing) 와 HNSW (Hierarchical Navigable Small World) 중 어떤 것을 사용할지 결정하고 있습니다. 그들의 최우선 순위는 의미론적 정확성입니다. 이 두 기술을 평가하기 위해 생성형 AI 엔지니어는 어떤 접근 방식을 사용해야 합니까?",
+    "choices": [
+      "A. 테스트 입력의 대표 샘플에 대해 반환된 결과의 Bilingual Evaluation Understudy (BLEU) 점수를 비교합니다",
+      "B. 반환된 결과와 테스트 입력의 대표 샘플 간의 Levenshtein 거리를 비교합니다",
+      "C. 테스트 입력의 대표 샘플에 대해 반환된 결과의 Recall-Oriented-Understudy for Gistmg Evaluation (ROUGE) 점수를 비교합니다",
+      "D. 반환된 결과의 임베딩과 테스트 입력의 대표 샘플 간의 코사인 유사도(cosine similarities) 를 비교합니다"
+    ],
+    "is_multi": false,
+    "code": "",
+    "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 A → 현재 화면 정답 D",
+    "answer_letters": [
+      "D"
+    ]
+  },
+  {
+    "index": 75,
+    "text": "### 📝 문제 75 (75/75) 📚\n\n생성형 AI 엔지니어는 일반적인 고객 문의를 자동으로 처리하여 레스토랑의 예약 관련 온라인 고객 경험을 개선하는 LLM 기반 솔루션을 구축하고자 합니다. 이 솔루션의 목표는 개인화된 상호작용을 유지하면서 인간 개입과 전화 통화로 인한 에스컬레이션(전환)을 최소화하는 것입니다. 솔루션을 설계하기 위해 생성형 AI 엔지니어는 LLM 에 입력할 데이터와 수행해야 할 작업을 정의해야 합니다. 다음 중 어떤 입력/출력 쌍이 이러한 목표를 지원합니까?",
+    "choices": [
+      "A. 입력: 온라인 채팅 로그; 출력: 예약 세부 사항에 대한 선택지를 나타내는 버튼",
+      "B. 입력: 온라인 채팅 로그; 출력: 취소 옵션",
+      "C. 입력: 고객 리뷰; 출력: 리뷰 감정 분류",
+      "D. 입력: 온라인 채팅 로그; 출력: 사용자별로 채팅 로그를 그룹화한 후 각 사용자의 상호작용 요약"
+    ],
+    "is_multi": false,
+    "code": "",
+    "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 B → 현재 화면 정답 A",
+    "answer_letters": [
+      "A"
+    ]
+  }
+]
