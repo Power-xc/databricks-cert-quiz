@@ -1,5 +1,77 @@
 [
   {
+    "text": "### 📝 문제 1 (1/127) 📚\n\n상위 시스템이 특정 배치 데이터의 날짜를 Databricks Jobs API의 parameter로 전달하도록 구성되어 있습니다. 예약될 notebook은 다음 코드에서 이 parameter를 사용하여 데이터를 로드합니다.\n\n`df = spark.read.format(\"parquet\").load(f\"/mnt/source/{date}\")`\n\n위 코드에서 사용하는 `date` Python 변수를 만들려면 어떤 code block을 사용해야 합니까?",
+    "choices": [
+      "A. date = spark.conf.get(\"date\")",
+      "B. input_dict = input()\ndate = input_dict[\"date\"]",
+      "C. import sys\ndate = sys.argv[1]",
+      "D. date = dbutils.notebooks.getParam(\"date\")",
+      "E. dbutils.widgets.text(\"date\", \"null\")\ndate = dbutils.widgets.get(\"date\")"
+    ],
+    "is_multi": false,
+    "code": "",
+    "explanation": "✅ 정답: E\n\nDatabricks Jobs API로 전달된 notebook parameter는 widget 값으로 읽는 방식이 표준입니다. 먼저 `dbutils.widgets.text`로 parameter를 정의하고, `dbutils.widgets.get`으로 값을 가져옵니다.",
+    "full_explanation": "Databricks Jobs API로 전달된 notebook parameter는 widget 값으로 읽는 방식이 표준입니다. 먼저 `dbutils.widgets.text`로 parameter를 정의하고, `dbutils.widgets.get`으로 값을 가져옵니다.",
+    "index": 1,
+    "answer_letters": [
+      "E"
+    ]
+  },
+  {
+    "text": "### 📝 문제 2 (2/127) 📚\n\nAutoscaling이 설정된 interactive cluster를 여러 데이터 분석가가 공유하고 있습니다. 비용과 query throughput을 더 잘 관리하기 위해, 워크스페이스 관리자는 cluster upscaling이 많은 동시 사용자 때문인지 resource-intensive query 때문인지 평가하려고 합니다. Cluster resizing event의 timeline은 어디에서 확인할 수 있습니까?",
+    "choices": [
+      "A. Driver log file",
+      "B. Cluster Event Log",
+      "C. Executor log file",
+      "D. Workspace audit logs",
+      "E. Ganglia"
+    ],
+    "is_multi": false,
+    "code": "",
+    "explanation": "✅ 정답: B\n\nCluster Event Log에는 cluster 생성, 종료, autoscaling에 따른 resize 같은 cluster-level event가 시간순으로 기록됩니다.",
+    "full_explanation": "Cluster Event Log에는 cluster 생성, 종료, autoscaling에 따른 resize 같은 cluster-level event가 시간순으로 기록됩니다.",
+    "index": 2,
+    "answer_letters": [
+      "B"
+    ]
+  },
+  {
+    "text": "### 📝 문제 3 (3/127) 📚\n\nJob run history의 보존 기간에 대해 참인 설명은 무엇입니까?",
+    "choices": [
+      "A. Job run log를 export하거나 delete할 때까지 보존됩니다.",
+      "B. 90일 동안 보존되거나 custom run configuration을 통해 run-id가 재사용될 때까지 보존됩니다.",
+      "C. 60일 동안 보존되며, 이 기간 동안 notebook run result를 HTML로 export할 수 있습니다.",
+      "D. 60일 동안 보존되고 이후 log가 archive됩니다.",
+      "E. 30일 동안 보존되며, 이 기간 동안 job run log를 DBFS 또는 S3로 전달할 수 있습니다."
+    ],
+    "is_multi": false,
+    "code": "",
+    "explanation": "✅ 정답: C\n\n시험 문항 기준으로 job run history는 60일 동안 보존되며, 이 기간에 notebook run result를 HTML로 export할 수 있습니다.",
+    "full_explanation": "시험 문항 기준으로 job run history는 60일 동안 보존되며, 이 기간에 notebook run result를 HTML로 export할 수 있습니다.",
+    "index": 3,
+    "answer_letters": [
+      "C"
+    ]
+  },
+  {
+    "text": "### 📝 문제 4 (4/127) 📚\n\nDatabricks workspace 관리자가 각 데이터 엔지니어링 그룹을 위해 interactive cluster를 구성했습니다. 비용 관리를 위해 cluster는 30분 동안 비활성 상태이면 종료됩니다. 각 사용자는 하루 중 언제든지 자신에게 할당된 cluster에서 workload를 실행할 수 있어야 합니다. 사용자가 workspace에는 추가되어 있지만 아직 어떤 권한도 부여받지 않았다고 할 때, 이미 구성된 cluster를 시작하고 attach하기 위해 필요한 최소 권한은 무엇입니까?",
+    "choices": [
+      "A. 필요한 cluster에 대한 Can Manage 권한",
+      "B. Workspace Admin 권한, cluster creation 허용, 필요한 cluster에 대한 Can Attach To 권한",
+      "C. Cluster creation 허용, 필요한 cluster에 대한 Can Attach To 권한",
+      "D. 필요한 cluster에 대한 Can Restart 권한",
+      "E. Cluster creation 허용, 필요한 cluster에 대한 Can Restart 권한"
+    ],
+    "is_multi": false,
+    "code": "",
+    "explanation": "✅ 정답: D\n\n이미 구성된 cluster가 자동 종료된 뒤 사용자가 다시 시작하고 attach해야 하는 요구사항이므로, 시험 문항의 선택지 중 최소 권한은 해당 cluster에 대한 Can Restart입니다.",
+    "full_explanation": "이미 구성된 cluster가 자동 종료된 뒤 사용자가 다시 시작하고 attach해야 하는 요구사항이므로, 시험 문항의 선택지 중 최소 권한은 해당 cluster에 대한 Can Restart입니다.",
+    "index": 4,
+    "answer_letters": [
+      "D"
+    ]
+  },
+  {
     "text": "### 📝 문제 5 (5/127) 📚\n\n주니어 데이터 엔지니어가 silver_device_recordings라는 Lakehouse 테이블의 로직을 구현하는 작업을 하고 있습니다. 소스 데이터에는 매우 중첩된 JSON 구조에 100개의 고유 필드가 포함되어 있습니다. silver_device_recordings 테이블은 여러 필드에 대한 고도로 선택적인 조인을 위해 하류(downstream)에서 사용되며, 머신러닝 팀이 소수의 관련 필드를 필터링하는 데에도 활용될 것입니다. 총 15개의 필드가 필터 및 조인 로직에 자주 사용될 것으로 확인되었습니다. 데이터 엔지니어는 테이블 스키마를 선언하기 전에 이러한 중첩 필드를 처리할 최선의 방법을 결정하려고 합니다. 다음 중 Delta Lake와 Databricks에 대한 정보를 정확하게 제시하여 의사결정 과정에 영향을 줄 수 있는 것은 무엇입니까?",
     "choices": [
       "A. Databricks에서 사용하는 Tungsten 인코딩은 문자열 데이터 저장을 위해 최적화되어 있습니다: 새로 추가된 JSON 문자열 쿼리 네이티브 지원으로 인해 문자열 타입이 항상 가장 효율적입니다.",
@@ -10,7 +82,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기",
-    "index": 1,
+    "index": 5,
     "answer_letters": [
       "D"
     ]
@@ -27,7 +99,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기",
-    "index": 2,
+    "index": 6,
     "answer_letters": [
       "E"
     ]
@@ -44,7 +116,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "",
-    "index": 3,
+    "index": 7,
     "answer_letters": [
       "C"
     ]
@@ -61,7 +133,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 C → 현재 화면 정답 A",
-    "index": 4,
+    "index": 8,
     "answer_letters": [
       "A"
     ]
@@ -78,7 +150,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 A → 현재 화면 정답 E",
-    "index": 5,
+    "index": 9,
     "answer_letters": [
       "E"
     ]
@@ -95,7 +167,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 E → 현재 화면 정답 C",
-    "index": 6,
+    "index": 10,
     "answer_letters": [
       "C"
     ]
@@ -111,7 +183,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "",
-    "index": 7,
+    "index": 11,
     "answer_letters": [
       "C"
     ]
@@ -128,7 +200,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 C → 현재 화면 정답 B",
-    "index": 8,
+    "index": 12,
     "answer_letters": [
       "B"
     ]
@@ -145,7 +217,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 E → 현재 화면 정답 C",
-    "index": 9,
+    "index": 13,
     "answer_letters": [
       "C"
     ]
@@ -162,7 +234,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 A → 현재 화면 정답 D",
-    "index": 10,
+    "index": 14,
     "answer_letters": [
       "D"
     ]
@@ -179,7 +251,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기",
-    "index": 11,
+    "index": 15,
     "answer_letters": [
       "A"
     ]
@@ -196,7 +268,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "",
-    "index": 12,
+    "index": 16,
     "answer_letters": [
       "E"
     ]
@@ -213,7 +285,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기",
-    "index": 13,
+    "index": 17,
     "answer_letters": [
       "A"
     ]
@@ -230,7 +302,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "",
-    "index": 14,
+    "index": 18,
     "answer_letters": [
       "A"
     ]
@@ -247,7 +319,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기",
-    "index": 15,
+    "index": 19,
     "answer_letters": [
       "D"
     ]
@@ -263,7 +335,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 D → 현재 화면 정답 B",
-    "index": 16,
+    "index": 20,
     "answer_letters": [
       "B"
     ]
@@ -280,7 +352,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 A → 현재 화면 정답 C",
-    "index": 17,
+    "index": 21,
     "answer_letters": [
       "C"
     ]
@@ -297,7 +369,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 B → 현재 화면 정답 C",
-    "index": 18,
+    "index": 22,
     "answer_letters": [
       "C"
     ]
@@ -314,7 +386,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 E → 현재 화면 정답 C",
-    "index": 19,
+    "index": 23,
     "answer_letters": [
       "C"
     ]
@@ -331,7 +403,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 E → 현재 화면 정답 D",
-    "index": 20,
+    "index": 24,
     "answer_letters": [
       "D"
     ]
@@ -348,7 +420,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 A → 현재 화면 정답 B",
-    "index": 21,
+    "index": 25,
     "answer_letters": [
       "B"
     ]
@@ -364,7 +436,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 C → 현재 화면 정답 B",
-    "index": 22,
+    "index": 26,
     "answer_letters": [
       "B"
     ]
@@ -381,7 +453,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기",
-    "index": 23,
+    "index": 27,
     "answer_letters": [
       "D"
     ]
@@ -398,7 +470,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "",
-    "index": 24,
+    "index": 28,
     "answer_letters": [
       "E"
     ]
@@ -414,7 +486,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 C → 현재 화면 정답 D",
-    "index": 25,
+    "index": 29,
     "answer_letters": [
       "D"
     ]
@@ -431,7 +503,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 A → 현재 화면 정답 B",
-    "index": 26,
+    "index": 30,
     "answer_letters": [
       "B"
     ]
@@ -448,7 +520,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 D → 현재 화면 정답 E",
-    "index": 27,
+    "index": 31,
     "answer_letters": [
       "E"
     ]
@@ -465,7 +537,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "",
-    "index": 28,
+    "index": 32,
     "answer_letters": [
       "D"
     ]
@@ -482,7 +554,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기",
-    "index": 29,
+    "index": 33,
     "answer_letters": [
       "E"
     ]
@@ -499,7 +571,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 D → 현재 화면 정답 C",
-    "index": 30,
+    "index": 34,
     "answer_letters": [
       "C"
     ]
@@ -516,7 +588,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 D → 현재 화면 정답 A",
-    "index": 31,
+    "index": 35,
     "answer_letters": [
       "A"
     ]
@@ -533,7 +605,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 B → 현재 화면 정답 A",
-    "index": 32,
+    "index": 36,
     "answer_letters": [
       "A"
     ]
@@ -550,7 +622,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 D → 현재 화면 정답 E",
-    "index": 33,
+    "index": 37,
     "answer_letters": [
       "E"
     ]
@@ -567,7 +639,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 A → 현재 화면 정답 C",
-    "index": 34,
+    "index": 38,
     "answer_letters": [
       "C"
     ]
@@ -584,7 +656,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 B → 현재 화면 정답 C",
-    "index": 35,
+    "index": 39,
     "answer_letters": [
       "C"
     ]
@@ -600,7 +672,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 A → 현재 화면 정답 C",
-    "index": 36,
+    "index": 40,
     "answer_letters": [
       "C"
     ]
@@ -617,7 +689,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "",
-    "index": 37,
+    "index": 41,
     "answer_letters": [
       "C"
     ]
@@ -634,7 +706,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "",
-    "index": 38,
+    "index": 42,
     "answer_letters": [
       "D"
     ]
@@ -651,7 +723,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 A → 현재 화면 정답 E",
-    "index": 39,
+    "index": 43,
     "answer_letters": [
       "E"
     ]
@@ -668,7 +740,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "",
-    "index": 40,
+    "index": 44,
     "answer_letters": [
       "B"
     ]
@@ -685,7 +757,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 E → 현재 화면 정답 D",
-    "index": 41,
+    "index": 45,
     "answer_letters": [
       "D"
     ]
@@ -702,7 +774,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "",
-    "index": 42,
+    "index": 46,
     "answer_letters": [
       "E"
     ]
@@ -719,7 +791,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 E → 현재 화면 정답 C",
-    "index": 43,
+    "index": 47,
     "answer_letters": [
       "C"
     ]
@@ -736,7 +808,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 D → 현재 화면 정답 B",
-    "index": 44,
+    "index": 48,
     "answer_letters": [
       "B"
     ]
@@ -753,7 +825,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기",
-    "index": 45,
+    "index": 49,
     "answer_letters": [
       "E"
     ]
@@ -770,7 +842,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기",
-    "index": 46,
+    "index": 50,
     "answer_letters": [
       "E"
     ]
@@ -787,7 +859,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기",
-    "index": 47,
+    "index": 51,
     "answer_letters": [
       "E"
     ]
@@ -803,7 +875,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 D → 현재 화면 정답 C",
-    "index": 48,
+    "index": 52,
     "answer_letters": [
       "C"
     ]
@@ -820,7 +892,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 B → 현재 화면 정답 C",
-    "index": 49,
+    "index": 53,
     "answer_letters": [
       "C"
     ]
@@ -836,7 +908,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기",
-    "index": 50,
+    "index": 54,
     "answer_letters": [
       "A"
     ]
@@ -853,7 +925,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 A → 현재 화면 정답 B",
-    "index": 51,
+    "index": 55,
     "answer_letters": [
       "B"
     ]
@@ -870,7 +942,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 C → 현재 화면 정답 A",
-    "index": 52,
+    "index": 56,
     "answer_letters": [
       "A"
     ]
@@ -887,7 +959,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 C → 현재 화면 정답 A",
-    "index": 53,
+    "index": 57,
     "answer_letters": [
       "A"
     ]
@@ -904,7 +976,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기",
-    "index": 54,
+    "index": 58,
     "answer_letters": [
       "B"
     ]
@@ -921,7 +993,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 A → 현재 화면 정답 E",
-    "index": 55,
+    "index": 59,
     "answer_letters": [
       "E"
     ]
@@ -938,7 +1010,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 A → 현재 화면 정답 B",
-    "index": 56,
+    "index": 60,
     "answer_letters": [
       "B"
     ]
@@ -955,7 +1027,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기",
-    "index": 57,
+    "index": 61,
     "answer_letters": [
       "B"
     ]
@@ -972,7 +1044,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 A → 현재 화면 정답 D",
-    "index": 58,
+    "index": 62,
     "answer_letters": [
       "D"
     ]
@@ -989,7 +1061,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "",
-    "index": 59,
+    "index": 63,
     "answer_letters": [
       "C"
     ]
@@ -1005,7 +1077,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 C → 현재 화면 정답 A",
-    "index": 60,
+    "index": 64,
     "answer_letters": [
       "A"
     ]
@@ -1022,7 +1094,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 E → 현재 화면 정답 A",
-    "index": 61,
+    "index": 65,
     "answer_letters": [
       "A"
     ]
@@ -1039,7 +1111,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기",
-    "index": 62,
+    "index": 66,
     "answer_letters": [
       "C"
     ]
@@ -1055,7 +1127,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 A → 현재 화면 정답 D",
-    "index": 63,
+    "index": 67,
     "answer_letters": [
       "D"
     ]
@@ -1072,7 +1144,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 B → 현재 화면 정답 C",
-    "index": 64,
+    "index": 68,
     "answer_letters": [
       "C"
     ]
@@ -1088,7 +1160,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "",
-    "index": 65,
+    "index": 69,
     "answer_letters": [
       "B"
     ]
@@ -1105,7 +1177,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 A → 현재 화면 정답 C",
-    "index": 66,
+    "index": 70,
     "answer_letters": [
       "C"
     ]
@@ -1122,7 +1194,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "",
-    "index": 67,
+    "index": 71,
     "answer_letters": [
       "C"
     ]
@@ -1139,7 +1211,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 C → 현재 화면 정답 E",
-    "index": 68,
+    "index": 72,
     "answer_letters": [
       "E"
     ]
@@ -1156,7 +1228,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "",
-    "index": 69,
+    "index": 73,
     "answer_letters": [
       "D"
     ]
@@ -1173,7 +1245,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 C → 현재 화면 정답 A",
-    "index": 70,
+    "index": 74,
     "answer_letters": [
       "A"
     ]
@@ -1189,7 +1261,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 C → 현재 화면 정답 D",
-    "index": 71,
+    "index": 75,
     "answer_letters": [
       "D"
     ]
@@ -1205,7 +1277,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 A → 현재 화면 정답 C",
-    "index": 72,
+    "index": 76,
     "answer_letters": [
       "C"
     ]
@@ -1222,7 +1294,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 E → 현재 화면 정답 C",
-    "index": 73,
+    "index": 77,
     "answer_letters": [
       "C"
     ]
@@ -1239,7 +1311,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 A → 현재 화면 정답 D",
-    "index": 74,
+    "index": 78,
     "answer_letters": [
       "D"
     ]
@@ -1255,7 +1327,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기",
-    "index": 75,
+    "index": 79,
     "answer_letters": [
       "A"
     ]
@@ -1272,7 +1344,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "",
-    "index": 76,
+    "index": 80,
     "answer_letters": [
       "D"
     ]
@@ -1289,7 +1361,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 B → 현재 화면 정답 C",
-    "index": 77,
+    "index": 81,
     "answer_letters": [
       "C"
     ]
@@ -1306,7 +1378,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 E → 현재 화면 정답 A",
-    "index": 78,
+    "index": 82,
     "answer_letters": [
       "A"
     ]
@@ -1323,7 +1395,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 A → 현재 화면 정답 B",
-    "index": 79,
+    "index": 83,
     "answer_letters": [
       "B"
     ]
@@ -1340,7 +1412,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 D → 현재 화면 정답 B",
-    "index": 80,
+    "index": 84,
     "answer_letters": [
       "B"
     ]
@@ -1357,7 +1429,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 C → 현재 화면 정답 A",
-    "index": 81,
+    "index": 85,
     "answer_letters": [
       "A"
     ]
@@ -1374,7 +1446,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "",
-    "index": 82,
+    "index": 86,
     "answer_letters": [
       "D"
     ]
@@ -1390,7 +1462,7 @@
     "is_multi": true,
     "code": "",
     "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 A → 현재 화면 정답 D",
-    "index": 83,
+    "index": 87,
     "answer_letters": [
       "D"
     ]
@@ -1407,7 +1479,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 D → 현재 화면 정답 B",
-    "index": 84,
+    "index": 88,
     "answer_letters": [
       "B"
     ]
@@ -1424,7 +1496,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 E → 현재 화면 정답 B",
-    "index": 85,
+    "index": 89,
     "answer_letters": [
       "B"
     ]
@@ -1441,7 +1513,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기",
-    "index": 86,
+    "index": 90,
     "answer_letters": [
       "A"
     ]
@@ -1458,7 +1530,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 A → 현재 화면 정답 C",
-    "index": 87,
+    "index": 91,
     "answer_letters": [
       "C"
     ]
@@ -1475,7 +1547,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 D → 현재 화면 정답 E",
-    "index": 88,
+    "index": 92,
     "answer_letters": [
       "E"
     ]
@@ -1491,7 +1563,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 A → 현재 화면 정답 B",
-    "index": 89,
+    "index": 93,
     "answer_letters": [
       "B"
     ]
@@ -1507,7 +1579,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 D → 현재 화면 정답 B",
-    "index": 90,
+    "index": 94,
     "answer_letters": [
       "B"
     ]
@@ -1524,7 +1596,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기",
-    "index": 91,
+    "index": 95,
     "answer_letters": [
       "A"
     ]
@@ -1541,7 +1613,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기",
-    "index": 92,
+    "index": 96,
     "answer_letters": [
       "E"
     ]
@@ -1558,7 +1630,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 D → 현재 화면 정답 E",
-    "index": 93,
+    "index": 97,
     "answer_letters": [
       "E"
     ]
@@ -1575,7 +1647,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 B → 현재 화면 정답 D",
-    "index": 94,
+    "index": 98,
     "answer_letters": [
       "D"
     ]
@@ -1592,7 +1664,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 C → 현재 화면 정답 D",
-    "index": 95,
+    "index": 99,
     "answer_letters": [
       "D"
     ]
@@ -1609,7 +1681,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 D → 현재 화면 정답 E",
-    "index": 96,
+    "index": 100,
     "answer_letters": [
       "E"
     ]
@@ -1626,7 +1698,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 C → 현재 화면 정답 D",
-    "index": 97,
+    "index": 101,
     "answer_letters": [
       "D"
     ]
@@ -1643,7 +1715,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 E → 현재 화면 정답 D",
-    "index": 98,
+    "index": 102,
     "answer_letters": [
       "D"
     ]
@@ -1660,7 +1732,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 C → 현재 화면 정답 D",
-    "index": 99,
+    "index": 103,
     "answer_letters": [
       "D"
     ]
@@ -1676,7 +1748,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기",
-    "index": 100,
+    "index": 104,
     "answer_letters": [
       "A"
     ]
@@ -1693,7 +1765,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 A → 현재 화면 정답 E",
-    "index": 101,
+    "index": 105,
     "answer_letters": [
       "E"
     ]
@@ -1709,7 +1781,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기",
-    "index": 102,
+    "index": 106,
     "answer_letters": [
       "A"
     ]
@@ -1726,7 +1798,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 B → 현재 화면 정답 C",
-    "index": 103,
+    "index": 107,
     "answer_letters": [
       "C"
     ]
@@ -1743,7 +1815,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기",
-    "index": 104,
+    "index": 108,
     "answer_letters": [
       "D"
     ]
@@ -1760,7 +1832,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 E → 현재 화면 정답 A",
-    "index": 105,
+    "index": 109,
     "answer_letters": [
       "A"
     ]
@@ -1777,7 +1849,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 A → 현재 화면 정답 B",
-    "index": 106,
+    "index": 110,
     "answer_letters": [
       "B"
     ]
@@ -1794,7 +1866,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 C → 현재 화면 정답 D",
-    "index": 107,
+    "index": 111,
     "answer_letters": [
       "D"
     ]
@@ -1811,7 +1883,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 E → 현재 화면 정답 A",
-    "index": 108,
+    "index": 112,
     "answer_letters": [
       "A"
     ]
@@ -1828,7 +1900,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 B → 현재 화면 정답 D",
-    "index": 109,
+    "index": 113,
     "answer_letters": [
       "D"
     ]
@@ -1845,7 +1917,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 A → 현재 화면 정답 E",
-    "index": 110,
+    "index": 114,
     "answer_letters": [
       "E"
     ]
@@ -1862,7 +1934,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기",
-    "index": 111,
+    "index": 115,
     "answer_letters": [
       "E"
     ]
@@ -1879,7 +1951,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 C → 현재 화면 정답 E",
-    "index": 112,
+    "index": 116,
     "answer_letters": [
       "E"
     ]
@@ -1896,7 +1968,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 A → 현재 화면 정답 D",
-    "index": 113,
+    "index": 117,
     "answer_letters": [
       "D"
     ]
@@ -1913,7 +1985,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 C → 현재 화면 정답 A",
-    "index": 114,
+    "index": 118,
     "answer_letters": [
       "A"
     ]
@@ -1930,7 +2002,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 B → 현재 화면 정답 E",
-    "index": 115,
+    "index": 119,
     "answer_letters": [
       "E"
     ]
@@ -1947,7 +2019,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 D → 현재 화면 정답 C",
-    "index": 116,
+    "index": 120,
     "answer_letters": [
       "C"
     ]
@@ -1964,7 +2036,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 A → 현재 화면 정답 C",
-    "index": 117,
+    "index": 121,
     "answer_letters": [
       "C"
     ]
@@ -1981,7 +2053,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "",
-    "index": 118,
+    "index": 122,
     "answer_letters": [
       "D"
     ]
@@ -1998,7 +2070,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "",
-    "index": 119,
+    "index": 123,
     "answer_letters": [
       "A"
     ]
@@ -2015,7 +2087,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 D → 현재 화면 정답 B",
-    "index": 120,
+    "index": 124,
     "answer_letters": [
       "B"
     ]
@@ -2032,7 +2104,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기",
-    "index": 121,
+    "index": 125,
     "answer_letters": [
       "A"
     ]
@@ -2049,7 +2121,7 @@
     "is_multi": false,
     "code": "",
     "explanation": "",
-    "index": 122,
+    "index": 126,
     "answer_letters": [
       "B"
     ]
@@ -2066,41 +2138,9 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 C → 현재 화면 정답 E",
-    "index": 123,
+    "index": 127,
     "answer_letters": [
       "E"
     ]
-  },
-  {
-    "text": "",
-    "choices": [],
-    "is_multi": false,
-    "code": "",
-    "explanation": "",
-    "index": 124
-  },
-  {
-    "text": "",
-    "choices": [],
-    "is_multi": false,
-    "code": "",
-    "explanation": "",
-    "index": 125
-  },
-  {
-    "text": "",
-    "choices": [],
-    "is_multi": false,
-    "code": "",
-    "explanation": "",
-    "index": 126
-  },
-  {
-    "text": "",
-    "choices": [],
-    "is_multi": false,
-    "code": "",
-    "explanation": "",
-    "index": 127
   }
 ]
