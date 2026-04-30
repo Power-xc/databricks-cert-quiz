@@ -28,7 +28,11 @@
     "is_multi": true,
     "code": "",
     "explanation": "",
-    "index": 2
+    "index": 2,
+    "answer_letters": [
+      "D",
+      "B"
+    ]
   },
   {
     "text": "### 📝 문제 4 (4/160) 📚\n\n데이터 엔지니어가 데이터 파이프라인을 유지 관리하고 있습니다. 데이터 수집 시 소스 데이터의 품질 수준이 낮아지고 있음을 발견했습니다. 데이터 엔지니어는 품질 수준 모니터링 프로세스를 자동화하기를 원합니다. 다음 중 데이터 엔지니어가 이 문제를 해결하는 데 사용할 수 있는 도구는 무엇입니까?",
@@ -42,7 +46,10 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기",
-    "index": 3
+    "index": 3,
+    "answer_letters": [
+      "D"
+    ]
   },
   {
     "text": "### 📝 문제 5 (5/160) 📚\n\n데이터 엔지니어는 테이블에서 데이터를 읽어서 조작한 후 새로운 테이블에 스트리밍으로 쓰는 Structured Streaming 작업을 구성했습니다. 데이터 엔지니어가 사용한 코드 블록은 아래와 같습니다: 데이터 엔지니어가 가능한 모든 배치로 사용 가능한 모든 데이터를 처리하도록 쿼리를 실행하고 싶다면, 빈칸을 채우기 위해 다음 중 어떤 코드 줄을 사용해야 할까요?\n\n```python\n(spark.readStream\n.table(\"sales\")\n.withColumn(\"avg_price\", col(\"sales\") / col(\"units\"))\n.writeStream\n.option(\"checkpointLocation\", checkpointPath)\n.outputMode(\"complete\")\n._____\n.table(\"new_sales\")\n)\n```\n\n> ⚠️ 이 문제는 이미지 참고가 필요합니다.",
@@ -73,7 +80,10 @@
     "is_multi": false,
     "code": "",
     "explanation": "",
-    "index": 5
+    "index": 5,
+    "answer_letters": [
+      "D"
+    ]
   },
   {
     "text": "### 📝 문제 7 (7/160) 📚\n\n데이터 엔지니어는 `stores` 테이블의 `employees` 배열 열에서 5 년 이상의 경력을 가진 직원을 식별하기 위해 사용자 정의 로직을 적용해야 합니다. 이 사용자 정의 로직은 각 행에 대해 5 년 이상의 경력을 가진 모든 직원의 배열인 새 열 `exp_employees` 를 생성해야 합니다. 이러한 사용자 정의 로직을 대규모로 적용하기 위해 데이터 엔지니어는 FILTER 고차 함수(higher-order function) 를 사용하고자 합니다. 다음 코드 블록 중 이 작업을 성공적으로 완료하는 것은 무엇입니까?\n\n```sql\nSELECT\nstore_id,\nemployees,\nFILTER (employees, i -> i.years_exp > 5) AS exp_employees\nFROM stores;\n```",
@@ -87,7 +97,10 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기",
-    "index": 6
+    "index": 6,
+    "answer_letters": [
+      "A"
+    ]
   },
   {
     "text": "### 📝 문제 8 (8/160) 📚\n\n워크스페이스에서 사용되는 데이터 소스와 테이블을 확인하는 데 사용할 수 있는 Databricks 기능은 무엇입니까?",
@@ -100,7 +113,10 @@
     "is_multi": false,
     "code": "",
     "explanation": "",
-    "index": 7
+    "index": 7,
+    "answer_letters": [
+      "D"
+    ]
   },
   {
     "text": "### 📝 문제 9 (9/160) 📚\n\nSilver 테이블과 Bronze 테이블 간의 관계에 대한 다음 진술 중 항상 참인 것은 무엇입니까?",
@@ -130,7 +146,10 @@
     "is_multi": false,
     "code": "",
     "explanation": "",
-    "index": 9
+    "index": 9,
+    "answer_letters": [
+      "B"
+    ]
   },
   {
     "text": "### 📝 문제 11 (11/160) 📚\n\n데이터 엔지니어는 `product`와 `revenue` 컬럼이 있는 `df`라는 PySpark DataFrame을 받았습니다. 각 상품의 총매출, 평균매출, 거래 건수를 계산하기 위해 복합 집계를 수행해야 합니다. 데이터 엔지니어는 어떤 코드 스니펫을 사용해야 할까요?\n\n> ⚠️ 이 문제는 이미지 참고가 필요합니다.",
@@ -143,7 +162,10 @@
     "is_multi": false,
     "code": "",
     "explanation": "",
-    "index": 10
+    "index": 10,
+    "answer_letters": [
+      "A"
+    ]
   },
   {
     "text": "### 📝 문제 12 (12/160) 📚\n\n다음 중 Databricks 고객의 클라우드 계정에 저장되는 것은 무엇입니까?",
@@ -157,7 +179,10 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기",
-    "index": 11
+    "index": 11,
+    "answer_letters": [
+      "D"
+    ]
   },
   {
     "text": "### 📝 문제 13 (13/160) 📚\n\nPython 파일이 프로덕션에 배포할 준비가 되었으며, 클라이언트는 가능한 가장 저렴하면서도 효율적인 유형의 클러스터를 사용하고자 합니다. 워크로드는 매우 작아 단순한 조인(joins)만 수행하며 복잡한 집계(aggregations)나 와이드 변환(wide transformations)은 없습니다. 요구 사항을 충족하는 클러스터는 무엇입니까?",
@@ -170,7 +195,10 @@
     "is_multi": false,
     "code": "",
     "explanation": "",
-    "index": 12
+    "index": 12,
+    "answer_letters": [
+      "D"
+    ]
   },
   {
     "text": "### 📝 문제 14 (14/160) 📚\n\n데이터 엔지니어가 테이블 new_table 에 접근해야 하지만 올바른 권한이 없습니다. 그들은 테이블 소유자에게 권한을 요청할 수 있지만, 누가 테이블 소유자인지 모릅니다. new_table 의 소유자를 식별하는 데 사용할 수 있는 방법은 무엇입니까?",
@@ -183,7 +211,10 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기",
-    "index": 13
+    "index": 13,
+    "answer_letters": [
+      "D"
+    ]
   },
   {
     "text": "### 📝 문제 15 (15/160) 📚\n\n다음 코드 블록 중 기존 Delta 테이블 my_table 에서 age 열의 값이 25 보다 큰 행을 제거하고 업데이트된 테이블을 저장하는 것은 무엇입니까?\n\n```sql\nDELETE FROM my_table WHERE age > 25;\n```",
@@ -213,7 +244,10 @@
     "is_multi": false,
     "code": "",
     "explanation": "",
-    "index": 15
+    "index": 15,
+    "answer_letters": [
+      "C"
+    ]
   },
   {
     "text": "### 📝 문제 17 (17/160) 📚\n\n각 지역별 총 판매 금액을 계산하고 결과를 region_sales라는 이름의 새로운 데이터프레임에 저장합니다. 주어진 예상 결과에 따라 다음 중 어떤 코드가 해당 결과를 생성할까요?",
@@ -226,7 +260,10 @@
     "is_multi": false,
     "code": "",
     "explanation": "",
-    "index": 16
+    "index": 16,
+    "answer_letters": [
+      "C"
+    ]
   },
   {
     "text": "### 📝 문제 18 (18/160) 📚\n\n데이터 분석가는 SQL 프로그램에 일련의 쿼리를 가지고 있습니다. 데이터 분석가는 이 프로그램을 매일 실행하고 싶어 합니다. 하지만 프로그램 내의 마지막 쿼리만 일요일에 실행되기를 원합니다. 이 작업을 완료하기 위해 데이터 엔지니어링 팀의 도움을 요청했습니다. 다음 중 데이터 엔지니어링 팀이 이 작업을 완료하는 데 사용할 수 있는 접근 방식은 무엇입니까?",
@@ -257,7 +294,10 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기",
-    "index": 18
+    "index": 18,
+    "answer_letters": [
+      "A"
+    ]
   },
   {
     "text": "### 📝 문제 20 (20/160) 📚\n\n데이터 엔지니어가 조직을 떠났습니다. 데이터 팀은 해당 데이터 엔지니어의 Delta 테이블 소유권을 새로운 데이터 엔지니어로 이전해야 합니다. 새로운 데이터 엔지니어는 데이터 팀의 리드 엔지니어입니다. 원래 데이터 엔지니어가 더 이상 접근 권한이 없다고 가정할 때, Data Explorer 에서 Delta 테이블의 소유권을 이전해야 하는 사람은 다음 중 누구입니까?",
@@ -288,7 +328,10 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기",
-    "index": 20
+    "index": 20,
+    "answer_letters": [
+      "E"
+    ]
   },
   {
     "text": "### 📝 문제 22 (22/160) 📚\n\n다음 중 Auto Loader 와 항상 호환되는 워크로드 유형을 설명하는 것은 무엇입니까?",
@@ -319,7 +362,10 @@
     "is_multi": false,
     "code": "",
     "explanation": "",
-    "index": 22
+    "index": 22,
+    "answer_letters": [
+      "A"
+    ]
   },
   {
     "text": "### 📝 문제 24 (24/160) 📚\n\n데이터 엔지니어는 매일 이전 날의 판매 데이터를 transactions 테이블로 복사하는 문장을 실행합니다. 각 날의 판매 데이터는 \"/transactions/raw\" 위치의 개별 파일에 있습니다. 오늘, 데이터 엔지니어는 이 작업을 완료하기 위해 다음 명령을 실행했습니다: \n```sql\nCOPY INTO transactions FROM \"/transactions/raw\" FILEFORMAT = PARQUET;\n```\n 명령을 실행한 후, 데이터 엔지니어는 transactions 테이블의 레코드 수가 변하지 않았음을 발견했습니다. 다음 중 문장이 새 레코드를 테이블에 복사하지 않은 이유를 설명하는 것은 무엇입니까?\n\n```sql\nCOPY INTO transactions\nFROM \"/transactions/raw\"\nFILEFORMAT = PARQUET;\n```",
@@ -333,7 +379,10 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기",
-    "index": 23
+    "index": 23,
+    "answer_letters": [
+      "C"
+    ]
   },
   {
     "text": "### 📝 문제 25 (25/160) 📚\n\n새로운 Delta Live Tables 파이프라인을 생성할 때 다음 중 반드시 지정해야 하는 것은 무엇입니까?",
@@ -381,7 +430,10 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기",
-    "index": 26
+    "index": 26,
+    "answer_letters": [
+      "C"
+    ]
   },
   {
     "text": "### 📝 문제 28 (28/160) 📚\n\n다음 시나리오 중 어떤 경우에 데이터 엔지니어가 새로운 Databricks Job Task 의 Depends On 필드에 Task 를 선택해야 합니까?",
@@ -427,7 +479,10 @@
     "is_multi": false,
     "code": "",
     "explanation": "",
-    "index": 29
+    "index": 29,
+    "answer_letters": [
+      "A"
+    ]
   },
   {
     "text": "### 📝 문제 31 (31/160) 📚\n\n데이터 엔지니어와 데이터 분석가가 데이터 파이프라인을 함께 작업하고 있습니다. 데이터 엔지니어는 Python 을 사용하여 파이프라인의 raw, bronze 및 silver 레이어를 작업하고 있으며, 데이터 분석가는 SQL 을 사용하여 파이프라인의 gold 레이어를 작업하고 있습니다. 파이프라인의 원본 소스는 스트리밍 입력입니다. 이제 그들은 파이프라인을 Delta Live Tables 를 사용하도록 마이그레이션하려고 합니다. Delta Live Tables 로 마이그레이션할 때 파이프라인에 어떤 변경 사항이 필요합니까?",
@@ -456,7 +511,10 @@
     "is_multi": false,
     "code": "",
     "explanation": "",
-    "index": 31
+    "index": 31,
+    "answer_letters": [
+      "C"
+    ]
   },
   {
     "text": "### 📝 문제 33 (33/160) 📚\n\n데이터 엔지니어가 데이터 파이프라인을 설계하고 있습니다. 소스 시스템은 다른 프로세스에서도 사용되는 공유 디렉토리에 파일을 생성합니다. 결과적으로 파일은 있는 그대로 유지되어야 하며 디렉토리에 누적됩니다.\n\n데이터 엔지니어는 파이프라인의 이전 실행 이후로 어떤 파일이 새로운지 식별해야 하고, 각 실행마다 해당 새 파일만 수집하도록 파이프라인을 설정해야 합니다.\n\n다음 중 데이터 엔지니어가 이 문제를 해결하는 데 사용할 수 있는 도구는 무엇입니까?",
@@ -470,7 +528,10 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기",
-    "index": 32
+    "index": 32,
+    "answer_letters": [
+      "E"
+    ]
   },
   {
     "text": "### 📝 문제 34 (34/160) 📚\n\n데이터 엔지니어는 프랑스에 거주하는 고객의 이름을 포함하는 새 테이블을 생성하려고 합니다. 다음 명령을 작성했습니다: \n```sql\nCREATE TABLE customersInFrance _______ AS SELECT id,\n  firstName,\n  lastName,\n  \nFROM customerLocations \nWHERE country = 'FRANCE';\n```\n 시니어 데이터 엔지니어는 새로운 테이블이 개인 식별 정보 (PII) 를 포함한다는 것을 나타내는 테이블 속성을 포함하는 것이 조직의 정책이라고 언급합니다. 다음 중 위의 빈칸을 채워 작업을 성공적으로 완료할 수 있는 코드 줄은 무엇입니까?\n\n```sql\nCREATE TABLE customersInFrance\nAS\nSELECT id,\nfirstName,\nlastName,\nFROM customerLocations\nWHERE country = 'FRANCE';\n```",
@@ -567,7 +628,10 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기",
-    "index": 38
+    "index": 38,
+    "answer_letters": [
+      "A"
+    ]
   },
   {
     "text": "### 📝 문제 40 (40/160) 📚\n\n데이터 엔지니어가 클라우드 스토리지를 활용하는 Databricks 프로젝트에서 작업하고 있습니다. 데이터 엔지니어는 스토리지 계정 내의 컨테이너에 있는 여러 json 파일을 파일이 도착하자마자 로드하려고 합니다. Python 을 사용하여 먼저 파일을 dataframe 으로 로드하고 예상대로 작동하는지 확인하기 위해 데이터 엔지니어가 따라야 하는 구문은 무엇입니까?\n\n```python\ndf = spark.readStream.format(\"cloudFiles\") .option(\"cloudFiles.format\", \"json\")\n.load(\"/input/path\")\n```",
@@ -580,7 +644,10 @@
     "is_multi": false,
     "code": "",
     "explanation": "",
-    "index": 39
+    "index": 39,
+    "answer_letters": [
+      "B"
+    ]
   },
   {
     "text": "### 📝 문제 41 (41/160) 📚\n\n엔지니어링 관리자가 각 데이터 소스의 수집 지연 시간을 모니터링하기 위해 Databricks SQL 쿼리를 사용합니다. 관리자는 매일 쿼리 결과를 확인하지만, 매일 수동으로 쿼리를 다시 실행하고 결과를 기다리고 있습니다. 다음 중 관리자가 쿼리 결과를 매일 업데이트되도록 보장할 수 있는 방법은 무엇입니까?",
@@ -610,7 +677,10 @@
     "is_multi": false,
     "code": "",
     "explanation": "",
-    "index": 41
+    "index": 41,
+    "answer_letters": [
+      "B"
+    ]
   },
   {
     "text": "### 📝 문제 43 (43/160) 📚\n\nDatabricks 에서 AutoLoader 의 기능은 무엇입니까?",
@@ -623,7 +693,10 @@
     "is_multi": false,
     "code": "",
     "explanation": "",
-    "index": 42
+    "index": 42,
+    "answer_letters": [
+      "B"
+    ]
   },
   {
     "text": "### 📝 문제 44 (44/160) 📚\n\n데이터 엔지니어는 조직의 기존 SQLite 데이터베이스 데이터를 사용하여 Databricks에 테이블을 생성해야 합니다. 다음 명령어를 실행합니다: CREATE TABLE jdbc_customer360 USING OPTIONS ( url \"jdbc:sqlite:/customers.db\", dbtable \"customer360\" ) 위의 빈칸을 성공적으로 채워 작업을 완료하는 코드 줄은 무엇입니까?\n\n```sql\nCREATE TABLE jdbc_customer360\nUSING\nOPTIONS (\nurl \"jdbc:sqlite:/customers.db\", dbtable \"customer360\"\n)\n```",
@@ -652,7 +725,10 @@
     "is_multi": false,
     "code": "",
     "explanation": "",
-    "index": 44
+    "index": 44,
+    "answer_letters": [
+      "B"
+    ]
   },
   {
     "text": "### 📝 문제 46 (46/160) 📚\n\nDatabricks 단일 작업 워크플로우가 노트북의 오류로 인해 마지막 작업에서 실패했습니다. 데이터 엔지니어는 노트북의 실수를 수정했습니다. 워크플로우를 재실행하려면 데이터 엔지니어가 무엇을 해야 합니까?",
@@ -665,7 +741,10 @@
     "is_multi": false,
     "code": "",
     "explanation": "",
-    "index": 45
+    "index": 45,
+    "answer_letters": [
+      "B"
+    ]
   },
   {
     "text": "### 📝 문제 47 (47/160) 📚\n\n한 조직은 ACID 트랜잭션과 스키마 강제(schema enforcement)를 지원하는 최적화된 저장 계층을 찾고 있습니다. 해당 조직은 어떤 기술을 사용해야 할까요?",
@@ -678,7 +757,10 @@
     "is_multi": false,
     "code": "",
     "explanation": "",
-    "index": 46
+    "index": 46,
+    "answer_letters": [
+      "A"
+    ]
   },
   {
     "text": "### 📝 문제 48 (48/160) 📚\n\n데이터 엔지니어는 Delta Live Tables (DLT) 파이프라인에 세 개의 테이블을 가지고 있습니다. 각 테이블에서 유효하지 않은 레코드를 삭제하도록 파이프라인을 구성했습니다. DLT 파이프라인의 어느 지점에서 품질 문제로 인해 일부 데이터가 삭제되고 있음을 발견했습니다. 파이프라인 내의 어떤 테이블에서 데이터가 삭제되고 있는지 확인하고 싶습니다. 다음 중 데이터 엔지니어가 레코드를 삭제하는 테이블을 식별하기 위해 취할 수 있는 방법은 무엇입니까?\n\n> ⚠️ 이 문제는 이미지 참고가 필요합니다.",
@@ -708,7 +790,10 @@
     "is_multi": false,
     "code": "",
     "explanation": "",
-    "index": 48
+    "index": 48,
+    "answer_letters": [
+      "D"
+    ]
   },
   {
     "text": "### 📝 문제 50 (50/160) 📚\n\n다음 명령어 중 Delta 테이블에 데이터를 작성하면서 중복 레코드의 작성을 피할 수 있는 것은 무엇입니까?",
@@ -804,7 +889,10 @@
     "is_multi": false,
     "code": "",
     "explanation": "",
-    "index": 54
+    "index": 54,
+    "answer_letters": [
+      "C"
+    ]
   },
   {
     "text": "### 📝 문제 56 (56/160) 📚\n\n데이터 엔지니어가 Unity Catalog 에서 액세스 제어를 설정하고 있으며, 데이터 분석가 그룹이 테이블을 쿼리할 수는 있지만 데이터를 수정하지는 못하도록 해야 합니다. 데이터 엔지니어는 데이터 분석가에게 어떤 권한을 부여해야 합니까?",
@@ -817,7 +905,10 @@
     "is_multi": false,
     "code": "",
     "explanation": "",
-    "index": 55
+    "index": 55,
+    "answer_letters": [
+      "B"
+    ]
   },
   {
     "text": "### 📝 문제 57 (57/160) 📚\n\nDB 플랫폼 아키텍처의 제어 평면(control plane)에서 작동하는 두 구성 요소는 무엇입니까? (두 가지를 선택하십시오.)",
@@ -831,7 +922,11 @@
     "is_multi": true,
     "code": "",
     "explanation": "",
-    "index": 56
+    "index": 56,
+    "answer_letters": [
+      "D",
+      "A"
+    ]
   },
   {
     "text": "### 📝 문제 58 (58/160) 📚\n\nDatabricks 고객의 클라우드 계정에는 무엇이 저장됩니까?",
@@ -878,7 +973,10 @@
     "is_multi": false,
     "code": "",
     "explanation": "",
-    "index": 59
+    "index": 59,
+    "answer_letters": [
+      "E"
+    ]
   },
   {
     "text": "### 📝 문제 61 (61/160) 📚\n\n데이터 엔지니어가 동일한 명령 셀에 Python 과 SQL 을 작성하려고 시도하고 있으며 오류가 발생했습니다. 엔지니어는 select 문에서 Python 변수를 사용할 수 있다고 생각했습니다.\n명령이 실패하는 이유는 무엇입니까?",
@@ -891,7 +989,10 @@
     "is_multi": false,
     "code": "",
     "explanation": "",
-    "index": 60
+    "index": 60,
+    "answer_letters": [
+      "C"
+    ]
   },
   {
     "text": "### 📝 문제 62 (62/160) 📚\n\n데이터 엔지니어는 비용을 절감하고 클라우드 지출을 최적화하고자 합니다. 데이터 엔지니어는 기존 SLA 를 유지하면서 클라우드 비용을 낮추기 위해 Databricks Serverless 를 사용하기로 결정했습니다. Databricks Serverless 로 마이그레이션하는 첫 번째 단계는 무엇입니까?",
@@ -904,7 +1005,10 @@
     "is_multi": false,
     "code": "",
     "explanation": "",
-    "index": 61
+    "index": 61,
+    "answer_letters": [
+      "A"
+    ]
   },
   {
     "text": "### 📝 문제 63 (63/160) 📚\n\nDelta Lake 테이블의 데이터는 다음 파일 형식 중 주로 어떤 형식으로 저장됩니까?",
@@ -918,7 +1022,10 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기",
-    "index": 62
+    "index": 62,
+    "answer_letters": [
+      "C"
+    ]
   },
   {
     "text": "### 📝 문제 64 (64/160) 📚\n\nCREATE TABLE AS SELECT 문을 사용할 때 CSV 대신 Parquet에서 외부 테이블을 만드는 것의 이점을 설명하는 것은 무엇입니까?",
@@ -965,7 +1072,10 @@
     "is_multi": false,
     "code": "",
     "explanation": "",
-    "index": 65
+    "index": 65,
+    "answer_letters": [
+      "A"
+    ]
   },
   {
     "text": "### 📝 문제 67 (67/160) 📚\n\n데이터 엔지니어가 데이터 파이프라인의 일부로 Delta 테이블을 사용해야 하지만, 적절한 권한이 있는지 알 수 없습니다. 데이터 엔지니어는 어디에서 해당 테이블에 대한 자신의 권한을 검토할 수 있습니까?",
@@ -978,7 +1088,10 @@
     "is_multi": false,
     "code": "",
     "explanation": "",
-    "index": 66
+    "index": 66,
+    "answer_letters": [
+      "C"
+    ]
   },
   {
     "text": "### 📝 문제 68 (68/160) 📚\n\n데이터 엔지니어는 매우 정확한 데이터를 기반으로 하는 회사의 스트리밍 및 배치 소스 모두에서 데이터를 수집해야 합니다. 가끔 스트리밍 입력을 제공하는 센서로 수집된 일부 데이터가 예상 파라미터 범위를 벗어납니다. 이러한 경우 해당 데이터는 삭제되어야 하지만 스트림은 실패하지 않아야 합니다. Delta Live Tables 의 어떤 기능이 이 요구사항을 충족합니까?",
@@ -991,7 +1104,10 @@
     "is_multi": false,
     "code": "",
     "explanation": "",
-    "index": 67
+    "index": 67,
+    "answer_letters": [
+      "A"
+    ]
   },
   {
     "text": "### 📝 문제 69 (69/160) 📚\n\nDelta Live Table 파이프라인에는 STREAMING LIVE TABLE을 사용하여 정의된 두 개의 데이터셋이 포함되어 있습니다. 세 개의 데이터셋은 LIVE TABLE을 사용하여 Delta Lake 테이블 소스에 대해 정의됩니다. 해당 테이블은 Continuous Pipeline Mode를 사용하여 Production mode로 실행되도록 구성되어 있습니다. 이전에 처리되지 않은 데이터가 존재하고 모든 정의가 유효하다고 가정할 때, 파이프라인 업데이트를 위해 Start를 클릭한 후 예상되는 결과는 무엇입니까?\n\n> ⚠️ 이 문제는 이미지 참고가 필요합니다.",
@@ -1022,7 +1138,10 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기",
-    "index": 69
+    "index": 69,
+    "answer_letters": [
+      "E"
+    ]
   },
   {
     "text": "### 📝 문제 71 (71/160) 📚\n\n다음 중 테이블을 생성하는 데 사용되는 데이터 정의 언어 (DDL) 작업을 올바르게 보여주는 SQL 코드 스니펫은 무엇입니까?",
@@ -1035,7 +1154,10 @@
     "is_multi": false,
     "code": "",
     "explanation": "",
-    "index": 70
+    "index": 70,
+    "answer_letters": [
+      "A"
+    ]
   },
   {
     "text": "### 📝 문제 72 (72/160) 📚\n\n글로벌 소매 회사가 여러 카테고리 (예: Electronics, Clothing) 와 지역 (예: North, South, East, West) 에 걸쳐 제품을 판매합니다. 영업 팀은 데이터 엔지니어에게 아래에 표시된 PySpark dataframe 인 sales_df 를 제공했으며, 팀은 전략적 의사 결정을 지원하기 위해 데이터 엔지니어가 판매 데이터를 분석하기를 원합니다.\n\n> ⚠️ 이 문제는 이미지 참고가 필요합니다.",
@@ -1048,7 +1170,10 @@
     "is_multi": false,
     "code": "",
     "explanation": "",
-    "index": 71
+    "index": 71,
+    "answer_letters": [
+      "A"
+    ]
   },
   {
     "text": "### 📝 문제 73 (73/160) 📚\n\n'students' 테이블의 Delta 트랜잭션 로그가 'DESCRIBE HISTORY students' 명령을 사용하여 표시됩니다. 데이터 엔지니어는 로그에 나열된 UPDATE 작업 이전의 상태로 테이블을 쿼리해야 합니다. 이를 위해 데이터 엔지니어는 어떤 명령을 사용해야 합니까? (두 가지를 선택하십시오.)\n\n```sql\nSELECT * FROM students@v4\nSELECT * FROM students TIMESTAMP AS OF '2024-04-22T 14:32:47.000+00:00'\nSELECT * FROM students FROM HISTORY VERSION AS OF 3\nSELECT * FROM students VERSION AS OF 5\nSELECT * FROM students TIMESTAMP AS OF '2024-04-22T 14:32:58.000+00:00'\n```\n\n> ⚠️ 이 문제는 이미지 참고가 필요합니다.",
@@ -1062,7 +1187,11 @@
     "is_multi": true,
     "code": "",
     "explanation": "",
-    "index": 72
+    "index": 72,
+    "answer_letters": [
+      "C",
+      "A"
+    ]
   },
   {
     "text": "### 📝 문제 74 (74/160) 📚\n\n데이터 엔지니어는 변동하는 워크로드가 있는 대규모 데이터셋에서 SQL 쿼리를 처리해야 합니다. 이 워크로드는 인프라를 관리하거나 프로비저닝할 필요 없이 쿼리 양에 따라 자동으로 확장되어야 합니다. 솔루션은 비용 효율적이어야 하며 쿼리 실행 중 사용된 컴퓨트 리소스에 대해서만 요금을 부과해야 합니다. 데이터 엔지니어는 어떤 컴퓨트 옵션을 사용해야 합니까?",
@@ -1075,7 +1204,10 @@
     "is_multi": false,
     "code": "",
     "explanation": "",
-    "index": 73
+    "index": 73,
+    "answer_letters": [
+      "B"
+    ]
   },
   {
     "text": "### 📝 문제 75 (75/160) 📚\n\n데이터 엔지니어가 파트너 조직을 Databricks 계정 사용에 익숙하게 하고 있습니다. 두 팀은 일부 비즈니스 사용 사례를 공유합니다. 데이터 엔지니어는 Unity Catalog 관리 Delta 테이블 중 일부를 생성하는 노트북 작업과 함께 해당 테이블을 파트너 조직과 공유해야 합니다. 데이터 엔지니어는 필요한 정보를 어떻게 원활하게 공유할 수 있습니까?",
@@ -1088,7 +1220,10 @@
     "is_multi": false,
     "code": "",
     "explanation": "",
-    "index": 74
+    "index": 74,
+    "answer_letters": [
+      "B"
+    ]
   },
   {
     "text": "### 📝 문제 76 (76/160) 📚\n\n데이터 엔지니어에게 새로운 데이터 레코드가 제공되었습니다: id STRING = 'a1' rank INTEGER = 6 rating FLOAT = 9.4 다음 SQL 명령어 중 기존 Delta 테이블 my_table에 이 새로운 레코드를 추가(append)하는 데 사용할 수 있는 것은 무엇입니까?\n\n```sql\nINSERT INTO my_table VALUES ('a1', 6, 9.4)\n```",
@@ -1119,7 +1254,10 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기",
-    "index": 76
+    "index": 76,
+    "answer_letters": [
+      "E"
+    ]
   },
   {
     "text": "### 📝 문제 78 (78/160) 📚\n\n데이터 분석 팀은 항상 켜져 있는(always-on) SQL 엔드포인트에 연결했을 때 Databricks SQL 쿼리가 너무 느리게 실행되는 것을 발견했습니다. 그들은 이 문제가 팀의 많은 구성원이 동시에 작은 쿼리를 실행할 때 발생한다고 주장합니다. 그들은 데이터 엔지니어링 팀에게 도움을 요청합니다. 데이터 엔지니어링 팀은 팀의 각 쿼리가 동일한 SQL 엔드포인트를 사용한다는 사실을 알게 됩니다. 다음 중 데이터 엔지니어링 팀이 팀의 쿼지 지연 시간을 개선하기 위해 사용할 수 있는 방법은 무엇입니까?",
@@ -1133,7 +1271,10 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기",
-    "index": 77
+    "index": 77,
+    "answer_letters": [
+      "B"
+    ]
   },
   {
     "text": "### 📝 문제 79 (79/160) 📚\n\n데이터 분석가가 전체 데이터 분석 팀이 사용하는 Delta 테이블 sales 를 생성했습니다. 그들은 데이터가 깨끗한지 확인하기 위해 일련의 테스트를 구현하는 데 데이터 엔지니어링 팀의 도움이 필요합니다. 그러나 데이터 엔지니어링 팀은 SQL 이 아닌 Python 을 사용하여 테스트를 수행합니다. 다음 명령 중 데이터 엔지니어링 팀이 PySpark 에서 sales 에 액세스하는 데 사용할 수 있는 것은 무엇입니까?\n\n```python\nspark.table(\"sales\")\n```",
@@ -1147,7 +1288,10 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기",
-    "index": 78
+    "index": 78,
+    "answer_letters": [
+      "E"
+    ]
   },
   {
     "text": "### 📝 문제 80 (80/160) 📚\n\n데이터 엔지니어는 Databricks 에서 Python 노트북을 가지고 있지만, 셀 내에서 특정 작업을 수행하기 위해 SQL 을 사용해야 합니다. 다른 모든 셀은 변경 사항 없이 계속 Python 을 사용하고 싶습니다. 다음 중 데이터 엔지니어가 Python 노트북의 셀 내에서 SQL 을 사용하는 방법을 설명하는 것은 무엇입니까?\n\n```markdown\n%sql\n%sql -o df SELECT * FROM my_table\n```",
@@ -1195,7 +1339,10 @@
     "is_multi": false,
     "code": "",
     "explanation": "",
-    "index": 81
+    "index": 81,
+    "answer_letters": [
+      "A"
+    ]
   },
   {
     "text": "### 📝 문제 83 (83/160) 📚\n\n데이터 엔지니어가 Databricks의 Python 노트북에서 데이터를 처리하고 있지만, 출력이 예상과 다르다는 것을 알게 되었습니다. 데이터 엔지니어는 코드를 단계별로 실행하며 특정 변수의 값을 확인함으로써 문제를 조사하고자 합니다. 코드 실행과 변수를 실시간으로 검사하기 위해 데이터 엔지니어가 어떤 도구를 사용해야 합니까?",
@@ -1208,7 +1355,10 @@
     "is_multi": false,
     "code": "",
     "explanation": "",
-    "index": 82
+    "index": 82,
+    "answer_letters": [
+      "A"
+    ]
   },
   {
     "text": "### 📝 문제 84 (84/160) 📚\n\nDatabricks Lakehouse Platform 이 오픈 소스 기술을 수용하는 것의 이점은 다음 중 무엇입니까?",
@@ -1255,7 +1405,10 @@
     "is_multi": false,
     "code": "",
     "explanation": "",
-    "index": 85
+    "index": 85,
+    "answer_letters": [
+      "A"
+    ]
   },
   {
     "text": "### 📝 문제 87 (87/160) 📚\n\n데이터 엔지니어는 규정 준수 목적으로 Databricks의 감사 로그 (audit logs) 관련 문서를 검토하고 있으며, 감사 로그가 이벤트를 출력하는 포맷을 이해해야 합니다. Databricks 감사 로그에서 이벤트는 어떻게 포맷팅됩니까?",
@@ -1267,7 +1420,10 @@
     "is_multi": false,
     "code": "",
     "explanation": "",
-    "index": 86
+    "index": 86,
+    "answer_letters": [
+      "A"
+    ]
   },
   {
     "text": "### 📝 문제 88 (88/160) 📚\n\n데이터 엔지니어가 두 개의 테이블을 다루고 있습니다. 각 테이블은 아래에 전체적으로 표시됩니다. 데이터 엔지니어는 다음 쿼리를 실행하여 이 두 테이블을 조인합니다: \n```sql\nSELECT sales.customer_id,\n  sales.spend,\n  favorite_stores.store_id \nFROM sales LEFT \nJOIN favorite_stores \nON sales.customer_id = favorite_stores.customer_id;\n```\n 위 쿼리에 의해 반환되는 결과는 무엇입니까?",
@@ -1281,7 +1437,10 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기",
-    "index": 87
+    "index": 87,
+    "answer_letters": [
+      "E"
+    ]
   },
   {
     "text": "### 📝 문제 89 (89/160) 📚\n\n새로운 데이터 엔지니어링 팀이 ELT 프로젝트에 배정되었습니다. 이 새로운 데이터 엔지니어링 팀은 프로젝트를 완전히 관리하기 위해 테이블 sales 에 대한 전체 권한 (full privileges) 이 필요합니다. 새로운 데이터 엔지니어링 팀에게 데이터베이스에 대한 전체 권한을 부여하는 데 사용할 수 있는 명령어는 무엇입니까?\n\n```sql\ngrant all privileges on table sales TO team;\nGRANT SELECT ON TABLE sales TO team;\nGRANT SELECT CREATE MODIFY ON TABLE sales TO team;\nGRANT ALL PRIVILEGES ON TABLE team TO sales;\n```",
@@ -1327,7 +1486,10 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기",
-    "index": 90
+    "index": 90,
+    "answer_letters": [
+      "C"
+    ]
   },
   {
     "text": "### 📝 문제 92 (92/160) 📚\n\n데이터 엔지니어가 몇 개의 테이블에서 데이터 엔티티를 생성하려고 합니다. 이 데이터 엔티티는 다른 세션의 다른 데이터 엔지니어들이 사용해야 하며, 물리적 위치에 저장되어야 합니다. 데이터 엔지니어는 다음 중 어떤 데이터 엔티티를 생성해야 합니까?",
@@ -1374,7 +1536,10 @@
     "is_multi": false,
     "code": "",
     "explanation": "",
-    "index": 93
+    "index": 93,
+    "answer_letters": [
+      "A"
+    ]
   },
   {
     "text": "### 📝 문제 95 (95/160) 📚\n\n다음 도구 중 Auto Loader 가 데이터를 증분(incrementally)으로 처리하는 데 사용하는 도구는 무엇입니까?",
@@ -1472,7 +1637,10 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기",
-    "index": 99
+    "index": 99,
+    "answer_letters": [
+      "E"
+    ]
   },
   {
     "text": "### 📝 문제 101 (101/160) 📚\n\n노트북의 오류로 인해 Databricks 워크플로우가 마지막 단계에서 실패했습니다. 이 워크플로우는 매일 실행됩니다. 데이터 엔지니어는 실수를 수정하고 파이프라인을 다시 실행하려고 합니다. 이 워크플로우는 실행 비용이 매우 높고 시간이 많이 소요됩니다. 다운타임과 비용을 최소화하기 위해 데이터 엔지니어는 어떤 조치를 취해야 합니까?",
@@ -1485,7 +1653,10 @@
     "is_multi": false,
     "code": "",
     "explanation": "",
-    "index": 100
+    "index": 100,
+    "answer_letters": [
+      "B"
+    ]
   },
   {
     "text": "### 📝 문제 102 (102/160) 📚\n\n데이터 엔지니어는 운영상의 번거로움 (operational toil) 을 줄이기 위해 파이프라인 작업을 마이그레이션하고 있습니다. 워크스페이스는 Unity Catalog 를 사용하며 서버리스를 지원하는 지역에 위치해 있습니다. 엔지니어는 Databricks 가 작업 실행 시 인스턴스 유형을 자동으로 선택하고, 스케일링을 관리하며, Photon 을 적용하고, 런타임 업그레이드를 자동으로 처리하기를 원합니다. 데이터 엔지니어는 Databricks 제약 사항을 준수하면서 이 요구 사항을 어떻게 충족해야 합니까?",
@@ -1531,7 +1702,10 @@
     "is_multi": false,
     "code": "",
     "explanation": "",
-    "index": 103
+    "index": 103,
+    "answer_letters": [
+      "C"
+    ]
   },
   {
     "text": "### 📝 문제 105 (105/160) 📚\n\n데이터 엔지니어는 Spark SQL 테이블 my_table 을 삭제하려고 시도합니다. 데이터 엔지니어는 모든 테이블 메타데이터와 데이터를 삭제하기를 원합니다. 다음 명령어를 실행합니다: DROP TABLE IF EXISTS my_table SHOW TABLES 를 실행할 때 더 이상 해당 객체가 나타나지 않지만, 데이터 파일은 여전히 존재합니다. 다음 중 데이터 파일이 여전히 존재하고 메타데이터 파일만 삭제된 이유를 설명하는 것은 무엇입니까?",
@@ -1561,7 +1735,10 @@
     "is_multi": false,
     "code": "",
     "explanation": "",
-    "index": 105
+    "index": 105,
+    "answer_letters": [
+      "A"
+    ]
   },
   {
     "text": "### 📝 문제 107 (107/160) 📚\n\n다음 중 원시 데이터에서 Bronze 테이블로의 스트리밍 hop을 수행하는 쿼리는 무엇입니까?\n\n```python\n(spark.readStream.load(rawSalesLocation)\n.writeStream\n.option(\"checkpointLocation\", checkpointPath)\n.outputMode(\"append\")\n.table(\"newSales\")\n)\n```",
@@ -1574,7 +1751,10 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기",
-    "index": 106
+    "index": 106,
+    "answer_letters": [
+      "D"
+    ]
   },
   {
     "text": "### 📝 문제 108 (108/160) 📚\n\n데이터 엔지니어는 Databricks SQL 대시보드를 매시간 새로고침되도록 예약하고 싶지만, 관련 SQL 엔드포인트가 필요한 경우에만 실행되기를 원합니다. 해당 대시보드에는 여러 데이터셋에 대한 여러 쿼리가 포함되어 있습니다. 대시보드를 공급하는 데이터는 Databricks Job을 사용하여 자동으로 처리됩니다. 다음 중 데이터 엔지니어가 대시보드 새로고침 예약에서 사용되는 SQL 엔드포인트의 총 실행 시간을 최소화하기 위해 사용할 수 있는 방법은 무엇입니까?",
@@ -1638,7 +1818,10 @@
     "is_multi": false,
     "code": "",
     "explanation": "",
-    "index": 110
+    "index": 110,
+    "answer_letters": [
+      "C"
+    ]
   },
   {
     "text": "### 📝 문제 112 (112/160) 📚\n\n다음 데이터 워크로드 중 Gold 테이블을 소스로 사용하는 것은 무엇입니까?",
@@ -1668,7 +1851,10 @@
     "is_multi": false,
     "code": "",
     "explanation": "",
-    "index": 112
+    "index": 112,
+    "answer_letters": [
+      "A"
+    ]
   },
   {
     "text": "### 📝 문제 114 (114/160) 📚\n\n데이터 엔지니어가 Spark SQL 테이블 my_table 을 삭제하려고 시도하고 다음 명령을 실행합니다: DROP TABLE IF EXISTS my_table; 이 명령을 실행한 후, 엔지니어는 파일 시스템에서 데이터 파일과 메타데이터 파일이 모두 삭제된 것을 확인했습니다. 다음 중 이러한 모든 파일이 삭제된 이유를 설명하는 것은 무엇입니까?",
@@ -1698,7 +1884,10 @@
     "is_multi": false,
     "code": "",
     "explanation": "",
-    "index": 114
+    "index": 114,
+    "answer_letters": [
+      "D"
+    ]
   },
   {
     "text": "### 📝 문제 116 (116/160) 📚\n\n새로운 데이터 엔지니어링 팀이 ELT 프로젝트에 배정되었습니다. 이 새로운 데이터 엔지니어링 팀은 프로젝트를 완전히 관리하기 위해 테이블 sales 에 대한 전체 권한 (full privileges) 이 필요합니다. 다음 명령어 중 어떤 것이 새 데이터 엔지니어링 팀에게 데이터베이스에 대한 전체 권한을 부여하는 데 사용될 수 있습니까?\n\n```sql\nGRANT ALL PRIVILEGES ON TABLE sales TO team;\nGRANT SELECT CREATE MODIFY ON TABLE sales TO team;\nGRANT SELECT ON TABLE sales TO team;\nGRANT USAGE ON TABLE sales TO team;\nGRANT ALL PRIVILEGES ON TABLE team TO sales;\n```",
@@ -1729,7 +1918,10 @@
     "is_multi": false,
     "code": "",
     "explanation": "",
-    "index": 116
+    "index": 116,
+    "answer_letters": [
+      "B"
+    ]
   },
   {
     "text": "### 📝 문제 118 (118/160) 📚\n\n데이터 엔지니어는 Delta 테이블과 관련된 데이터 파일이 매우 작다는 것을 깨달았습니다. 성능을 향상시키기 위해 작은 파일을 더 큰 파일로 압축하고 싶습니다. 다음 중 작은 파일을 압축하는 데 사용할 수 있는 키워드는 무엇입니까?",
@@ -1793,7 +1985,10 @@
     "is_multi": false,
     "code": "",
     "explanation": "",
-    "index": 120
+    "index": 120,
+    "answer_letters": [
+      "A"
+    ]
   },
   {
     "text": "### 📝 문제 122 (122/160) 📚\n\n데이터 엔지니어가 기존 프로젝트에 합류하여 프로젝트 저장소에서 다음 쿼리를 보았습니다: CREATE STREAMING LIVE TABLE loyal_customers AS SELECT customer_id - FROM STREAM(LIVE.customers) WHERE loyalty_level = 'high'; 다음 중 쿼리에 STREAM 함수가 포함된 이유를 설명하는 것은 무엇입니까?\n\n```sql\nCREATE STREAMING LIVE TABLE loyal_customers AS\nSELECT customer_id -\nFROM STREAM(LIVE.customers)\nWHERE loyalty_level = 'high';\n```\n\n> ⚠️ 이 문제는 이미지 참고가 필요합니다.",
@@ -1857,7 +2052,10 @@
     "is_multi": false,
     "code": "",
     "explanation": "",
-    "index": 124
+    "index": 124,
+    "answer_letters": [
+      "C"
+    ]
   },
   {
     "text": "### 📝 문제 126 (126/160) 📚\n\nDelta Live Tables 를 사용하여 데이터셋이 정의되었으며, 다음과 같은 기대 조건 (expectations clause) 을 포함하고 있습니다: CONSTRAINT valid_timestamp EXPECT (timestamp > '2020-01-01') ON VIOLATION FAIL UPDATE. 이러한 제약 조건을 위반하는 데이터를 포함하는 배치 (batch) 가 처리될 때 예상되는 동작은 무엇입니까?",
@@ -1870,7 +2068,10 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기",
-    "index": 125
+    "index": 125,
+    "answer_letters": [
+      "B"
+    ]
   },
   {
     "text": "### 📝 문제 127 (127/160) 📚\n\n외부 테이블을 사용하는 시나리오를 식별하십시오. 데이터 엔지니어는 parquet bronze 테이블을 생성하고 이를 외부 위치의 특정 경로에 저장되도록 보장하고자 합니다. 이 시나리오에서 어떤 테이블을 생성할 수 있습니까?",
@@ -1883,7 +2084,10 @@
     "is_multi": false,
     "code": "",
     "explanation": "",
-    "index": 126
+    "index": 126,
+    "answer_letters": [
+      "C"
+    ]
   },
   {
     "text": "### 📝 문제 128 (128/160) 📚\n\n데이터 엔지니어는 ELT 작업의 입력 데이터 청결도를 모니터링하기 위해 Databricks SQL 대시보드를 사용해 왔습니다. 해당 ELT 작업에는 예상치 못한 NULL 값을 포함하는 입력 레코드 수를 반환하는 Databricks SQL 쿼리가 있습니다. 데이터 엔지니어는 이 값이 100에 도달할 때마다 메시징 웹훅을 통해 전체 팀에게 알림을 받고자 합니다. 다음 중 데이터 엔지니어가 NULL 값의 수가 100에 도달할 때마다 메시징 웹훅을 통해 전체 팀에게 알릴 수 있는 방법은 무엇입니까?",
@@ -1930,7 +2134,10 @@
     "is_multi": false,
     "code": "",
     "explanation": "",
-    "index": 129
+    "index": 129,
+    "answer_letters": [
+      "B"
+    ]
   },
   {
     "text": "### 📝 문제 131 (131/160) 📚\n\n데이터 엔지니어는 new_table 테이블에 액세스해야 하지만 올바른 권한이 없습니다. 그들은 테이블 소유자에게 권한을 요청할 수 있지만, 테이블 소유자가 누구인지 모릅니다. 다음 중 new_table의 소유자를 식별하는 데 사용할 수 있는 방법은 무엇입니까?",
@@ -1960,7 +2167,10 @@
     "is_multi": false,
     "code": "",
     "explanation": "",
-    "index": 131
+    "index": 131,
+    "answer_letters": [
+      "B"
+    ]
   },
   {
     "text": "### 📝 문제 133 (133/160) 📚\n\n다음 시나리오 중 데이터 엔지니어가 INSERT INTO 명령어 대신 MERGE INTO 명령어를 사용해야 하는 경우는 무엇입니까?",
@@ -2007,7 +2217,10 @@
     "is_multi": false,
     "code": "",
     "explanation": "",
-    "index": 134
+    "index": 134,
+    "answer_letters": [
+      "B"
+    ]
   },
   {
     "text": "### 📝 문제 136 (136/160) 📚\n\n다음 중 특정 사용 사례에 특화된 고립된 데이터 아키텍처를 단순화하고 통합하는 데 사용할 수 있는 것은 무엇입니까?",
@@ -2037,7 +2250,10 @@
     "is_multi": false,
     "code": "",
     "explanation": "",
-    "index": 136
+    "index": 136,
+    "answer_letters": [
+      "D"
+    ]
   },
   {
     "text": "### 📝 문제 138 (138/160) 📚\n\n데이터 엔지니어가 개인 노트북에서 작업 중이며, 클라우드 저장소에 있는 Delta Lake 에 저장된 데이터에 대해 복잡한 변환 작업을 수행해야 합니다. 엔지니어는 Databricks 클러스터와 상호작용하고 로컬 IDE 에서 작업을 위해 Databricks Connect 를 사용하기로 결정했습니다. Databricks Connect 는 엔지니어가 Databricks 클러스터와 상호작용하는 동안 로컬 머신에서 코드를 원활하게 개발, 테스트 및 디버깅할 수 있도록 어떻게 가능하게 합니까?",
@@ -2050,7 +2266,10 @@
     "is_multi": false,
     "code": "",
     "explanation": "",
-    "index": 137
+    "index": 137,
+    "answer_letters": [
+      "B"
+    ]
   },
   {
     "text": "### 📝 문제 139 (139/160) 📚\n\n데이터 엔지니어는 프랑스에 거주하는 고객의 이름을 포함하는 새 테이블을 생성하려고 합니다. 다음 명령어를 작성했습니다: CREATE TABLE customersInFrance _____ AS SELECT id, firstName, lastName FROM customerLocations WHERE country = 'FRANCE'; 시니어 데이터 엔지니어는 새로운 테이블이 개인 식별 정보 (PII) 를 포함한다는 것을 나타내는 테이블 속성을 포함하는 것이 조직의 정책이라고 언급합니다. 위의 빈칸을 채워 작업을 성공적으로 완료할 수 있는 코드 줄은 무엇입니까?\n\n```sql\nCREATE TABLE customersInFrance\n____AS\nSELECT id,\nfirstName,\nlastName\nFROM customerLocations\nWHERE country = 'FRANCE';\n```",
@@ -2096,7 +2315,10 @@
     "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기",
-    "index": 140
+    "index": 140,
+    "answer_letters": [
+      "A"
+    ]
   },
   {
     "text": "### 📝 문제 142 (142/160) 📚\n\n데이터 엔지니어는 일관되게 성능 병목 현상을 겪고 있는 Pyspark 작업 기반의 ETL 파이프라인을 점검하고 있습니다. 개발자의 피드백에 따라 데이터 엔지니어는 해당 작업이 컴퓨트 리소스가 부족하다고 가정합니다. 문제를 정확히 파악하기 위해 데이터 엔지니어는 Spark UI 를 관찰한 결과, 해당 작업의 CPU 시간이 Task 시간에 비해 높음을 발견했습니다. 데이터 엔지니어가 취해야 할 조치는 무엇입니까?",
@@ -2109,7 +2331,10 @@
     "is_multi": false,
     "code": "",
     "explanation": "",
-    "index": 141
+    "index": 141,
+    "answer_letters": [
+      "D"
+    ]
   },
   {
     "text": "### 📝 문제 143 (143/160) 📚\n\n다음 SQL 키워드 중 어떤 것이 테이블을 긴 형식(long format)에서 넓은 형식(wide format)으로 변환하는 데 사용될 수 있습니까?",
@@ -2139,7 +2364,10 @@
     "is_multi": false,
     "code": "",
     "explanation": "",
-    "index": 143
+    "index": 143,
+    "answer_letters": [
+      "B"
+    ]
   },
   {
     "text": "### 📝 문제 145 (145/160) 📚\n\n새로운 데이터 엔지니어링 팀이 프로젝트 작업을 위해 배정되었습니다. 이 팀은 이미 존재하는 테이블을 확인하기 위해 customers 데이터베이스에 접근할 수 있어야 합니다. 해당 팀에는 자체 그룹인 team이 있습니다. 다음 명령어 중 새 팀에게 전체 데이터베이스에 필요한 권한을 부여하는 데 사용할 수 있는 것은 무엇입니까?\n\n```sql\nGRANT USAGE ON DATABASE customers TO team;\n```\n\n> ⚠️ 이 문제는 이미지 참고가 필요합니다.",
@@ -2269,7 +2497,10 @@
     "is_multi": false,
     "code": "",
     "explanation": "",
-    "index": 151
+    "index": 151,
+    "answer_letters": [
+      "D"
+    ]
   },
   {
     "text": "### 📝 문제 153 (153/160) 📚\n\n데이터 엔지니어는 내장형 Databricks Notebooks 버전 관리(Databricks Notebooks versioning)를 사용할지 아니면 Databricks Repos 를 사용하여 프로젝트를 버전 관리할지 결정해야 합니다. 다음 중 Databricks Notebooks 버전 관리에 비해 Databricks Repos 를 사용하는 것의 장점은 무엇입니까?",
@@ -2299,7 +2530,10 @@
     "is_multi": true,
     "code": "",
     "explanation": "",
-    "index": 153
+    "index": 153,
+    "answer_letters": [
+      "D"
+    ]
   },
   {
     "text": "### 📝 문제 155 (155/160) 📚\n\nDatabricks 메달리온 아키텍처에서 Silver 레이어의 주요 기능은 무엇입니까?",
@@ -2312,7 +2546,10 @@
     "is_multi": false,
     "code": "",
     "explanation": "",
-    "index": 154
+    "index": 154,
+    "answer_letters": [
+      "C"
+    ]
   },
   {
     "text": "### 📝 문제 156 (156/160) 📚\n\n다음 중 데이터 팀이 클러스터 풀(cluster pools)을 사용하고자 하는 시나리오를 설명하는 것은 무엇입니까?",
@@ -2342,7 +2579,10 @@
     "is_multi": false,
     "code": "",
     "explanation": "",
-    "index": 156
+    "index": 156,
+    "answer_letters": [
+      "B"
+    ]
   },
   {
     "text": "### 📝 문제 158 (158/160) 📚\n\n데이터 엔지니어가 Databricks의 Delta Live Tables(DLT)를 사용해 고객 데이터를 수집하는 간단한 데이터 파이프라인을 구축하고 있습니다. 원시 고객 데이터는 클라우드 스토리지 위치에 JSON 형식으로 저장되어 있습니다. 원시 JSON 데이터를 읽어 Delta 테이블로 기록하는 DLT 파이프라인을 만들려면 어떤 코드 스니펫이 올바를까요?\n\n> ⚠️ 이 문제는 이미지 참고가 필요합니다.",
@@ -2355,7 +2595,10 @@
     "is_multi": false,
     "code": "",
     "explanation": "",
-    "index": 157
+    "index": 157,
+    "answer_letters": [
+      "C"
+    ]
   },
   {
     "text": "### 📝 문제 159 (159/160) 📚\n\n데이터 엔지니어는 SQL 쿼리에서 사용하고자 하는 Python 변수 table_name을 가지고 있습니다. 그들은 table_name을 사용하여 쿼리를 실행할 Python 코드 블록을 구성하려고 합니다. 다음과 같은 불완전한 코드 블록이 있습니다: (f\"SELECT customer_id, spend FROM {table_name}\") 다음 중 빈칸을 채워 작업을 성공적으로 완료하는 데 사용할 수 있는 것은 무엇입니까?\n\n```python\n____(f\"SELECT customer_id, spend FROM {table_name}\")\n```",
