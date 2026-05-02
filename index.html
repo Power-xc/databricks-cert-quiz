@@ -97,6 +97,7 @@
     }
 
     .q-text { font-size: 1.08rem; line-height: 1.8; color: var(--text); margin-bottom: 28px; white-space: pre-wrap; }
+    .kr-term { color: #a5d6ff; }
 
     /* ── 보기 ────────────────────────────────────────── */
     .choices { display: flex; flex-direction: column; gap: 10px; margin-bottom: 28px; }
@@ -339,6 +340,114 @@ const EXAM_LABELS = {
   dep: 'DEP — Data Engineer Professional',
   gai: 'GAI — Generative AI Engineer Associate',
 };
+const TERM_KO = [
+  ['All-purpose Cluster', '범용 클러스터'],
+  ['Job Cluster', '잡 클러스터'],
+  ['Serverless Compute', '서버리스 컴퓨트'],
+  ['SQL Warehouse', 'SQL 웨어하우스'],
+  ['Databricks SQL', '데이터브릭스 SQL'],
+  ['Databricks Repos', '데이터브릭스 리포지토리'],
+  ['Unity Catalog Volume', '유니티 카탈로그 볼륨'],
+  ['Unity Catalog', '유니티 카탈로그'],
+  ['Data Explorer', '데이터 탐색기'],
+  ['Delta Live Tables', '델타 라이브 테이블'],
+  ['Delta Live Table', '델타 라이브 테이블'],
+  ['Delta Lake', '델타 레이크'],
+  ['Auto Loader', '오토 로더'],
+  ['Structured Streaming', '구조화 스트리밍'],
+  ['Vector Search', '벡터 검색'],
+  ['Model Serving', '모델 서빙'],
+  ['Foundation Model API', '파운데이션 모델 API'],
+  ['Feature Store', '피처 스토어'],
+  ['Lakehouse', '레이크하우스'],
+  ['Gold Layer', '골드 계층'],
+  ['Silver Layer', '실버 계층'],
+  ['Bronze Layer', '브론즈 계층'],
+  ['Gold', '골드'],
+  ['Silver', '실버'],
+  ['Bronze', '브론즈'],
+  ['Workflow', '워크플로'],
+  ['Workflows', '워크플로'],
+  ['Job run history', '작업 실행 기록'],
+  ['Cluster Event Log', '클러스터 이벤트 로그'],
+  ['Driver log file', '드라이버 로그 파일'],
+  ['Executor log file', '익스큐터 로그 파일'],
+  ['Workspace audit logs', '워크스페이스 감사 로그'],
+  ['Personal access token', '개인 액세스 토큰'],
+  ['REST API', 'REST API'],
+  ['Access control list', '접근 제어 목록'],
+  ['Attribute-based access control', '속성 기반 접근 제어'],
+  ['Optimized writes', '최적화된 쓰기'],
+  ['Auto compaction', '자동 압축'],
+  ['Data skipping', '데이터 스키핑'],
+  ['Z-Ordering', 'Z-정렬'],
+  ['Liquid Clustering', '리퀴드 클러스터링'],
+  ['Change Data Feed', '변경 데이터 피드'],
+  ['Time Travel', '시간 여행'],
+  ['Checkpointing', '체크포인트 관리'],
+  ['Micro-batch', '마이크로 배치'],
+  ['Trigger', '트리거'],
+  ['Merge Schema', '스키마 병합'],
+  ['Schema Evolution', '스키마 진화'],
+  ['Schema inference', '스키마 추론'],
+  ['Higher-order function', '고차 함수'],
+  ['Windowed summarization', '윈도우 요약'],
+  ['Reranker', '재순위화 모델'],
+  ['Embedding model', '임베딩 모델'],
+  ['Vector store', '벡터 저장소'],
+  ['PromptTemplate', '프롬프트 템플릿'],
+  ['LLMChain', 'LLM 체인'],
+  ['ReAct agent', 'ReAct 에이전트'],
+  ['Agent Evaluation', '에이전트 평가'],
+  ['LLM-as-a-judge', '판정자 역할 LLM'],
+  ['Retrieval-Augmented Generation', '검색 증강 생성'],
+  ['Fine-tuned LLM', '파인튜닝된 LLM'],
+  ['Model inversion attack', '모델 역추론 공격'],
+  ['Safety filter', '안전 필터'],
+  ['Guardrails', '가드레일'],
+  ['LangGraph', '랭그래프'],
+  ['LangChain', '랭체인'],
+  ['MLflow PyFunc model', 'MLflow PyFunc 모델'],
+  ['MLflow', 'MLflow'],
+  ['OpenAI', 'OpenAI'],
+  ['Mosaic AI', 'Mosaic AI'],
+  ['Databricks', '데이터브릭스'],
+  ['DataFrame', '데이터프레임'],
+  ['Spark UI', '스파크 UI'],
+  ['Apache Spark', '아파치 스파크'],
+  ['Spark', '스파크'],
+  ['Parquet', '파케이'],
+  ['Kafka', '카프카'],
+  ['DBFS', 'DBFS'],
+  ['DevOps', '데브옵스'],
+  ['Notebook', '노트북'],
+  ['Cluster', '클러스터'],
+  ['Executor', '익스큐터'],
+  ['Driver', '드라이버'],
+  ['Task', '태스크'],
+  ['Query', '쿼리'],
+  ['Pipeline', '파이프라인'],
+  ['Table', '테이블'],
+  ['View', '뷰'],
+  ['Schema', '스키마'],
+  ['Catalog', '카탈로그'],
+  ['Lineage', '계보'],
+  ['Compute', '컴퓨트'],
+  ['Serverless', '서버리스'],
+  ['Streaming', '스트리밍'],
+  ['Batch', '배치'],
+  ['Embedding', '임베딩'],
+  ['Prompt', '프롬프트'],
+  ['Context', '컨텍스트'],
+  ['Token', '토큰'],
+  ['Chunking', '청킹'],
+  ['Chunk', '청크'],
+  ['RAG', '검색 증강 생성'],
+  ['LLM', '대규모 언어 모델'],
+  ['AI', '인공지능'],
+  ['API', 'API'],
+];
+const TERM_RE = new RegExp(`\\b(${TERM_KO.map(([term]) => escapeRegExp(term)).join('|')})\\b(?!\\s*[\\(（])`, 'gi');
 
 // ── DOM ──────────────────────────────────────────────────────────────────
 const $ = id => document.getElementById(id);
@@ -349,6 +458,25 @@ const loadingEl   = $('loading-state');
 const quizContent = $('quiz-content');
 function show(el) { el.classList.remove('hidden'); }
 function hide(el) { el.classList.add('hidden'); }
+function escapeRegExp(value) {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+function normalizeTerm(value) {
+  return value.toLowerCase();
+}
+function addKoTerms(value) {
+  if (!value) return '';
+  const dict = new Map(TERM_KO.map(([en, ko]) => [normalizeTerm(en), ko]));
+  return value.split(/(```[\s\S]*?```|`[^`]*`)/g).map(part => {
+    if (part.startsWith('`')) return part;
+    return part.replace(TERM_RE, (match, _term, offset, text) => {
+      if (['(', '（'].includes(text[offset - 1])) return match;
+      const ko = dict.get(normalizeTerm(match));
+      if (!ko || normalizeTerm(ko) === normalizeTerm(match)) return match;
+      return `${match} (${ko})`;
+    });
+  }).join('');
+}
 
 // ── 버튼 그룹 토글 ────────────────────────────────────────────────────────
 function setupBtnGroup(groupId, onChange) {
@@ -425,7 +553,7 @@ function render() {
   else { hide(codeEl); }
 
   // 문제
-  $('q-text').textContent = q.text;
+  $('q-text').textContent = addKoTerms(q.text);
 
   // 보기
   const container = $('choices-container');
@@ -463,7 +591,7 @@ function render() {
     key.textContent = letter;
 
     const txt = document.createElement('span');
-    txt.textContent = choice.slice(3); // "A. " 제거
+    txt.textContent = addKoTerms(choice.slice(3)); // "A. " 제거
 
     label.append(key, txt);
     item.append(input, label);
@@ -483,7 +611,7 @@ function render() {
     } else {
       const ca = (q.answerLetters || []).map(l => {
         const ch = q.choices.find(c => c[0] === l);
-        return ch ? ch.slice(3) : l;
+        return ch ? addKoTerms(ch.slice(3)) : l;
       });
       msgEl.textContent = `❌ 오답. 정답: ${ca.join(', ')}`;
       msgEl.className = 'result-msg show ng';
@@ -495,7 +623,7 @@ function render() {
     const expEl   = $('explain-box');
     const expText = $('explain-text');
     if (q.fullExplanation) {
-      expText.textContent = q.fullExplanation;
+      expText.textContent = addKoTerms(q.fullExplanation);
       show(expEl);
     } else {
       hide(expEl);

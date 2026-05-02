@@ -1459,7 +1459,7 @@
       "C. Job 클러스터가 종료되기 전에 최근 작업 동안 수정된 모든 테이블에 대해 OPTIMIZE가 실행됩니다.",
       "D. 디렉토리 파티션(directory partitions)을 기반으로 각 Executor가 여러 파일을 작성하는 대신, 데이터를 그룹화하여 더 적은 수의 파일이 생성되도록 쓰기를 수행하기 전에 셔플(shuffle)이 발생합니다."
     ],
-    "is_multi": true,
+    "is_multi": false,
     "code": "",
     "explanation": "✅ 정답 보기\n\n\n\n> ℹ️ 보기 섞기 적용: 원문 정답 A → 현재 화면 정답 D",
     "index": 87,

@@ -2537,19 +2537,21 @@
     ]
   },
   {
-    "text": "### 📝 문제 154 (154/160) 📚\n\n데이터 엔지니어는 Spark SQL 기반의 ETL 프로세스를 개발하고 있습니다. 실행이 실패했습니다. 데이터 엔지니어가 Spark UI 를 확인한 결과 다음과 같은 ERRORS 가 표시됩니다: 이 문제를 해결하기 위해 데이터 엔지니어가 수행해야 할 두 가지 수정 조치는 무엇입니까? 2 개의 답변을 선택하세요 - (Q) 쿼리에서 더 적은 데이터를 수집하도록 필터를 좁히기\n\n```markdown\n\"java.lang.OutOfMemoryError: Java heap space\"\n```\n\n> ⚠️ 이 문제는 이미지 참고가 필요합니다.",
+    "text": "### 📝 문제 154 (154/160) 📚\n\n데이터 엔지니어는 Spark SQL 기반의 ETL 프로세스를 개발하고 있습니다. 실행이 실패했습니다. 데이터 엔지니어가 Spark UI 를 확인한 결과 다음과 같은 ERRORS 가 표시됩니다: 이 문제를 해결하기 위해 데이터 엔지니어가 수행해야 할 두 가지 수정 조치는 무엇입니까? 2 개의 답변을 선택하세요\n\n```markdown\n\"java.lang.OutOfMemoryError: Java heap space\"\n```\n\n> ⚠️ 이 문제는 이미지 참고가 필요합니다.",
     "choices": [
       "A. 쿼리 성능을 향상시키기 위해 데이터셋을 캐시합니다",
       "B. 할당을 보장하기 위해 shuffle partitions 을 50 으로 고정합니다",
       "C. driver 노드의 크기를 늘리고 autoshuffle partitions 을 비활성화합니다",
-      "D. worker 노드의 크기를 늘리고 autoshuffle partitions 을 활성화합니다"
+      "D. worker 노드의 크기를 늘리고 autoshuffle partitions 을 활성화합니다",
+      "E. 쿼리에서 더 적은 데이터를 수집하도록 필터를 좁히기"
     ],
     "is_multi": true,
     "code": "",
     "explanation": "",
     "index": 154,
     "answer_letters": [
-      "D"
+      "D",
+      "E"
     ]
   },
   {
