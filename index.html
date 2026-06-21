@@ -22,12 +22,32 @@
       --radius:   12px;
       --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
     }
+    :root[data-theme="light"] {
+      --bg:       #f4f7fb;
+      --surface:  #ffffff;
+      --surface2: #f8fafc;
+      --border:   #d8e0ea;
+      --text:     #172033;
+      --sub:      #5e6b7c;
+      --accent:   #2563eb;
+      --accent-h: #1d4ed8;
+      --purple:   #7c3aed;
+      --success:  #16803b;
+      --danger:   #d12f2f;
+      --warn:     #9a6700;
+    }
     html { font-size: 17px; }
-    body { min-height: 100vh; background: var(--bg); color: var(--text); font-family: var(--font); line-height: 1.65; }
+    body { min-height: 100vh; background: var(--bg); color: var(--text); font-family: var(--font); line-height: 1.65; transition: background .2s, color .2s; }
 
     /* ── 레이아웃 ─────────────────────────────────── */
     .app { min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 40px 20px 80px; }
     .card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 40px 44px; width: 100%; max-width: 860px; }
+    .theme-toggle {
+      position: fixed; top: 18px; right: 18px; z-index: 10;
+      padding: 8px 14px; border-radius: 999px; border: 1.5px solid var(--border);
+      background: var(--surface); color: var(--text); cursor: pointer;
+      font: 600 .8rem var(--font); box-shadow: 0 4px 16px rgba(0,0,0,.12);
+    }
 
     /* ── 설정 화면 ──────────────────────────────────── */
     .setup-title { font-size: 1.7rem; font-weight: 800; letter-spacing: -.025em; margin-bottom: 6px; }
@@ -58,6 +78,9 @@
     }
     .start-btn:hover { background: var(--accent-h); }
     .start-btn svg { width: 18px; height: 18px; }
+    .setup-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+    .continue-btn { background: var(--surface2); color: var(--accent); border: 1.5px solid var(--accent); }
+    .continue-btn:hover { background: rgba(56,139,253,.08); }
 
     /* ── 퀴즈 헤더 ──────────────────────────────────── */
     .quiz-topbar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; }
@@ -98,6 +121,9 @@
 
     .q-text { font-size: 1.08rem; line-height: 1.8; color: var(--text); margin-bottom: 28px; white-space: pre-wrap; }
     .kr-term { color: #a5d6ff; }
+    .lang-block + .lang-block { margin-top: 14px; }
+    .lang-label { display: block; margin-bottom: 4px; color: var(--sub); font-size: .7rem; font-weight: 800; letter-spacing: .08em; }
+    .lang-en { color: var(--sub); font-size: .92em; }
 
     /* ── 보기 ────────────────────────────────────────── */
     .choices { display: flex; flex-direction: column; gap: 10px; margin-bottom: 28px; }
@@ -111,6 +137,8 @@
       font-size: 0.97rem; color: var(--sub); line-height: 1.55;
       -webkit-user-select: none; user-select: none;
     }
+    .choice-text { display: flex; min-width: 0; flex-direction: column; white-space: pre-wrap; }
+    .choice-en { margin-top: 5px; color: var(--sub); font-size: .88em; }
     .choice-label:hover { border-color: var(--accent); color: var(--text); background: rgba(56,139,253,.05); }
     .choice-item input:checked + .choice-label {
       border-color: var(--accent); color: var(--text); background: rgba(56,139,253,.09);
@@ -157,6 +185,12 @@
     .explain-box.show { display: block; }
     .explain-title { font-size: 0.78rem; font-weight: 700; color: var(--sub); text-transform: uppercase; letter-spacing: .07em; margin-bottom: 10px; }
     .explain-text { font-size: 0.93rem; color: #c9d1d9; line-height: 1.75; white-space: pre-wrap; }
+
+    :root[data-theme="light"] .q-code { background: #eef2f7; color: #172033; }
+    :root[data-theme="light"] .kr-term { color: #1559b7; }
+    :root[data-theme="light"] .explain-text { color: var(--text); }
+    :root[data-theme="light"] .result-msg.ok { color: #116b31; }
+    :root[data-theme="light"] .result-msg.ng { color: #b42318; }
 
     /* ── 네비게이션 ──────────────────────────────────── */
     .nav-row { display: flex; gap: 10px; align-items: center; justify-content: space-between; flex-wrap: wrap; }
@@ -212,11 +246,13 @@
       .nav-row { flex-direction: column; align-items: stretch; }
       .nav-btn, .nav-next { text-align: center; }
       .jump-wrap { justify-content: center; }
+      .theme-toggle { position: static; align-self: flex-end; margin-bottom: 12px; }
     }
   </style>
 </head>
 <body>
 <div class="app">
+  <button class="theme-toggle" id="theme-toggle" type="button">☀️ 화이트 모드</button>
 
   <!-- ── 설정 화면 ─────────────────────────────────── -->
   <div class="card" id="setup-view">
@@ -228,7 +264,7 @@
       <div class="btn-group" id="exam-group">
         <button class="seg-btn active" data-value="dea">
           DEA
-          <span class="btn-label">Data Engineer Associate · 160문제</span>
+          <span class="btn-label">Data Engineer Associate · 226문제</span>
         </button>
         <button class="seg-btn" data-value="dep">
           DEP
@@ -249,10 +285,13 @@
       </div>
     </div>
 
-    <button class="start-btn" id="start-btn">
-      <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"/></svg>
-      시작하기
-    </button>
+    <div class="setup-actions">
+      <button class="start-btn" id="start-btn">
+        <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"/></svg>
+        새로 시작
+      </button>
+      <button class="start-btn continue-btn hidden" id="continue-btn">이어 풀기</button>
+    </div>
   </div>
 
   <!-- ── 퀴즈 화면 ─────────────────────────────────── -->
@@ -264,7 +303,7 @@
 
     <div id="quiz-content" class="hidden">
       <div class="quiz-topbar">
-        <div class="pos-label" id="pos-text">1 / 160</div>
+        <div class="pos-label" id="pos-text">1 / 226</div>
         <button class="home-btn" id="home-btn">← 홈</button>
       </div>
       <div class="progress-bar"><div class="progress-fill" id="prog-fill" style="width:0%"></div></div>
@@ -331,10 +370,12 @@
 // ── 상태 ─────────────────────────────────────────────────────────────────
 const state = {
   questions: [], idx: 0,
-  answers: {},   // { idx: [letters] }
-  results: {},   // { idx: true|false|null }
+  answers: {},
+  results: {},
   exam: 'dea', mode: 'order',
 };
+const THEME_KEY = 'databricks-cert-quiz-theme';
+const PROGRESS_KEY = 'databricks-cert-quiz-progress-v2';
 const EXAM_LABELS = {
   dea: 'DEA — Data Engineer Associate',
   dep: 'DEP — Data Engineer Professional',
@@ -477,6 +518,75 @@ function addKoTerms(value) {
     });
   }).join('');
 }
+function appendLanguage(container, label, value, className = '') {
+  if (!value) return;
+  const block = document.createElement('div');
+  block.className = `lang-block ${className}`.trim();
+  const badge = document.createElement('span');
+  badge.className = 'lang-label';
+  badge.textContent = label;
+  const text = document.createElement('span');
+  text.textContent = value;
+  block.append(badge, text);
+  container.appendChild(block);
+}
+function readProgresses() {
+  try {
+    const parsed = JSON.parse(localStorage.getItem(PROGRESS_KEY) || '{}');
+    return parsed && typeof parsed === 'object' && !Array.isArray(parsed) ? parsed : {};
+  } catch {
+    return {};
+  }
+}
+function saveProgress() {
+  if (!state.questions.length) return;
+  const progresses = readProgresses();
+  progresses[state.exam] = {
+    version: 2,
+    total: state.questions.length,
+    mode: state.mode,
+    idx: state.idx,
+    order: state.questions.map(question => question.id),
+    answers: state.answers,
+    results: state.results,
+  };
+  try {
+    localStorage.setItem(PROGRESS_KEY, JSON.stringify(progresses));
+  } catch {
+    return;
+  }
+  updateContinueButton();
+}
+function clearProgress(exam) {
+  const progresses = readProgresses();
+  delete progresses[exam];
+  try {
+    localStorage.setItem(PROGRESS_KEY, JSON.stringify(progresses));
+  } catch {
+    return;
+  }
+  updateContinueButton();
+}
+function updateContinueButton() {
+  const saved = readProgresses()[state.exam];
+  const button = $('continue-btn');
+  if (!saved || saved.version !== 2 || !Number.isInteger(saved.idx)) {
+    hide(button);
+    return;
+  }
+  button.textContent = `이어 풀기 · ${saved.idx + 1}번부터`;
+  show(button);
+}
+function applyTheme(theme) {
+  const nextTheme = theme === 'light' ? 'light' : 'dark';
+  document.documentElement.dataset.theme = nextTheme;
+  $('theme-toggle').textContent = nextTheme === 'light' ? '🌙 다크 모드' : '☀️ 화이트 모드';
+  try {
+    localStorage.setItem(THEME_KEY, nextTheme);
+  } catch {
+    return;
+  }
+}
 
 // ── 버튼 그룹 토글 ────────────────────────────────────────────────────────
 function setupBtnGroup(groupId, onChange) {
@@ -489,7 +599,7 @@ function setupBtnGroup(groupId, onChange) {
     });
   });
 }
-setupBtnGroup('exam-group', v => { state.exam = v; });
+setupBtnGroup('exam-group', v => { state.exam = v; updateContinueButton(); });
 setupBtnGroup('mode-group', v => { state.mode = v; });
 
 // ── 캐시 & 로드 ──────────────────────────────────────────────────────────
@@ -497,19 +607,30 @@ const dataCache = {};
 async function loadExam(key) {
   if (dataCache[key]) return dataCache[key];
   const res = await fetch(`data/${key}.json`);
+  if (!res.ok) throw new Error(`문제 파일을 불러오지 못했습니다. (${res.status})`);
   const raw = await res.json();
-  const qs = raw.map(q => {
-    const text = (q.text || '').replace(/^###[^\n]*\n\n?/, '').trim();
-    // answer_letters: 저장된 값 우선, 없으면 explanation에서 추출
+  if (!Array.isArray(raw)) throw new Error('문제 파일 형식이 올바르지 않습니다.');
+  const qs = raw.filter(q => q && typeof q === 'object' && !q.excluded).map((q, position) => {
+    const legacyText = typeof q.text === 'string' ? q.text.replace(/^###[^\n]*\n\n?/, '').trim() : '';
     let ans = q.answer_letters || null;
     if (!ans) {
-      const m = (q.explanation || '').match(/현재 화면 정답\s+([A-E](?:,\s*[A-E])*)/);
+      const explanation = typeof q.explanation === 'string' ? q.explanation : '';
+      const m = explanation.match(/현재 화면 정답\s+([A-E](?:,\s*[A-E])*)/);
       if (m) ans = m[1].split(',').map(s => s.trim());
     }
+    const choicesKo = Array.isArray(q.choices_ko) ? q.choices_ko : Array.isArray(q.choices) ? q.choices : [];
+    const choicesEn = Array.isArray(q.choices_en) ? q.choices_en : [];
     return {
-      text, choices: q.choices || [], isMulti: !!q.is_multi,
-      code: q.code || '', answerLetters: ans,
-      fullExplanation: q.full_explanation || '',
+      id: Number.isInteger(q.source_number) ? q.source_number : Number.isInteger(q.index) ? q.index : position + 1,
+      textKo: typeof q.text_ko === 'string' ? q.text_ko : legacyText,
+      textEn: typeof q.text_en === 'string' ? q.text_en : '',
+      choicesKo,
+      choicesEn,
+      isMulti: !!q.is_multi,
+      code: typeof q.code === 'string' ? q.code : '',
+      answerLetters: Array.isArray(ans) && ans.every(letter => /^[A-E]$/.test(letter)) ? ans : null,
+      explanationKo: typeof q.explanation_ko === 'string' ? q.explanation_ko : typeof q.full_explanation === 'string' ? q.full_explanation : '',
+      explanationEn: typeof q.explanation_en === 'string' ? q.explanation_en : '',
     };
   });
   dataCache[key] = qs;
@@ -552,8 +673,10 @@ function render() {
   if (q.code) { codeEl.textContent = q.code; show(codeEl); }
   else { hide(codeEl); }
 
-  // 문제
-  $('q-text').textContent = addKoTerms(q.text);
+  const questionText = $('q-text');
+  questionText.innerHTML = '';
+  appendLanguage(questionText, '한국어', q.textKo);
+  appendLanguage(questionText, 'ENGLISH', q.textEn, 'lang-en');
 
   // 보기
   const container = $('choices-container');
@@ -561,7 +684,8 @@ function render() {
   const prevSel  = answers[idx] || [];
   const isChecked = idx in results;
 
-  q.choices.forEach(choice => {
+  const choices = q.choicesKo.length ? q.choicesKo : q.choicesEn;
+  choices.forEach((choice, choiceIndex) => {
     const letter = choice[0];
     const item  = document.createElement('div');
     item.className = 'choice-item';
@@ -591,7 +715,17 @@ function render() {
     key.textContent = letter;
 
     const txt = document.createElement('span');
-    txt.textContent = addKoTerms(choice.slice(3)); // "A. " 제거
+    txt.className = 'choice-text';
+    const choiceKo = document.createElement('span');
+    choiceKo.textContent = choice.slice(3);
+    txt.appendChild(choiceKo);
+    const english = q.choicesEn[choiceIndex]?.slice(3) || '';
+    if (english && english !== choice.slice(3)) {
+      const choiceEn = document.createElement('span');
+      choiceEn.className = 'choice-en';
+      choiceEn.textContent = english;
+      txt.appendChild(choiceEn);
+    }
 
     label.append(key, txt);
     item.append(input, label);
@@ -610,8 +744,8 @@ function render() {
       msgEl.className = 'result-msg show ok';
     } else {
       const ca = (q.answerLetters || []).map(l => {
-        const ch = q.choices.find(c => c[0] === l);
-        return ch ? addKoTerms(ch.slice(3)) : l;
+        const ch = choices.find(c => c[0] === l);
+        return ch ? `${l}. ${ch.slice(3)}` : l;
       });
       msgEl.textContent = `❌ 오답. 정답: ${ca.join(', ')}`;
       msgEl.className = 'result-msg show ng';
@@ -622,8 +756,10 @@ function render() {
     // 해설
     const expEl   = $('explain-box');
     const expText = $('explain-text');
-    if (q.fullExplanation) {
-      expText.textContent = addKoTerms(q.fullExplanation);
+    if (q.explanationKo || q.explanationEn) {
+      expText.innerHTML = '';
+      appendLanguage(expText, '한국어', q.explanationKo);
+      appendLanguage(expText, 'ENGLISH', q.explanationEn, 'lang-en');
       show(expEl);
     } else {
       hide(expEl);
@@ -639,7 +775,8 @@ function render() {
   $('jump-input').value       = '';
   $('jump-input').placeholder = `1–${n}`;
   $('prev-btn').disabled = idx === 0;
-  $('next-btn').disabled = idx === n - 1;
+  $('next-btn').disabled = false;
+  $('next-btn').textContent = idx === n - 1 ? '결과 보기 →' : '다음 →';
 }
 
 // ── 정답 확인 ─────────────────────────────────────────────────────────────
@@ -663,20 +800,45 @@ function checkAnswer() {
     state.results[idx] =
       JSON.stringify([...selected].sort()) === JSON.stringify([...q.answerLetters].sort());
   }
+  saveProgress();
   render();
 }
 
 // ── 시작 ─────────────────────────────────────────────────────────────────
-async function startQuiz() {
+function restoreProgress(saved, questions) {
+  if (!saved || saved.version !== 2 || saved.total !== questions.length || !Array.isArray(saved.order)) return false;
+  const byId = new Map(questions.map(question => [question.id, question]));
+  if (saved.order.length !== questions.length || saved.order.some(id => !byId.has(id))) return false;
+  if (!Number.isInteger(saved.idx) || saved.idx < 0 || saved.idx >= questions.length) return false;
+  state.questions = saved.order.map(id => byId.get(id));
+  state.idx = saved.idx;
+  state.mode = saved.mode === 'random' ? 'random' : 'order';
+  state.answers = saved.answers && typeof saved.answers === 'object' && !Array.isArray(saved.answers) ? saved.answers : {};
+  state.results = saved.results && typeof saved.results === 'object' && !Array.isArray(saved.results) ? saved.results : {};
+  return true;
+}
+async function startQuiz(resume = false) {
   state.idx = 0; state.answers = {}; state.results = {};
   hide(setupView); show(quizView);
   show(loadingEl); hide(quizContent);
 
-  const qs = await loadExam(state.exam);
-  state.questions = state.mode === 'random' ? shuffle(qs) : [...qs];
+  try {
+    const qs = await loadExam(state.exam);
+    const saved = resume ? readProgresses()[state.exam] : null;
+    if (!resume) clearProgress(state.exam);
+    if (!restoreProgress(saved, qs)) {
+      if (resume) clearProgress(state.exam);
+      state.questions = state.mode === 'random' ? shuffle(qs) : [...qs];
+    }
+  } catch (error) {
+    hide(quizView); show(setupView);
+    alert(error instanceof Error ? error.message : '문제를 불러오는 중 오류가 발생했습니다.');
+    return;
+  }
 
   hide(loadingEl); show(quizContent);
   render();
+  saveProgress();
 }
 
 // ── 완료 요약 ─────────────────────────────────────────────────────────────
@@ -689,29 +851,34 @@ function showSummary() {
   $('sum-total').textContent   = total;
   $('sum-correct').textContent = correct;
   $('sum-wrong').textContent   = wrong;
+  saveProgress();
   hide(quizView); show(summaryView);
 }
 
 // ── 이벤트 ──────────────────────────────────────────────────────────────
-$('start-btn').addEventListener('click', startQuiz);
-$('home-btn').addEventListener('click', () => { hide(quizView); show(setupView); });
+$('start-btn').addEventListener('click', () => startQuiz(false));
+$('continue-btn').addEventListener('click', () => startQuiz(true));
+$('theme-toggle').addEventListener('click', () => {
+  applyTheme(document.documentElement.dataset.theme === 'light' ? 'dark' : 'light');
+});
+$('home-btn').addEventListener('click', () => { saveProgress(); hide(quizView); show(setupView); updateContinueButton(); });
 $('check-btn').addEventListener('click', checkAnswer);
 
 $('prev-btn').addEventListener('click', () => {
-  if (state.idx > 0) { state.idx--; render(); }
+  if (state.idx > 0) { state.idx--; saveProgress(); render(); }
 });
 $('next-btn').addEventListener('click', () => {
   const n = state.questions.length;
-  if (state.idx < n - 1) { state.idx++; render(); }
+  if (state.idx < n - 1) { state.idx++; saveProgress(); render(); }
   else showSummary();
 });
 $('jump-btn').addEventListener('click', () => {
   const v = parseInt($('jump-input').value, 10);
-  if (!isNaN(v)) { state.idx = Math.max(0, Math.min(v - 1, state.questions.length - 1)); render(); }
+  if (!isNaN(v)) { state.idx = Math.max(0, Math.min(v - 1, state.questions.length - 1)); saveProgress(); render(); }
 });
 $('jump-input').addEventListener('keydown', e => { if (e.key === 'Enter') $('jump-btn').click(); });
-$('retry-btn').addEventListener('click', () => { hide(summaryView); show(setupView); });
-$('summary-home-btn').addEventListener('click', () => { hide(summaryView); show(setupView); });
+$('retry-btn').addEventListener('click', () => { clearProgress(state.exam); hide(summaryView); show(setupView); });
+$('summary-home-btn').addEventListener('click', () => { hide(summaryView); show(setupView); updateContinueButton(); });
 
 // 키보드 단축키
 document.addEventListener('keydown', e => {
@@ -735,6 +902,14 @@ document.addEventListener('keydown', e => {
     }
   }
 });
+let savedTheme = 'dark';
+try {
+  savedTheme = localStorage.getItem(THEME_KEY) || 'dark';
+} catch {
+  savedTheme = 'dark';
+}
+applyTheme(savedTheme);
+updateContinueButton();
 </script>
 </body>
 </html>
