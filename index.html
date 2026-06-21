@@ -81,6 +81,14 @@
     .setup-actions { display: flex; flex-wrap: wrap; gap: 10px; }
     .continue-btn { background: var(--surface2); color: var(--accent); border: 1.5px solid var(--accent); }
     .continue-btn:hover { background: rgba(56,139,253,.08); }
+    .notes-btn { background: rgba(139,92,246,.1); color: var(--purple); border: 1.5px solid rgba(139,92,246,.45); }
+    .notes-btn:hover { background: rgba(139,92,246,.16); }
+    .study-panel { margin: 0 0 28px; padding: 18px; border: 1.5px solid var(--border); border-radius: var(--radius); background: var(--surface2); }
+    .study-panel-title { margin-bottom: 12px; color: var(--sub); font-size: .78rem; font-weight: 800; letter-spacing: .07em; }
+    .study-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+    .study-item { padding: 10px 8px; border-radius: 9px; background: var(--surface); text-align: center; }
+    .study-value { display: block; color: var(--text); font-size: 1.1rem; font-weight: 800; }
+    .study-label { display: block; color: var(--sub); font-size: .72rem; }
 
     /* ── 퀴즈 헤더 ──────────────────────────────────── */
     .quiz-topbar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; }
@@ -124,6 +132,12 @@
     .lang-block + .lang-block { margin-top: 14px; }
     .lang-label { display: block; margin-bottom: 4px; color: var(--sub); font-size: .7rem; font-weight: 800; letter-spacing: .08em; }
     .lang-en { color: var(--sub); font-size: .92em; }
+    .english-original { margin: -12px 0 24px; border: 1px solid var(--border); border-radius: 10px; background: var(--surface2); }
+    .english-original summary { padding: 10px 14px; color: var(--sub); cursor: pointer; font-size: .8rem; font-weight: 700; }
+    .english-original-content { padding: 0 16px 14px; color: var(--sub); font-size: .88rem; white-space: pre-wrap; }
+    .english-original-question { margin-bottom: 10px; }
+    .english-original-choices { padding-left: 22px; }
+    .english-original-choices li + li { margin-top: 5px; }
 
     /* ── 보기 ────────────────────────────────────────── */
     .choices { display: flex; flex-direction: column; gap: 10px; margin-bottom: 28px; }
@@ -185,6 +199,23 @@
     .explain-box.show { display: block; }
     .explain-title { font-size: 0.78rem; font-weight: 700; color: var(--sub); text-transform: uppercase; letter-spacing: .07em; margin-bottom: 10px; }
     .explain-text { font-size: 0.93rem; color: #c9d1d9; line-height: 1.75; white-space: pre-wrap; }
+    .explain-text .english-original { margin: 14px 0 0; white-space: normal; }
+
+    .notes-card { max-width: 1020px; }
+    .notes-header { display: flex; justify-content: space-between; gap: 18px; align-items: flex-start; margin-bottom: 24px; }
+    .notes-title { font-size: 1.65rem; font-weight: 800; letter-spacing: -.025em; }
+    .notes-sub { margin-top: 4px; color: var(--sub); }
+    .notes-alert { margin-bottom: 20px; padding: 14px 16px; border: 1px solid rgba(210,153,34,.35); border-radius: 10px; background: rgba(210,153,34,.08); color: var(--warn); font-size: .88rem; }
+    .memory-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+    .memory-section { padding: 20px; border: 1.5px solid var(--border); border-radius: 13px; background: var(--surface2); }
+    .memory-section h2 { margin-bottom: 13px; font-size: 1rem; }
+    .memory-rule { padding: 11px 0; border-top: 1px solid var(--border); }
+    .memory-rule:first-of-type { padding-top: 0; border-top: 0; }
+    .memory-cue { display: block; color: var(--sub); font-size: .78rem; }
+    .memory-answer { display: block; margin-top: 2px; color: var(--text); font-size: .92rem; font-weight: 750; }
+    .memory-note { display: block; margin-top: 3px; color: var(--sub); font-size: .76rem; line-height: 1.5; }
+    .term-update { margin-top: 18px; padding: 16px; border-radius: 11px; background: rgba(56,139,253,.08); color: var(--sub); font-size: .84rem; }
+    .term-update strong { color: var(--accent); }
 
     :root[data-theme="light"] .q-code { background: #eef2f7; color: #172033; }
     :root[data-theme="light"] .kr-term { color: #1559b7; }
@@ -243,6 +274,9 @@
       html { font-size: 15px; }
       .card { padding: 24px 20px; }
       .summary-grid { grid-template-columns: 1fr 1fr; }
+      .study-grid { grid-template-columns: 1fr 1fr; }
+      .memory-grid { grid-template-columns: 1fr; }
+      .notes-header { flex-direction: column-reverse; }
       .nav-row { flex-direction: column; align-items: stretch; }
       .nav-btn, .nav-next { text-align: center; }
       .jump-wrap { justify-content: center; }
@@ -285,13 +319,104 @@
       </div>
     </div>
 
+    <div class="study-panel">
+      <div class="study-panel-title">내 학습 기록 · 이 브라우저에 자동 저장</div>
+      <div class="study-grid">
+        <div class="study-item"><span class="study-value" id="history-attempts">0</span><span class="study-label">누적 풀이</span></div>
+        <div class="study-item"><span class="study-value" id="history-rate">-</span><span class="study-label">누적 정답률</span></div>
+        <div class="study-item"><span class="study-value" id="history-wrong">0</span><span class="study-label">현재 오답 문항</span></div>
+        <div class="study-item"><span class="study-value" id="history-last">-</span><span class="study-label">최근 학습</span></div>
+      </div>
+    </div>
+
     <div class="setup-actions">
       <button class="start-btn" id="start-btn">
         <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"/></svg>
         새로 시작
       </button>
       <button class="start-btn continue-btn hidden" id="continue-btn">이어 풀기</button>
+      <button class="start-btn notes-btn" id="notes-btn">🧠 핵심 암기 노트</button>
     </div>
+  </div>
+
+  <div class="card notes-card hidden" id="notes-view">
+    <div class="notes-header">
+      <div>
+        <div class="notes-title">🧠 시험 직전 핵심 암기 노트</div>
+        <div class="notes-sub">문제의 신호를 보고 가장 가까운 답의 방향을 빠르게 잡는 표</div>
+      </div>
+      <button class="home-btn" id="notes-home-btn">← 홈</button>
+    </div>
+    <div class="notes-alert">암기 공식은 1차 분류용이야. 문제에 비용, 지연 시간, 권한, 데이터 수명 주기 같은 추가 조건이 있으면 그 조건을 우선해야 해.</div>
+    <div class="memory-grid">
+      <section class="memory-section">
+        <h2>🏗️ 아키텍처와 저장</h2>
+        <div class="memory-rule"><span class="memory-cue">데이터 레이크와 웨어하우스의 장점을 결합한 아키텍처</span><strong class="memory-answer">→ Data Lakehouse</strong></div>
+        <div class="memory-rule"><span class="memory-cue">ACID, 트랜잭션 로그, 스키마 적용, Time Travel</span><strong class="memory-answer">→ Delta Lake</strong><span class="memory-note">Lakehouse의 신뢰성 있는 테이블 저장 계층</span></div>
+        <div class="memory-rule"><span class="memory-cue">다양한 형식의 대규모 원천·원시 데이터 저장</span><strong class="memory-answer">→ Data Lake / Bronze</strong><span class="memory-note">Lakehouse 문제라면 원시 수집 계층은 보통 Bronze</span></div>
+        <div class="memory-rule"><span class="memory-cue">BI, 리포팅, 비즈니스 집계, 고도로 정제된 데이터</span><strong class="memory-answer">→ Data Warehouse 개념 / Gold</strong><span class="memory-note">Lakehouse의 분석 제공 계층을 묻는다면 Gold</span></div>
+      </section>
+
+      <section class="memory-section">
+        <h2>🖥️ 컴퓨트 선택</h2>
+        <div class="memory-rule"><span class="memory-cue">대화형 노트북 개발, 탐색, 임시 분석</span><strong class="memory-answer">→ All-purpose compute</strong></div>
+        <div class="memory-rule"><span class="memory-cue">예약 작업, 워크플로, 프로덕션 자동 실행</span><strong class="memory-answer">→ Jobs compute</strong><span class="memory-note">프로덕션 Job에 all-purpose compute는 권장되지 않음</span></div>
+        <div class="memory-rule"><span class="memory-cue">SQL 쿼리, 대시보드, BI 도구 연결</span><strong class="memory-answer">→ SQL warehouse</strong></div>
+        <div class="memory-rule"><span class="memory-cue">인프라 관리 없이 자동 시작·확장·종료</span><strong class="memory-answer">→ Serverless compute</strong></div>
+        <div class="memory-rule"><span class="memory-cue">Unity Catalog 데이터에 접근할 컴퓨트 조건</span><strong class="memory-answer">→ UC 호환 access mode</strong><span class="memory-note">SQL warehouse는 항상 Unity Catalog를 지원. 별도 컴퓨트 종류를 뜻하는 것은 아님</span></div>
+      </section>
+
+      <section class="memory-section">
+        <h2>🥉 Medallion 계층</h2>
+        <div class="memory-rule"><span class="memory-cue">원본 보존, 최소 변환, 재처리 가능한 수집 데이터</span><strong class="memory-answer">→ Bronze</strong></div>
+        <div class="memory-rule"><span class="memory-cue">정제, 검증, 중복 제거, 조인, 표준화</span><strong class="memory-answer">→ Silver</strong></div>
+        <div class="memory-rule"><span class="memory-cue">비즈니스 집계, KPI, 대시보드·리포팅용 데이터</span><strong class="memory-answer">→ Gold</strong></div>
+        <div class="memory-rule"><span class="memory-cue">신뢰 가능한 공통 상세 데이터와 최종 집계의 위치</span><strong class="memory-answer">→ 상세·정합 데이터는 Silver, 집계는 Gold</strong></div>
+      </section>
+
+      <section class="memory-section">
+        <h2>🗃️ 테이블 종류</h2>
+        <div class="memory-rule"><span class="memory-cue">Databricks가 데이터·메타데이터·최적화·수명 주기를 관리</span><strong class="memory-answer">→ Managed table</strong><span class="memory-note">Unity Catalog의 기본 권장 선택</span></div>
+        <div class="memory-rule"><span class="memory-cue">기존 클라우드 경로 사용, 외부 시스템도 파일에 직접 접근</span><strong class="memory-answer">→ External table</strong><span class="memory-note">DROP 시 메타데이터만 제거되고 원본 파일은 남음</span></div>
+        <div class="memory-rule"><span class="memory-cue">외부 DB를 복사하지 않고 읽기 전용으로 조회</span><strong class="memory-answer">→ Foreign table / Lakehouse Federation</strong></div>
+        <div class="memory-rule"><span class="memory-cue">현재 Spark 세션에서만 사용하는 중간 결과</span><strong class="memory-answer">→ Temporary view</strong></div>
+      </section>
+
+      <section class="memory-section">
+        <h2>📥 수집과 스트리밍</h2>
+        <div class="memory-rule"><span class="memory-cue">클라우드 저장소에 계속 도착하는 새 파일을 확장성 있게 증분 수집</span><strong class="memory-answer">→ Auto Loader</strong></div>
+        <div class="memory-rule"><span class="memory-cue">SQL로 파일을 재시도 가능하고 멱등하게 Delta 테이블에 적재</span><strong class="memory-answer">→ COPY INTO</strong><span class="memory-note">이미 처리한 파일은 다시 실행해도 건너뜀</span></div>
+        <div class="memory-rule"><span class="memory-cue">연속 데이터 처리, checkpoint, micro-batch</span><strong class="memory-answer">→ Structured Streaming</strong></div>
+        <div class="memory-rule"><span class="memory-cue">Delta 테이블의 행 단위 insert·update·delete 변경 추적</span><strong class="memory-answer">→ Change Data Feed</strong><span class="memory-note">활성화한 이후의 변경만 기록</span></div>
+      </section>
+
+      <section class="memory-section">
+        <h2>⚙️ Delta 명령과 성능</h2>
+        <div class="memory-rule"><span class="memory-cue">조건에 따라 insert와 update를 한 번에 처리</span><strong class="memory-answer">→ MERGE INTO</strong></div>
+        <div class="memory-rule"><span class="memory-cue">작은 파일 병합, 데이터 파일 레이아웃 개선</span><strong class="memory-answer">→ OPTIMIZE</strong></div>
+        <div class="memory-rule"><span class="memory-cue">더 이상 참조되지 않는 오래된 데이터 파일 제거</span><strong class="memory-answer">→ VACUUM</strong></div>
+        <div class="memory-rule"><span class="memory-cue">과거 버전 조회</span><strong class="memory-answer">→ VERSION AS OF / TIMESTAMP AS OF</strong></div>
+        <div class="memory-rule"><span class="memory-cue">새 테이블, 높은 카디널리티, 변화하는 필터 패턴</span><strong class="memory-answer">→ Liquid clustering</strong><span class="memory-note">현재 권장은 새 테이블에 partition·ZORDER보다 liquid clustering 우선. 기존 시험 문제는 ZORDER가 정답일 수 있음</span></div>
+      </section>
+
+      <section class="memory-section">
+        <h2>🔐 Unity Catalog 권한</h2>
+        <div class="memory-rule"><span class="memory-cue">통합 권한, 데이터 계보, 감사, 검색·카탈로그</span><strong class="memory-answer">→ Unity Catalog</strong></div>
+        <div class="memory-rule"><span class="memory-cue">테이블 읽기</span><strong class="memory-answer">→ USE CATALOG + USE SCHEMA + SELECT</strong></div>
+        <div class="memory-rule"><span class="memory-cue">테이블 쓰기</span><strong class="memory-answer">→ USE CATALOG + USE SCHEMA + MODIFY</strong></div>
+        <div class="memory-rule"><span class="memory-cue">스키마 안에 테이블 생성</span><strong class="memory-answer">→ USE CATALOG + USE SCHEMA + CREATE TABLE</strong></div>
+        <div class="memory-rule"><span class="memory-cue">권한을 관리하지만 데이터를 읽거나 쓰지는 않음</span><strong class="memory-answer">→ MANAGE</strong><span class="memory-note">소유권 이전까지 자동으로 허용하는 것은 아님</span></div>
+      </section>
+
+      <section class="memory-section">
+        <h2>🛠️ 작업과 문제 해결</h2>
+        <div class="memory-rule"><span class="memory-cue">태스크 의존성, 예약, 재시도, 알림, 오케스트레이션</span><strong class="memory-answer">→ Lakeflow Jobs</strong></div>
+        <div class="memory-rule"><span class="memory-cue">노트북 코드를 단계별 실행하고 변수 값 검사</span><strong class="memory-answer">→ Databricks debugger / Variable Explorer</strong></div>
+        <div class="memory-rule"><span class="memory-cue">Stage, Task, shuffle, skew, executor 성능 분석</span><strong class="memory-answer">→ Spark UI</strong></div>
+        <div class="memory-rule"><span class="memory-cue">클러스터 시작 실패나 인프라 이벤트 확인</span><strong class="memory-answer">→ Cluster event log</strong></div>
+      </section>
+    </div>
+    <div class="term-update"><strong>용어 업데이트:</strong> 예전 문제의 <b>Delta Live Tables (DLT)</b>는 현재 <b>Lakeflow Spark Declarative Pipelines</b>, Workflows의 Job 기능은 <b>Lakeflow Jobs</b>라는 이름을 사용해. 시험 덤프의 구 명칭과 현재 문서 명칭을 둘 다 알아두는 게 좋아.</div>
   </div>
 
   <!-- ── 퀴즈 화면 ─────────────────────────────────── -->
@@ -317,6 +442,13 @@
       <div id="q-type-badge" class="q-type-badge">단일 정답</div>
       <pre id="q-code" class="q-code hidden"></pre>
       <div id="q-text" class="q-text"></div>
+      <details id="english-original" class="english-original hidden">
+        <summary>영문 원문 보기</summary>
+        <div class="english-original-content">
+          <div class="english-original-question" id="english-question"></div>
+          <ol class="english-original-choices" id="english-choices"></ol>
+        </div>
+      </details>
       <div class="choices" id="choices-container"></div>
 
       <button class="check-btn" id="check-btn">정답 확인</button>
@@ -376,6 +508,7 @@ const state = {
 };
 const THEME_KEY = 'databricks-cert-quiz-theme';
 const PROGRESS_KEY = 'databricks-cert-quiz-progress-v2';
+const HISTORY_KEY = 'databricks-cert-quiz-history-v1';
 const EXAM_LABELS = {
   dea: 'DEA — Data Engineer Associate',
   dep: 'DEP — Data Engineer Professional',
@@ -489,10 +622,27 @@ const TERM_KO = [
   ['API', 'API'],
 ];
 const TERM_RE = new RegExp(`\\b(${TERM_KO.map(([term]) => escapeRegExp(term)).join('|')})\\b(?!\\s*[\\(（])`, 'gi');
+const INLINE_TERM_EN = [
+  ['레이크하우스', 'Lakehouse'],
+  ['유니티 카탈로그', 'Unity Catalog'],
+  ['델타 라이브 테이블', 'Delta Live Tables'],
+  ['델타 레이크', 'Delta Lake'],
+  ['오토 로더', 'Auto Loader'],
+  ['SQL 웨어하우스', 'SQL Warehouse'],
+  ['범용 클러스터', 'All-purpose cluster'],
+  ['잡 클러스터', 'Jobs cluster'],
+  ['서버리스 컴퓨트', 'Serverless compute'],
+  ['구조화 스트리밍', 'Structured Streaming'],
+  ['변경 데이터 피드', 'Change Data Feed'],
+  ['리퀴드 클러스터링', 'Liquid clustering'],
+  ['델타 공유', 'Delta Sharing'],
+  ['시간 여행', 'Time Travel'],
+];
 
 // ── DOM ──────────────────────────────────────────────────────────────────
 const $ = id => document.getElementById(id);
 const setupView   = $('setup-view');
+const notesView   = $('notes-view');
 const quizView    = $('quiz-view');
 const summaryView = $('summary-view');
 const loadingEl   = $('loading-state');
@@ -518,6 +668,13 @@ function addKoTerms(value) {
     });
   }).join('');
 }
+function addEnglishTerms(value) {
+  if (!value) return '';
+  return INLINE_TERM_EN.reduce((text, [ko, en]) => {
+    const pattern = new RegExp(`${escapeRegExp(ko)}(?!\\s*[\\(（])`, 'g');
+    return text.replace(pattern, `${ko} (${en})`);
+  }, value);
+}
 function appendLanguage(container, label, value, className = '') {
   if (!value) return;
   const block = document.createElement('div');
@@ -537,6 +694,94 @@ function readProgresses() {
   } catch {
     return {};
   }
+}
+function readHistory() {
+  try {
+    const parsed = JSON.parse(localStorage.getItem(HISTORY_KEY) || '{}');
+    return parsed && typeof parsed === 'object' && !Array.isArray(parsed) ? parsed : {};
+  } catch {
+    return {};
+  }
+}
+function recordAttempt(questionId, result) {
+  if (typeof result !== 'boolean') return;
+  const history = readHistory();
+  const examHistory = history[state.exam] && typeof history[state.exam] === 'object' ? history[state.exam] : { questions: {} };
+  const questions = examHistory.questions && typeof examHistory.questions === 'object' ? examHistory.questions : {};
+  const previous = questions[questionId] && typeof questions[questionId] === 'object' ? questions[questionId] : {};
+  questions[questionId] = {
+    attempts: Number.isInteger(previous.attempts) ? previous.attempts + 1 : 1,
+    correct: Number.isInteger(previous.correct) ? previous.correct + Number(result) : Number(result),
+    wrong: Number.isInteger(previous.wrong) ? previous.wrong + Number(!result) : Number(!result),
+    lastResult: result,
+    lastStudiedAt: new Date().toISOString(),
+  };
+  history[state.exam] = { questions, lastStudiedAt: questions[questionId].lastStudiedAt };
+  try {
+    localStorage.setItem(HISTORY_KEY, JSON.stringify(history));
+  } catch {
+    return;
+  }
+  renderHistorySummary();
+}
+function migrateProgressToHistory() {
+  const progresses = readProgresses();
+  const history = readHistory();
+  let changed = false;
+  const migratedAt = new Date().toISOString();
+
+  Object.entries(progresses).forEach(([exam, progress]) => {
+    if (!progress || progress.version !== 2 || !Array.isArray(progress.order)) return;
+    if (!progress.results || typeof progress.results !== 'object' || Array.isArray(progress.results)) return;
+    const previous = history[exam] && typeof history[exam] === 'object' && !Array.isArray(history[exam]) ? history[exam] : {};
+    if (previous.progressV2Imported) return;
+    const questions = previous.questions && typeof previous.questions === 'object' && !Array.isArray(previous.questions)
+      ? previous.questions
+      : {};
+    let imported = 0;
+
+    Object.entries(progress.results).forEach(([position, result]) => {
+      if (typeof result !== 'boolean') return;
+      const questionId = progress.order[Number(position)];
+      if (!Number.isInteger(questionId) || questions[questionId]) return;
+      questions[questionId] = {
+        attempts: 1,
+        correct: Number(result),
+        wrong: Number(!result),
+        lastResult: result,
+        lastStudiedAt: migratedAt,
+      };
+      imported += 1;
+    });
+
+    history[exam] = {
+      ...previous,
+      questions,
+      lastStudiedAt: previous.lastStudiedAt || (imported ? migratedAt : ''),
+      progressV2Imported: true,
+    };
+    changed = true;
+  });
+
+  if (!changed) return;
+  try {
+    localStorage.setItem(HISTORY_KEY, JSON.stringify(history));
+  } catch {
+    return;
+  }
+}
+function renderHistorySummary() {
+  const examHistory = readHistory()[state.exam];
+  const questionHistory = examHistory?.questions && typeof examHistory.questions === 'object' ? Object.values(examHistory.questions) : [];
+  const attempts = questionHistory.reduce((sum, item) => sum + (Number.isInteger(item.attempts) ? item.attempts : 0), 0);
+  const correct = questionHistory.reduce((sum, item) => sum + (Number.isInteger(item.correct) ? item.correct : 0), 0);
+  const wrongQuestions = questionHistory.filter(item => item.lastResult === false).length;
+  $('history-attempts').textContent = String(attempts);
+  $('history-rate').textContent = attempts ? `${Math.round(correct / attempts * 100)}%` : '-';
+  $('history-wrong').textContent = String(wrongQuestions);
+  $('history-last').textContent = examHistory?.lastStudiedAt
+    ? new Date(examHistory.lastStudiedAt).toLocaleDateString('ko-KR', { month: 'numeric', day: 'numeric' })
+    : '-';
 }
 function saveProgress() {
   if (!state.questions.length) return;
@@ -599,7 +844,7 @@ function setupBtnGroup(groupId, onChange) {
     });
   });
 }
-setupBtnGroup('exam-group', v => { state.exam = v; updateContinueButton(); });
+setupBtnGroup('exam-group', v => { state.exam = v; updateContinueButton(); renderHistorySummary(); });
 setupBtnGroup('mode-group', v => { state.mode = v; });
 
 // ── 캐시 & 로드 ──────────────────────────────────────────────────────────
@@ -675,8 +920,23 @@ function render() {
 
   const questionText = $('q-text');
   questionText.innerHTML = '';
-  appendLanguage(questionText, '한국어', q.textKo);
-  appendLanguage(questionText, 'ENGLISH', q.textEn, 'lang-en');
+  appendLanguage(questionText, '한국어', addEnglishTerms(q.textKo));
+
+  const englishOriginal = $('english-original');
+  englishOriginal.open = false;
+  if (q.textEn || q.choicesEn.length) {
+    $('english-question').textContent = q.textEn;
+    const englishChoices = $('english-choices');
+    englishChoices.innerHTML = '';
+    q.choicesEn.forEach(choice => {
+      const item = document.createElement('li');
+      item.textContent = choice.slice(3);
+      englishChoices.appendChild(item);
+    });
+    show(englishOriginal);
+  } else {
+    hide(englishOriginal);
+  }
 
   // 보기
   const container = $('choices-container');
@@ -685,7 +945,7 @@ function render() {
   const isChecked = idx in results;
 
   const choices = q.choicesKo.length ? q.choicesKo : q.choicesEn;
-  choices.forEach((choice, choiceIndex) => {
+  choices.forEach(choice => {
     const letter = choice[0];
     const item  = document.createElement('div');
     item.className = 'choice-item';
@@ -717,15 +977,8 @@ function render() {
     const txt = document.createElement('span');
     txt.className = 'choice-text';
     const choiceKo = document.createElement('span');
-    choiceKo.textContent = choice.slice(3);
+    choiceKo.textContent = addEnglishTerms(choice.slice(3));
     txt.appendChild(choiceKo);
-    const english = q.choicesEn[choiceIndex]?.slice(3) || '';
-    if (english && english !== choice.slice(3)) {
-      const choiceEn = document.createElement('span');
-      choiceEn.className = 'choice-en';
-      choiceEn.textContent = english;
-      txt.appendChild(choiceEn);
-    }
 
     label.append(key, txt);
     item.append(input, label);
@@ -758,8 +1011,18 @@ function render() {
     const expText = $('explain-text');
     if (q.explanationKo || q.explanationEn) {
       expText.innerHTML = '';
-      appendLanguage(expText, '한국어', q.explanationKo);
-      appendLanguage(expText, 'ENGLISH', q.explanationEn, 'lang-en');
+      appendLanguage(expText, '한국어', addEnglishTerms(q.explanationKo));
+      if (q.explanationEn) {
+        const details = document.createElement('details');
+        details.className = 'english-original';
+        const summary = document.createElement('summary');
+        summary.textContent = '영문 해설 보기';
+        const content = document.createElement('div');
+        content.className = 'english-original-content';
+        content.textContent = q.explanationEn;
+        details.append(summary, content);
+        expText.appendChild(details);
+      }
       show(expEl);
     } else {
       hide(expEl);
@@ -800,6 +1063,7 @@ function checkAnswer() {
     state.results[idx] =
       JSON.stringify([...selected].sort()) === JSON.stringify([...q.answerLetters].sort());
   }
+  recordAttempt(q.id, state.results[idx]);
   saveProgress();
   render();
 }
@@ -858,10 +1122,12 @@ function showSummary() {
 // ── 이벤트 ──────────────────────────────────────────────────────────────
 $('start-btn').addEventListener('click', () => startQuiz(false));
 $('continue-btn').addEventListener('click', () => startQuiz(true));
+$('notes-btn').addEventListener('click', () => { hide(setupView); show(notesView); });
+$('notes-home-btn').addEventListener('click', () => { hide(notesView); show(setupView); renderHistorySummary(); });
 $('theme-toggle').addEventListener('click', () => {
   applyTheme(document.documentElement.dataset.theme === 'light' ? 'dark' : 'light');
 });
-$('home-btn').addEventListener('click', () => { saveProgress(); hide(quizView); show(setupView); updateContinueButton(); });
+$('home-btn').addEventListener('click', () => { saveProgress(); hide(quizView); show(setupView); updateContinueButton(); renderHistorySummary(); });
 $('check-btn').addEventListener('click', checkAnswer);
 
 $('prev-btn').addEventListener('click', () => {
@@ -877,8 +1143,8 @@ $('jump-btn').addEventListener('click', () => {
   if (!isNaN(v)) { state.idx = Math.max(0, Math.min(v - 1, state.questions.length - 1)); saveProgress(); render(); }
 });
 $('jump-input').addEventListener('keydown', e => { if (e.key === 'Enter') $('jump-btn').click(); });
-$('retry-btn').addEventListener('click', () => { clearProgress(state.exam); hide(summaryView); show(setupView); });
-$('summary-home-btn').addEventListener('click', () => { hide(summaryView); show(setupView); updateContinueButton(); });
+$('retry-btn').addEventListener('click', () => { clearProgress(state.exam); hide(summaryView); show(setupView); renderHistorySummary(); });
+$('summary-home-btn').addEventListener('click', () => { hide(summaryView); show(setupView); updateContinueButton(); renderHistorySummary(); });
 
 // 키보드 단축키
 document.addEventListener('keydown', e => {
@@ -910,6 +1176,8 @@ try {
 }
 applyTheme(savedTheme);
 updateContinueButton();
+migrateProgressToHistory();
+renderHistorySummary();
 </script>
 </body>
 </html>
