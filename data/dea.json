@@ -520,9 +520,9 @@
     "text": "### 문제 14\n\n데이터 엔지니어에게는 매일 아침 작업을 시작하기 전에 실행되는 단일 태스크 작업이 있습니다. 업스트림 데이터 문제를 확인한 후 원래 태스크에 앞서 새로운 노트북을 실행하려면 또 다른 태스크를 설정해야 합니다. 다음 중 데이터 엔지니어가 새로운 태스크를 설정하는 데 사용할 수 있는 접근 방식은 무엇입니까?",
     "choices": [
       "A. 기존 Job의 기존 태스크를 복제하고 업데이트하여 새 노트북을 실행할 수 있습니다.",
-      "B. They can create a new task in the existing Job and then add it as a dependency of the original task.",
-      "C. They can create a new task in the existing Job and then add the original task as a dependency of the new task.",
-      "D. They can create a new job from scratch and add both tasks to run concurrently.",
+      "B. 기존 Job에 새 태스크를 생성한 다음, 이를 원래 태스크의 종속성으로 추가할 수 있습니다.",
+      "C. 기존 Job에 새 태스크를 생성한 다음, 원래 태스크를 새 태스크의 종속성으로 추가할 수 있습니다.",
+      "D. 두 태스크를 동시에 실행하기 위해 처음부터 새 Job을 생성하고 두 태스크를 모두 추가할 수 있습니다.",
       "E. 기존 태스크를 새 작업으로 복제한 다음 이를 편집하여 새 노트북을 실행할 수 있습니다."
     ],
     "explanation": "",
@@ -530,9 +530,9 @@
     "text_ko": "데이터 엔지니어에게는 매일 아침 작업을 시작하기 전에 실행되는 단일 태스크 작업이 있습니다. 업스트림 데이터 문제를 확인한 후 원래 태스크에 앞서 새로운 노트북을 실행하려면 또 다른 태스크를 설정해야 합니다. 다음 중 데이터 엔지니어가 새로운 태스크를 설정하는 데 사용할 수 있는 접근 방식은 무엇입니까?",
     "choices_ko": [
       "A. 기존 Job의 기존 태스크를 복제하고 업데이트하여 새 노트북을 실행할 수 있습니다.",
-      "B. They can create a new task in the existing Job and then add it as a dependency of the original task.",
-      "C. They can create a new task in the existing Job and then add the original task as a dependency of the new task.",
-      "D. They can create a new job from scratch and add both tasks to run concurrently.",
+      "B. 기존 Job에 새 태스크를 생성한 다음, 이를 원래 태스크의 종속성으로 추가할 수 있습니다.",
+      "C. 기존 Job에 새 태스크를 생성한 다음, 원래 태스크를 새 태스크의 종속성으로 추가할 수 있습니다.",
+      "D. 두 태스크를 동시에 실행하기 위해 처음부터 새 Job을 생성하고 두 태스크를 모두 추가할 수 있습니다.",
       "E. 기존 태스크를 새 작업으로 복제한 다음 이를 편집하여 새 노트북을 실행할 수 있습니다."
     ],
     "explanation_ko": "",
@@ -672,19 +672,19 @@
     "correction_note_en": "",
     "text": "### 문제 18\n\n데이터 엔지니어는 여러 부서의 팀이 공유 데이터에 액세스해야 하는 다중 팀 프로젝트에 대해 델타 공유를 구성하고 있습니다. 데이터 엔지니어가 유니티 카탈로그 메타스토어를 성공적으로 생성했으며 이제 Delta Share를 설정하는 중입니다. 목표는 내부 팀이 전체 권한으로 공유 데이터에 액세스할 수 있도록 하고 외부 파트너는 데이터를 읽을 수만 있도록 하는 것입니다. 공유를 올바르게 구성하려면 데이터 엔지니어가 어떤 조치를 취해야 합니까?",
     "choices": [
-      "A. Create a Delta Share, set up a secure access URL for internal teams and external partners, and distribute the URL to provide them access to the shared data.",
-      "B. Create a Delta Share, add the internal team's tables and views, and assign READ/WRITE permissions to both external partners and internal teams.",
+      "A. Delta Share를 생성하고 내부 팀과 외부 파트너를 위한 보안 액세스 URL을 설정한 다음, 공유 데이터에 대한 액세스를 제공하기 위해 URL을 배포합니다.",
+      "B. Delta Share를 생성하고 내부 팀의 테이블과 뷰를 추가한 다음, 외부 파트너와 내부 팀 모두에게 READ/WRITE 권한을 할당합니다.",
       "C. Delta Share를 통해 외부 파트너에게 READ 권한을 할당하고 내부 팀에게 READ/WRITE 권한을 할당하고 올바른 테이블과 뷰가 공유되는지 확인하세요.",
-      "D. Grant READ permissions to external partners and READ/WRITE permissions to internal teams through the Delta Share."
+      "D. Delta Share를 통해 외부 파트너에게 READ 권한을, 내부 팀에게 READ/WRITE 권한을 부여합니다."
     ],
     "explanation": "델타 공유 수신자는 읽기 전용 액세스 권한을 갖습니다. 외부 파트너는 공유를 통해 데이터를 받아야 하며, 쓰기 액세스가 필요한 내부 팀은 소스 개체에 대한 일반적인 유니티 카탈로그 권한을 받아야 합니다. 옵션 C는 공유 자체가 쓰기 액세스 권한을 부여한다고 주장하지 않고 외부 액세스를 읽기 전용으로 유지하는 유일한 선택입니다.",
     "full_explanation": "델타 공유 수신자는 읽기 전용 액세스 권한을 갖습니다. 외부 파트너는 공유를 통해 데이터를 받아야 하며, 쓰기 액세스가 필요한 내부 팀은 소스 개체에 대한 일반적인 유니티 카탈로그 권한을 받아야 합니다. 옵션 C는 공유 자체가 쓰기 액세스 권한을 부여한다고 주장하지 않고 외부 액세스를 읽기 전용으로 유지하는 유일한 선택입니다.",
     "text_ko": "데이터 엔지니어는 여러 부서의 팀이 공유 데이터에 액세스해야 하는 다중 팀 프로젝트에 대해 델타 공유를 구성하고 있습니다. 데이터 엔지니어가 유니티 카탈로그 메타스토어를 성공적으로 생성했으며 이제 Delta Share를 설정하는 중입니다. 목표는 내부 팀이 전체 권한으로 공유 데이터에 액세스할 수 있도록 하고 외부 파트너는 데이터를 읽을 수만 있도록 하는 것입니다. 공유를 올바르게 구성하려면 데이터 엔지니어가 어떤 조치를 취해야 합니까?",
     "choices_ko": [
-      "A. Create a Delta Share, set up a secure access URL for internal teams and external partners, and distribute the URL to provide them access to the shared data.",
-      "B. Create a Delta Share, add the internal team's tables and views, and assign READ/WRITE permissions to both external partners and internal teams.",
+      "A. Delta Share를 생성하고 내부 팀과 외부 파트너를 위한 보안 액세스 URL을 설정한 다음, 공유 데이터에 대한 액세스를 제공하기 위해 URL을 배포합니다.",
+      "B. Delta Share를 생성하고 내부 팀의 테이블과 뷰를 추가한 다음, 외부 파트너와 내부 팀 모두에게 READ/WRITE 권한을 할당합니다.",
       "C. Delta Share를 통해 외부 파트너에게 READ 권한을 할당하고 내부 팀에게 READ/WRITE 권한을 할당하고 올바른 테이블과 뷰가 공유되는지 확인하세요.",
-      "D. Grant READ permissions to external partners and READ/WRITE permissions to internal teams through the Delta Share."
+      "D. Delta Share를 통해 외부 파트너에게 READ 권한을, 내부 팀에게 READ/WRITE 권한을 부여합니다."
     ],
     "explanation_ko": "델타 공유 수신자는 읽기 전용 액세스 권한을 갖습니다. 외부 파트너는 공유를 통해 데이터를 받아야 하며, 쓰기 액세스가 필요한 내부 팀은 소스 개체에 대한 일반적인 유니티 카탈로그 권한을 받아야 합니다. 옵션 C는 공유 자체가 쓰기 액세스 권한을 부여한다고 주장하지 않고 외부 액세스를 읽기 전용으로 유지하는 유일한 선택입니다.",
     "correction_note_ko": ""
@@ -1128,7 +1128,7 @@
     "choices": [
       "A. 데이터브릭스 런타임을 모방하는 로컬 환경을 제공함으로써 엔지니어가 데이터브릭스에서 요구하는 특정 IDE을 사용하여 코드를 개발, 테스트 및 디버그할 수 있습니다.",
       "B. 데이터브릭스 런타임을 모방한 로컬 환경을 제공함으로써 엔지니어는 데이터브릭스 자체 웹 인터페이스를 통해서만 코드를 개발, 테스트, 디버깅할 수 있습니다.",
-      "C. By allowing direct execution of Spark jobs from the local machine without needing a network connection",
+      "C. 네트워크 연결 없이 로컬 머신에서 Spark 작업을 직접 실행할 수 있도록 함으로써",
       "D. 데이터브릭스 런타임을 모방하는 로컬 환경을 제공함으로써 엔지니어가 선호하는 IDE를 사용하여 코드를 개발, 테스트 및 디버그할 수 있습니다."
     ],
     "explanation": "Databricks Connect를 사용하면 엔지니어가 선호하는 로컬 IDE을 사용하면서 데이터브릭스 클러스터에 원격으로 연결할 수 있습니다. 이는 데이터브릭스 런타임을 로컬로 모방하여 데이터브릭스 클러스터에서 워크로드를 실행하는 동안 원활한 개발, 테스트 및 디버깅을 가능하게 합니다.",
@@ -1137,7 +1137,7 @@
     "choices_ko": [
       "A. 데이터브릭스 런타임을 모방하는 로컬 환경을 제공함으로써 엔지니어가 데이터브릭스에서 요구하는 특정 IDE을 사용하여 코드를 개발, 테스트 및 디버그할 수 있습니다.",
       "B. 데이터브릭스 런타임을 모방한 로컬 환경을 제공함으로써 엔지니어는 데이터브릭스 자체 웹 인터페이스를 통해서만 코드를 개발, 테스트, 디버깅할 수 있습니다.",
-      "C. By allowing direct execution of Spark jobs from the local machine without needing a network connection",
+      "C. 네트워크 연결 없이 로컬 머신에서 Spark 작업을 직접 실행할 수 있도록 함으로써",
       "D. 데이터브릭스 런타임을 모방하는 로컬 환경을 제공함으로써 엔지니어가 선호하는 IDE를 사용하여 코드를 개발, 테스트 및 디버그할 수 있습니다."
     ],
     "explanation_ko": "Databricks Connect를 사용하면 엔지니어가 선호하는 로컬 IDE을 사용하면서 데이터브릭스 클러스터에 원격으로 연결할 수 있습니다. 이는 데이터브릭스 런타임을 로컬로 모방하여 데이터브릭스 클러스터에서 워크로드를 실행하는 동안 원활한 개발, 테스트 및 디버깅을 가능하게 합니다.",
@@ -1673,7 +1673,7 @@
     "text": "### 문제 44\n\n데이터 엔지니어가 Kafka의 클릭스트림 이벤트와 클라우드 개체 스토리지의 일일 제품 카탈로그를 수집하는 새로운 데이터브릭스 파이프라인을 설정하고 있습니다. 감사 가능성과 손쉬운 재처리를 보장하기 위해 엔지니어는 모든 소스 데이터를 보관하려고 합니다. 이후 단계에서는 데이터가 대시보드에서 사용되기 전에 정리, 중복 제거 및 비즈니스 모델링을 처리합니다. 메달리온 아키텍처 원칙에 부합하는 접근 방식은 무엇입니까?",
     "choices": [
       "A. 전체 소스 충실도를 유지하면서 BI를 최적화하려면 비정규화된 스타 스키마를 사용하여 두 소스를 골드에 배치하세요.",
-      "B. Land streaming events from Kafka in silver, and the product catalog directly in Gold to minimize layers for batch data.",
+      "B. Kafka의 스트리밍 이벤트는 실버에, 제품 카탈로그는 배치 데이터의 계층을 최소화하기 위해 골드에 직접 배치합니다.",
       "C. 최소한의 검증으로 브론즈 계층 추가 전용에 두 소스를 모두 배치한 다음 품질 및 분석을 위해 실버/골드 다운스트림을 빌드합니다.",
       "D. 다운스트림 복잡성을 줄이기 위해 스키마 시행 및 중복 제거를 통해 두 소스를 실버 계층에 직접 배치합니다."
     ],
@@ -1682,7 +1682,7 @@
     "text_ko": "데이터 엔지니어가 Kafka의 클릭스트림 이벤트와 클라우드 개체 스토리지의 일일 제품 카탈로그를 수집하는 새로운 데이터브릭스 파이프라인을 설정하고 있습니다. 감사 가능성과 손쉬운 재처리를 보장하기 위해 엔지니어는 모든 소스 데이터를 보관하려고 합니다. 이후 단계에서는 데이터가 대시보드에서 사용되기 전에 정리, 중복 제거 및 비즈니스 모델링을 처리합니다. 메달리온 아키텍처 원칙에 부합하는 접근 방식은 무엇입니까?",
     "choices_ko": [
       "A. 전체 소스 충실도를 유지하면서 BI를 최적화하려면 비정규화된 스타 스키마를 사용하여 두 소스를 골드에 배치하세요.",
-      "B. Land streaming events from Kafka in silver, and the product catalog directly in Gold to minimize layers for batch data.",
+      "B. Kafka의 스트리밍 이벤트는 실버에, 제품 카탈로그는 배치 데이터의 계층을 최소화하기 위해 골드에 직접 배치합니다.",
       "C. 최소한의 검증으로 브론즈 계층 추가 전용에 두 소스를 모두 배치한 다음 품질 및 분석을 위해 실버/골드 다운스트림을 빌드합니다.",
       "D. 다운스트림 복잡성을 줄이기 위해 스키마 시행 및 중복 제거를 통해 두 소스를 실버 계층에 직접 배치합니다."
     ],
@@ -1862,20 +1862,20 @@
     "text": "### 문제 49\n\n다음 중 골드 테이블을 소스로 활용하는 데이터 워크로드는 무엇입니까?",
     "choices": [
       "A. 타임스탬프를 사람이 읽을 수 있는 형식으로 구문 분석하여 데이터를 강화하는 작업",
-      "B. A job that aggregates uncleaned data to create standard summary statistics",
+      "B. 정리되지 않은 데이터를 집계하여 표준 요약 통계를 생성하는 작업",
       "C. 형식이 잘못된 기록을 제거하여 데이터를 정리하는 작업",
       "D. 대시보드에 제공되도록 설계된 집계된 데이터를 쿼리하는 작업",
-      "E. A job that ingests raw data from a streaming source into the Lakehouse"
+      "E. 스트리밍 소스의 원시 데이터를 레이크하우스로 수집하는 작업"
     ],
     "explanation": "",
     "full_explanation": "",
     "text_ko": "다음 중 골드 테이블을 소스로 활용하는 데이터 워크로드는 무엇입니까?",
     "choices_ko": [
       "A. 타임스탬프를 사람이 읽을 수 있는 형식으로 구문 분석하여 데이터를 강화하는 작업",
-      "B. A job that aggregates uncleaned data to create standard summary statistics",
+      "B. 정리되지 않은 데이터를 집계하여 표준 요약 통계를 생성하는 작업",
       "C. 형식이 잘못된 기록을 제거하여 데이터를 정리하는 작업",
       "D. 대시보드에 제공되도록 설계된 집계된 데이터를 쿼리하는 작업",
-      "E. A job that ingests raw data from a streaming source into the Lakehouse"
+      "E. 스트리밍 소스의 원시 데이터를 레이크하우스로 수집하는 작업"
     ],
     "explanation_ko": "",
     "correction_note_ko": ""
@@ -1975,7 +1975,7 @@
     "text": "### 문제 52\n\n회사는 데이터브릭스을 사용하지 않지만 델타 형식으로 저장된 대규모 기록 데이터 세트에 액세스해야 하는 파트너와 협력하고 있습니다. 데이터 엔지니어는 파트너가 계정을 설정할 필요 없이 읽기 전용 액세스를 통해 데이터에 안전하게 액세스할 수 있는지 확인해야 합니다. 데이터는 어떻게 공유되어야 합니까?",
     "choices": [
       "A. 데이터 세트를 CSV 파일로 내보내고 파일을 파트너 시스템에 수동으로 전송하여 공유합니다.",
-      "B. Grant your partner access to your Databricks workspace and assign them full write permissions to the Delta table, enabling them to modify the dataset.",
+      "B. 파트너에게 데이터브릭스 워크스페이스에 대한 액세스 권한을 부여하고 Delta 테이블에 대한 전체 쓰기 권한을 할당하여 데이터 세트를 수정할 수 있도록 합니다.",
       "C. 유니티 카탈로그를 사용하여 데이터 세트를 공유하여 두 팀 모두 동일한 조직 내의 데이터에 대한 전체 쓰기 액세스 권한을 갖도록 합니다.",
       "D. 파트너가 데이터브릭스 계정 없이 안전한 읽기 전용 URL을 사용하여 데이터에 액세스할 수 있도록 하는 델타 공유를 사용하여 데이터세트를 공유하면 데이터를 수정할 수 없습니다."
     ],
@@ -1984,7 +1984,7 @@
     "text_ko": "회사는 데이터브릭스을 사용하지 않지만 델타 형식으로 저장된 대규모 기록 데이터 세트에 액세스해야 하는 파트너와 협력하고 있습니다. 데이터 엔지니어는 파트너가 계정을 설정할 필요 없이 읽기 전용 액세스를 통해 데이터에 안전하게 액세스할 수 있는지 확인해야 합니다. 데이터는 어떻게 공유되어야 합니까?",
     "choices_ko": [
       "A. 데이터 세트를 CSV 파일로 내보내고 파일을 파트너 시스템에 수동으로 전송하여 공유합니다.",
-      "B. Grant your partner access to your Databricks workspace and assign them full write permissions to the Delta table, enabling them to modify the dataset.",
+      "B. 파트너에게 데이터브릭스 워크스페이스에 대한 액세스 권한을 부여하고 Delta 테이블에 대한 전체 쓰기 권한을 할당하여 데이터 세트를 수정할 수 있도록 합니다.",
       "C. 유니티 카탈로그를 사용하여 데이터 세트를 공유하여 두 팀 모두 동일한 조직 내의 데이터에 대한 전체 쓰기 액세스 권한을 갖도록 합니다.",
       "D. 파트너가 데이터브릭스 계정 없이 안전한 읽기 전용 URL을 사용하여 데이터에 액세스할 수 있도록 하는 델타 공유를 사용하여 데이터세트를 공유하면 데이터를 수정할 수 없습니다."
     ],
@@ -2351,7 +2351,7 @@
       "A. Databricks SQL에서 사용 가능한 엔드포인트를 사용할 수 있습니다.",
       "B. 다목적 클러스터 대신 작업 클러스터를 사용할 수 있습니다.",
       "C. 클러스터를 단일 노드로 구성할 수 있습니다.",
-      "D. They can use clusters that are from a cluster pool",
+      "D. 클러스터 풀에 속한 클러스터를 사용할 수 있습니다.",
       "E. 더 큰 데이터 크기에 맞게 자동 확장되도록 클러스터를 구성할 수 있습니다."
     ],
     "explanation": "",
@@ -2361,7 +2361,7 @@
       "A. Databricks SQL에서 사용 가능한 엔드포인트를 사용할 수 있습니다.",
       "B. 다목적 클러스터 대신 작업 클러스터를 사용할 수 있습니다.",
       "C. 클러스터를 단일 노드로 구성할 수 있습니다.",
-      "D. They can use clusters that are from a cluster pool",
+      "D. 클러스터 풀에 속한 클러스터를 사용할 수 있습니다.",
       "E. 더 큰 데이터 크기에 맞게 자동 확장되도록 클러스터를 구성할 수 있습니다."
     ],
     "explanation_ko": "",
@@ -2387,8 +2387,8 @@
     "correction_note_en": "",
     "text": "### 문제 63\n\n데이터 엔지니어는 공유 클러스터를 사용하여 영업팀이 생성한 뷰에 액세스해야 합니다. 데이터 엔지니어에게 카탈로그 및 스키마에 대한 사용 권한이 제공되었습니다. 영업팀에서 생성한 뷰에 접속하기 위해. 데이터 엔지니어에게 추가로 필요한 최소 권한은 무엇입니까?",
     "choices": [
-      "A. Needs SELECT permission on the VIEW and the underlying TABLE.",
-      "B. Needs SELECT permission only on the VIEW",
+      "A. 뷰(VIEW)와 그 기반이 되는 테이블(TABLE)에 대한 SELECT 권한이 필요합니다.",
+      "B. 뷰(VIEW)에 대한 SELECT 권한만 필요합니다.",
       "C. 뷰에 ALL PRIVILEGES 필요",
       "D. 스키마 수준에서 ALL PRIVILEGES 필요"
     ],
@@ -2396,8 +2396,8 @@
     "full_explanation": "",
     "text_ko": "데이터 엔지니어는 공유 클러스터를 사용하여 영업팀이 생성한 뷰에 액세스해야 합니다. 데이터 엔지니어에게 카탈로그 및 스키마에 대한 사용 권한이 제공되었습니다. 영업팀에서 생성한 뷰에 접속하기 위해. 데이터 엔지니어에게 추가로 필요한 최소 권한은 무엇입니까?",
     "choices_ko": [
-      "A. Needs SELECT permission on the VIEW and the underlying TABLE.",
-      "B. Needs SELECT permission only on the VIEW",
+      "A. 뷰(VIEW)와 그 기반이 되는 테이블(TABLE)에 대한 SELECT 권한이 필요합니다.",
+      "B. 뷰(VIEW)에 대한 SELECT 권한만 필요합니다.",
       "C. 뷰에 ALL PRIVILEGES 필요",
       "D. 스키마 수준에서 ALL PRIVILEGES 필요"
     ],
@@ -2465,7 +2465,7 @@
       "A. 다양한 유형의 데이터를 동시에 작업할 수 있는 능력",
       "B. 특정 파티션 및 창 내에서 데이터로 작업하는 기능",
       "C. 지정된 간격으로 시간 관련 데이터를 작업하는 기능",
-      "D. An ability to work with complex, nested data ingested from JSON files",
+      "D. JSON 파일에서 수집한 복잡한 중첩 데이터를 다룰 수 있는 능력",
       "E. 절차 자동화를 위해 다양한 테이블로 작업할 수 있는 능력"
     ],
     "explanation": "",
@@ -2475,7 +2475,7 @@
       "A. 다양한 유형의 데이터를 동시에 작업할 수 있는 능력",
       "B. 특정 파티션 및 창 내에서 데이터로 작업하는 기능",
       "C. 지정된 간격으로 시간 관련 데이터를 작업하는 기능",
-      "D. An ability to work with complex, nested data ingested from JSON files",
+      "D. JSON 파일에서 수집한 복잡한 중첩 데이터를 다룰 수 있는 능력",
       "E. 절차 자동화를 위해 다양한 테이블로 작업할 수 있는 능력"
     ],
     "explanation_ko": "",
@@ -3034,7 +3034,7 @@
     "correction_note_en": "",
     "text": "### 문제 80\n\n데이터 엔지니어 팀은 데이터브릭스에 새로운 데이터 플랫폼을 구현하기로 결정했으며 현재 각 데이터 레이어에 각 종류의 데이터를 저장하는 방법을 결정하고 있습니다. 메달리온 아키텍처에 적합한 레이어와 데이터 쌍은 무엇입니까?",
     "choices": [
-      "A. Silver Layer - Raw data from deposit account application",
+      "A. 실버 계층 - 예금 계좌 신청서의 원시 데이터",
       "B. 브론즈 계층 - 국가별, 도시별 현금 입금액 요약",
       "C. 실버 계층 - 정리된 마스터 고객 데이터",
       "D. 골드 계층 - 중복 제거된 송금 거래"
@@ -3043,7 +3043,7 @@
     "full_explanation": "Medallion 아키텍처에서 실버 계층은 정리되고 준수된 데이터(예: 마스터 고객 데이터)를 보유하며, 이는 브론즈 계층에서 수집된 후 정리, 검증 및 표준화되었습니다.",
     "text_ko": "데이터 엔지니어 팀은 데이터브릭스에 새로운 데이터 플랫폼을 구현하기로 결정했으며 현재 각 데이터 레이어에 각 종류의 데이터를 저장하는 방법을 결정하고 있습니다. 메달리온 아키텍처에 적합한 레이어와 데이터 쌍은 무엇입니까?",
     "choices_ko": [
-      "A. Silver Layer - Raw data from deposit account application",
+      "A. 실버 계층 - 예금 계좌 신청서의 원시 데이터",
       "B. 브론즈 계층 - 국가별, 도시별 현금 입금액 요약",
       "C. 실버 계층 - 정리된 마스터 고객 데이터",
       "D. 골드 계층 - 중복 제거된 송금 거래"
@@ -3151,7 +3151,7 @@
       "A. Z 순서 열을 기준으로 리퀴드 클러스터링 및 클러스터를 사용하여 데이터 레이아웃을 다시 작성합니다.",
       "B. 캐시를 통해 쿼리 결과를 읽을 수 있도록 델타 캐싱을 활성화합니다.",
       "C. Z-Order 열을 조정하고 OPTIMIZE를 수동으로 실행합니다.",
-      "D. Switch the Data layout from Partition+Z-Ordering to Automatic Liquid Clustering."
+      "D. 데이터 레이아웃을 Partition+Z-Ordering에서 Automatic Liquid Clustering으로 전환합니다."
     ],
     "explanation": "쿼리가 자주 변경되는 필터 조건을 사용하는 경우 분할 및 Z-정렬는 고정 열에 의존하기 때문에 효율성이 떨어집니다. 올바른 해결책은 관찰된 쿼리 패턴을 기반으로 데이터를 동적으로 재구성하는 자동 리퀴드 클러스터링으로 전환하여 수동 Z-정렬 또는 정적 파티셔닝의 필요성을 제거하고 데이터 레이아웃 병목 현상을 해결하는 것입니다.",
     "full_explanation": "쿼리가 자주 변경되는 필터 조건을 사용하는 경우 분할 및 Z-정렬는 고정 열에 의존하기 때문에 효율성이 떨어집니다. 올바른 해결책은 관찰된 쿼리 패턴을 기반으로 데이터를 동적으로 재구성하는 자동 리퀴드 클러스터링으로 전환하여 수동 Z-정렬 또는 정적 파티셔닝의 필요성을 제거하고 데이터 레이아웃 병목 현상을 해결하는 것입니다.",
@@ -3160,7 +3160,7 @@
       "A. Z 순서 열을 기준으로 리퀴드 클러스터링 및 클러스터를 사용하여 데이터 레이아웃을 다시 작성합니다.",
       "B. 캐시를 통해 쿼리 결과를 읽을 수 있도록 델타 캐싱을 활성화합니다.",
       "C. Z-Order 열을 조정하고 OPTIMIZE를 수동으로 실행합니다.",
-      "D. Switch the Data layout from Partition+Z-Ordering to Automatic Liquid Clustering."
+      "D. 데이터 레이아웃을 Partition+Z-Ordering에서 Automatic Liquid Clustering으로 전환합니다."
     ],
     "explanation_ko": "쿼리가 자주 변경되는 필터 조건을 사용하는 경우 분할 및 Z-정렬는 고정 열에 의존하기 때문에 효율성이 떨어집니다. 올바른 해결책은 관찰된 쿼리 패턴을 기반으로 데이터를 동적으로 재구성하는 자동 리퀴드 클러스터링으로 전환하여 수동 Z-정렬 또는 정적 파티셔닝의 필요성을 제거하고 데이터 레이아웃 병목 현상을 해결하는 것입니다.",
     "correction_note_ko": ""
@@ -3570,7 +3570,7 @@
       "A. 데이터브릭스 에셋 번들(DAB) + GitHub 통합",
       "B. workflow_config.json을 유지하고 데이터브릭스 CLI를 사용하여 배포합니다.",
       "C. workflow_config.json 유지관리 및 Terraform을 사용하여 배포",
-      "D. Manually create and manage the workflow in UI"
+      "D. UI에서 수동으로 워크플로를 생성하고 관리합니다."
     ],
     "explanation": "ETL 파이프라인을 프로덕션에 배포하는 가장 좋은 방법은 GitHub 통합과 함께 데이터브릭스 자산 번들(DAB)을 사용하는 것입니다. DAB는 워크플로 및 리소스를 정의하기 위한 선언적 YAML-based 구조를 제공하고, CI/CD를 지원하며, GitHub와 원활하게 통합되어 버전 제어 및 프로덕션에 대한 자동화 배포를 가능하게 합니다.",
     "full_explanation": "ETL 파이프라인을 프로덕션에 배포하는 가장 좋은 방법은 GitHub 통합과 함께 데이터브릭스 자산 번들(DAB)을 사용하는 것입니다. DAB는 워크플로 및 리소스를 정의하기 위한 선언적 YAML-based 구조를 제공하고, CI/CD를 지원하며, GitHub와 원활하게 통합되어 버전 제어 및 프로덕션에 대한 자동화 배포를 가능하게 합니다.",
@@ -3579,7 +3579,7 @@
       "A. 데이터브릭스 에셋 번들(DAB) + GitHub 통합",
       "B. workflow_config.json을 유지하고 데이터브릭스 CLI를 사용하여 배포합니다.",
       "C. workflow_config.json 유지관리 및 Terraform을 사용하여 배포",
-      "D. Manually create and manage the workflow in UI"
+      "D. UI에서 수동으로 워크플로를 생성하고 관리합니다."
     ],
     "explanation_ko": "ETL 파이프라인을 프로덕션에 배포하는 가장 좋은 방법은 GitHub 통합과 함께 데이터브릭스 자산 번들(DAB)을 사용하는 것입니다. DAB는 워크플로 및 리소스를 정의하기 위한 선언적 YAML-based 구조를 제공하고, CI/CD를 지원하며, GitHub와 원활하게 통합되어 버전 제어 및 프로덕션에 대한 자동화 배포를 가능하게 합니다.",
     "correction_note_ko": ""
@@ -3641,19 +3641,19 @@
     "correction_note_en": "",
     "text": "### 문제 96\n\n데이터 엔지니어가 데이터브릭스 계정을 사용하여 파트너 조직의 최신 정보를 파악하고 있습니다. 두 팀 모두 일부 비즈니스 사용 사례를 공유합니다. 데이터 엔지니어는 Unity에서 관리하는 카탈로그 델타 테이블 중 일부와 해당 테이블을 생성하는 노트북 작업을 파트너 조직과 공유해야 합니다. 데이터 엔지니어가 필요한 정보를 어떻게 원활하게 공유할 수 있습니까?",
     "choices": [
-      "A. Zip all the code and share via email and allow data ingestion from your data lake",
+      "A. 모든 코드를 압축하여 이메일로 공유하고 데이터 레이크에서 데이터를 수집하도록 허용합니다.",
       "B. Delta Sharing을 통해 필요한 데이터세트와 노트북을 공유하세요. 유니티 카탈로그를 통해 권한을 관리하세요.",
       "C. 유니티 카탈로그를 이용하면 간단하게 데이터와 노트북을 공유할 수 있습니다.",
-      "D. Share access to codebase via Github and allow them to ingest datasets from your Datalake."
+      "D. GitHub를 통해 코드베이스에 대한 액세스를 공유하고 데이터 레이크에서 데이터 세트를 수집하도록 허용합니다."
     ],
     "explanation": "올바른 접근 방식은 Delta Sharing을 사용하여 유니티 카탈로그 관리형 Delta 테이블 및 노트북을 파트너 조직과 안전하게 공유하는 것입니다. 권한은 유니티 카탈로그를 통해 관리되므로 수동 파일 전송이나 복제 없이 거버넌스, 액세스 제어 및 원활한 협업이 보장됩니다.",
     "full_explanation": "올바른 접근 방식은 Delta Sharing을 사용하여 유니티 카탈로그 관리형 Delta 테이블 및 노트북을 파트너 조직과 안전하게 공유하는 것입니다. 권한은 유니티 카탈로그를 통해 관리되므로 수동 파일 전송이나 복제 없이 거버넌스, 액세스 제어 및 원활한 협업이 보장됩니다.",
     "text_ko": "데이터 엔지니어가 데이터브릭스 계정을 사용하여 파트너 조직의 최신 정보를 파악하고 있습니다. 두 팀 모두 일부 비즈니스 사용 사례를 공유합니다. 데이터 엔지니어는 Unity에서 관리하는 카탈로그 델타 테이블 중 일부와 해당 테이블을 생성하는 노트북 작업을 파트너 조직과 공유해야 합니다. 데이터 엔지니어가 필요한 정보를 어떻게 원활하게 공유할 수 있습니까?",
     "choices_ko": [
-      "A. Zip all the code and share via email and allow data ingestion from your data lake",
+      "A. 모든 코드를 압축하여 이메일로 공유하고 데이터 레이크에서 데이터를 수집하도록 허용합니다.",
       "B. Delta Sharing을 통해 필요한 데이터세트와 노트북을 공유하세요. 유니티 카탈로그를 통해 권한을 관리하세요.",
       "C. 유니티 카탈로그를 이용하면 간단하게 데이터와 노트북을 공유할 수 있습니다.",
-      "D. Share access to codebase via Github and allow them to ingest datasets from your Datalake."
+      "D. GitHub를 통해 코드베이스에 대한 액세스를 공유하고 데이터 레이크에서 데이터 세트를 수집하도록 허용합니다."
     ],
     "explanation_ko": "올바른 접근 방식은 Delta Sharing을 사용하여 유니티 카탈로그 관리형 Delta 테이블 및 노트북을 파트너 조직과 안전하게 공유하는 것입니다. 권한은 유니티 카탈로그를 통해 관리되므로 수동 파일 전송이나 복제 없이 거버넌스, 액세스 제어 및 원활한 협업이 보장됩니다.",
     "correction_note_ko": ""
@@ -3946,18 +3946,18 @@
     "correction_note_en": "",
     "text": "### 문제 104\n\n전자 건강 기록(EHRs)을 저장하기 위해 델타 레이크를 사용하는 의료 서비스 제공자 조직에서 데이터 분석가는 일부 최근 데이터 수정 사항이 적용되기 전 2주 전의 patient_records 테이블 스냅샷을 분석해야 합니다. 분석가가 특정 이전 버전을 쿼리할 수 있도록 데이터 엔지니어는 어떤 접근 방식을 취해야 합니까?",
     "choices": [
-      "A. Truncate the table to remove all data, then reload the data from two weeks ago into the truncated table for the analyst to query.",
-      "B. Identify the version number corresponding to two weeks ago from the Delta transaction log, share that version number with the analyst to query using VERSION AS OF syntax, or export that version to a new Delta table for the analyst to query.",
-      "C. Restore the table to the version from two weeks ago using the RESTOREcommand, and have the analyst query the restored table.",
+      "A. 테이블을 truncate하여 모든 데이터를 제거한 다음, 2주 전 데이터를 truncate된 테이블에 다시 로드하여 분석가가 쿼리하도록 합니다.",
+      "B. Delta 트랜잭션 로그에서 2주 전에 해당하는 버전 번호를 식별하고, 그 버전 번호를 분석가와 공유하여 VERSION AS OF 구문으로 쿼리하게 하거나, 해당 버전을 새 Delta 테이블로 내보내 분석가가 쿼리하도록 합니다.",
+      "C. RESTORE 명령을 사용하여 테이블을 2주 전 버전으로 복원하고, 분석가가 복원된 테이블을 쿼리하도록 합니다.",
       "D. VACUUMcommand를 사용하여 2주가 지난 테이블의 모든 버전을 제거하면 분석가는 나머지 버전을 쿼리할 수 있습니다."
     ],
     "explanation": "",
     "full_explanation": "",
     "text_ko": "전자 건강 기록(EHRs)을 저장하기 위해 델타 레이크를 사용하는 의료 서비스 제공자 조직에서 데이터 분석가는 일부 최근 데이터 수정 사항이 적용되기 전 2주 전의 patient_records 테이블 스냅샷을 분석해야 합니다. 분석가가 특정 이전 버전을 쿼리할 수 있도록 데이터 엔지니어는 어떤 접근 방식을 취해야 합니까?",
     "choices_ko": [
-      "A. Truncate the table to remove all data, then reload the data from two weeks ago into the truncated table for the analyst to query.",
-      "B. Identify the version number corresponding to two weeks ago from the Delta transaction log, share that version number with the analyst to query using VERSION AS OF syntax, or export that version to a new Delta table for the analyst to query.",
-      "C. Restore the table to the version from two weeks ago using the RESTOREcommand, and have the analyst query the restored table.",
+      "A. 테이블을 truncate하여 모든 데이터를 제거한 다음, 2주 전 데이터를 truncate된 테이블에 다시 로드하여 분석가가 쿼리하도록 합니다.",
+      "B. Delta 트랜잭션 로그에서 2주 전에 해당하는 버전 번호를 식별하고, 그 버전 번호를 분석가와 공유하여 VERSION AS OF 구문으로 쿼리하게 하거나, 해당 버전을 새 Delta 테이블로 내보내 분석가가 쿼리하도록 합니다.",
+      "C. RESTORE 명령을 사용하여 테이블을 2주 전 버전으로 복원하고, 분석가가 복원된 테이블을 쿼리하도록 합니다.",
       "D. VACUUMcommand를 사용하여 2주가 지난 테이블의 모든 버전을 제거하면 분석가는 나머지 버전을 쿼리할 수 있습니다."
     ],
     "explanation_ko": "",
@@ -4021,9 +4021,9 @@
     "correction_note_en": "",
     "text": "### 문제 106\n\n데이터세트는 Delta Live Tables을 사용하여 정의되었으며 기대 절을 포함합니다: CONSTRAINT valid_timestamp EXPECT (timestamp > '2020-01-01') ON VIOLATION DROP ROW 이러한 제약 조건을 위반하는 데이터가 포함된 데이터의 배치이 처리될 때 예상되는 동작은 무엇입니까?",
     "choices": [
-      "A. Records that violate the expectation are dropped from the target dataset and loaded into a quarantine table.",
+      "A. 기대치를 위반하는 레코드는 대상 데이터세트에서 제거되고 격리(quarantine) 테이블에 로드됩니다.",
       "B. 기대치를 위반하는 레코드는 대상 데이터세트에 추가되고 대상 데이터세트에 추가된 필드에서 유효하지 않은 것으로 플래그가 지정됩니다.",
-      "C. Records that violate the expectation are dropped from the target dataset and recorded as invalid in the event log.",
+      "C. 기대치를 위반하는 레코드는 대상 데이터세트에서 제거되고 이벤트 로그에 유효하지 않은 것으로 기록됩니다.",
       "D. 기대치를 위반하는 레코드는 대상 데이터 세트에 추가되고 이벤트 로그에 유효하지 않은 것으로 기록됩니다.",
       "E. 기대치를 위반하는 기록으로 인해 작업이 실패합니다."
     ],
@@ -4031,9 +4031,9 @@
     "full_explanation": "",
     "text_ko": "데이터세트는 Delta Live Tables을 사용하여 정의되었으며 기대 절을 포함합니다: CONSTRAINT valid_timestamp EXPECT (timestamp > '2020-01-01') ON VIOLATION DROP ROW 이러한 제약 조건을 위반하는 데이터가 포함된 데이터의 배치이 처리될 때 예상되는 동작은 무엇입니까?",
     "choices_ko": [
-      "A. Records that violate the expectation are dropped from the target dataset and loaded into a quarantine table.",
+      "A. 기대치를 위반하는 레코드는 대상 데이터세트에서 제거되고 격리(quarantine) 테이블에 로드됩니다.",
       "B. 기대치를 위반하는 레코드는 대상 데이터세트에 추가되고 대상 데이터세트에 추가된 필드에서 유효하지 않은 것으로 플래그가 지정됩니다.",
-      "C. Records that violate the expectation are dropped from the target dataset and recorded as invalid in the event log.",
+      "C. 기대치를 위반하는 레코드는 대상 데이터세트에서 제거되고 이벤트 로그에 유효하지 않은 것으로 기록됩니다.",
       "D. 기대치를 위반하는 레코드는 대상 데이터 세트에 추가되고 이벤트 로그에 유효하지 않은 것으로 기록됩니다.",
       "E. 기대치를 위반하는 기록으로 인해 작업이 실패합니다."
     ],
@@ -4181,21 +4181,21 @@
     "correction_note_en": "",
     "text": "### 문제 110\n\n다음 중 SQL을 사용하여 Delta Live Tables (DLT) 테이블을 생성할 때 CREATE LIVE 테이블 구문 위에 CREATE STREAMING LIVE TABLE(이전의 CREATE INCREMENTAL LIVE 테이블) 구문을 사용해야 하는 경우를 설명하는 것은 무엇입니까?",
     "choices": [
-      "A. CREATE STREAMING LIVE TABLE should be used when the subsequent step in the DLT pipeline is static.",
-      "B. CREATE STREAMING LIVE TABLE should be used when data needs to be processed incrementally.",
-      "C. CREATE STREAMING LIVE TABLE is redundant for DLT and it does not need to be used.",
-      "D. CREATE STREAMING LIVE TABLE should be used when data needs to be processed through complicated aggregations.",
-      "E. CREATE STREAMING LIVE TABLE should be used when the previous step in the DLT pipeline is static."
+      "A. CREATE STREAMING LIVE TABLE은 DLT 파이프라인의 다음 단계가 정적일 때 사용해야 합니다.",
+      "B. CREATE STREAMING LIVE TABLE은 데이터를 증분 방식으로 처리해야 할 때 사용해야 합니다.",
+      "C. CREATE STREAMING LIVE TABLE은 DLT에서 중복되므로 사용할 필요가 없습니다.",
+      "D. CREATE STREAMING LIVE TABLE은 데이터를 복잡한 집계를 통해 처리해야 할 때 사용해야 합니다.",
+      "E. CREATE STREAMING LIVE TABLE은 DLT 파이프라인의 이전 단계가 정적일 때 사용해야 합니다."
     ],
     "explanation": "",
     "full_explanation": "",
     "text_ko": "다음 중 SQL을 사용하여 Delta Live Tables (DLT) 테이블을 생성할 때 CREATE LIVE 테이블 구문 위에 CREATE STREAMING LIVE TABLE(이전의 CREATE INCREMENTAL LIVE 테이블) 구문을 사용해야 하는 경우를 설명하는 것은 무엇입니까?",
     "choices_ko": [
-      "A. CREATE STREAMING LIVE TABLE should be used when the subsequent step in the DLT pipeline is static.",
-      "B. CREATE STREAMING LIVE TABLE should be used when data needs to be processed incrementally.",
-      "C. CREATE STREAMING LIVE TABLE is redundant for DLT and it does not need to be used.",
-      "D. CREATE STREAMING LIVE TABLE should be used when data needs to be processed through complicated aggregations.",
-      "E. CREATE STREAMING LIVE TABLE should be used when the previous step in the DLT pipeline is static."
+      "A. CREATE STREAMING LIVE TABLE은 DLT 파이프라인의 다음 단계가 정적일 때 사용해야 합니다.",
+      "B. CREATE STREAMING LIVE TABLE은 데이터를 증분 방식으로 처리해야 할 때 사용해야 합니다.",
+      "C. CREATE STREAMING LIVE TABLE은 DLT에서 중복되므로 사용할 필요가 없습니다.",
+      "D. CREATE STREAMING LIVE TABLE은 데이터를 복잡한 집계를 통해 처리해야 할 때 사용해야 합니다.",
+      "E. CREATE STREAMING LIVE TABLE은 DLT 파이프라인의 이전 단계가 정적일 때 사용해야 합니다."
     ],
     "explanation_ko": "",
     "correction_note_ko": ""
@@ -4339,21 +4339,21 @@
     "correction_note_en": "",
     "text": "### 문제 114\n\n엔지니어링 관리자는 Databricks SQL 쿼리을 사용하여 각 데이터 소스의 수집 대기 시간을 모니터링합니다. 관리자는 쿼리의 결과를 매일 확인하는데, 수동으로 쿼리를 매일 재실행하며 결과를 기다리고 있습니다. 다음 중 쿼리의 결과가 매일 업데이트되도록 관리자가 사용할 수 있는 접근 방식은 무엇입니까?",
     "choices": [
-      "A. They can schedule the query to refresh every 1 day from the query's page in Databricks SQL.",
-      "B. They can schedule the query to refresh every 1 day from the SQL endpoint's page in Databricks SQL.",
-      "C. They can schedule the query to run every 1 day from the Jobs UI.",
-      "D. They can schedule the query to refresh every 12 hours from the SQL endpoint's page in Databricks SQL.",
-      "E. They can schedule the query to run every 12 hours from the Jobs UI."
+      "A. Databricks SQL의 쿼리 페이지에서 쿼리를 1일마다 새로 고침하도록 예약할 수 있습니다.",
+      "B. Databricks SQL의 SQL 엔드포인트 페이지에서 쿼리를 1일마다 새로 고침하도록 예약할 수 있습니다.",
+      "C. Jobs UI에서 쿼리를 1일마다 실행하도록 예약할 수 있습니다.",
+      "D. Databricks SQL의 SQL 엔드포인트 페이지에서 쿼리를 12시간마다 새로 고침하도록 예약할 수 있습니다.",
+      "E. Jobs UI에서 쿼리를 12시간마다 실행하도록 예약할 수 있습니다."
     ],
     "explanation": "",
     "full_explanation": "",
     "text_ko": "엔지니어링 관리자는 Databricks SQL 쿼리을 사용하여 각 데이터 소스의 수집 대기 시간을 모니터링합니다. 관리자는 쿼리의 결과를 매일 확인하는데, 수동으로 쿼리를 매일 재실행하며 결과를 기다리고 있습니다. 다음 중 쿼리의 결과가 매일 업데이트되도록 관리자가 사용할 수 있는 접근 방식은 무엇입니까?",
     "choices_ko": [
-      "A. They can schedule the query to refresh every 1 day from the query's page in Databricks SQL.",
-      "B. They can schedule the query to refresh every 1 day from the SQL endpoint's page in Databricks SQL.",
-      "C. They can schedule the query to run every 1 day from the Jobs UI.",
-      "D. They can schedule the query to refresh every 12 hours from the SQL endpoint's page in Databricks SQL.",
-      "E. They can schedule the query to run every 12 hours from the Jobs UI."
+      "A. Databricks SQL의 쿼리 페이지에서 쿼리를 1일마다 새로 고침하도록 예약할 수 있습니다.",
+      "B. Databricks SQL의 SQL 엔드포인트 페이지에서 쿼리를 1일마다 새로 고침하도록 예약할 수 있습니다.",
+      "C. Jobs UI에서 쿼리를 1일마다 실행하도록 예약할 수 있습니다.",
+      "D. Databricks SQL의 SQL 엔드포인트 페이지에서 쿼리를 12시간마다 새로 고침하도록 예약할 수 있습니다.",
+      "E. Jobs UI에서 쿼리를 12시간마다 실행하도록 예약할 수 있습니다."
     ],
     "explanation_ko": "",
     "correction_note_ko": ""
@@ -4643,19 +4643,19 @@
     "correction_note_en": "",
     "text": "### 문제 122\n\n데이터 엔지니어는 mkt-admins 그룹을 워크스페이스 관리자로 지정하지 않고 스키마 주요 마케팅에 대한 일상적인 권한 관리를 위임하려고 합니다. 해당 스키마 내의 개체에 대해 다른 사용자에게 권한을 부여하고 취소할 수 있어야 합니다. UC의 소유권 및 특권 모델에 부합하는 접근 방식은 무엇인가요?",
     "choices": [
-      "A. Grant MANAGE permissions on the metastore to mkt-admins, which allows managing privileges for all schemas and tables globally.",
-      "B. Make mkt-admins a workspace-level admins group, then SELECT on main.marketing to allow privilege delegation.",
+      "A. 메타스토어에 대한 MANAGE 권한을 mkt-admins에게 부여하면 모든 스키마와 테이블의 권한을 전역적으로 관리할 수 있습니다.",
+      "B. mkt-admins를 워크스페이스 수준 관리자 그룹으로 만든 다음, 권한 위임을 허용하기 위해 main.marketing에 SELECT 권한을 부여합니다.",
       "C. 스키마 main.marketing의 소유권을 mkt-admins에게 이전합니다. 소유자는 스키마 및 포함된 개체에 대한 권한을 관리할 수 있습니다.",
-      "D. Grant USE SCHEMA on main.marketing and MODIFY on all tables to mkt-admins, which enables managing grants within the schema."
+      "D. main.marketing에 USE SCHEMA 권한과 모든 테이블에 MODIFY 권한을 mkt-admins에게 부여하면 스키마 내에서 권한 부여를 관리할 수 있습니다."
     ],
     "explanation": "유니티 카탈로그에서 객체 소유자는 해당 객체와 그 하위 객체에 대한 권한 관리에 대한 모든 권한을 갖습니다. 스키마의 소유권을 그룹으로 이전하면 작업 영역 수준 관리 권한 없이도 스키마 내에서 권한을 부여하고 취소할 수 있습니다.",
     "full_explanation": "유니티 카탈로그에서 객체 소유자는 해당 객체와 그 하위 객체에 대한 권한 관리에 대한 모든 권한을 갖습니다. 스키마의 소유권을 그룹으로 이전하면 작업 영역 수준 관리 권한 없이도 스키마 내에서 권한을 부여하고 취소할 수 있습니다.",
     "text_ko": "데이터 엔지니어는 mkt-admins 그룹을 워크스페이스 관리자로 지정하지 않고 스키마 주요 마케팅에 대한 일상적인 권한 관리를 위임하려고 합니다. 해당 스키마 내의 개체에 대해 다른 사용자에게 권한을 부여하고 취소할 수 있어야 합니다. UC의 소유권 및 특권 모델에 부합하는 접근 방식은 무엇인가요?",
     "choices_ko": [
-      "A. Grant MANAGE permissions on the metastore to mkt-admins, which allows managing privileges for all schemas and tables globally.",
-      "B. Make mkt-admins a workspace-level admins group, then SELECT on main.marketing to allow privilege delegation.",
+      "A. 메타스토어에 대한 MANAGE 권한을 mkt-admins에게 부여하면 모든 스키마와 테이블의 권한을 전역적으로 관리할 수 있습니다.",
+      "B. mkt-admins를 워크스페이스 수준 관리자 그룹으로 만든 다음, 권한 위임을 허용하기 위해 main.marketing에 SELECT 권한을 부여합니다.",
       "C. 스키마 main.marketing의 소유권을 mkt-admins에게 이전합니다. 소유자는 스키마 및 포함된 개체에 대한 권한을 관리할 수 있습니다.",
-      "D. Grant USE SCHEMA on main.marketing and MODIFY on all tables to mkt-admins, which enables managing grants within the schema."
+      "D. main.marketing에 USE SCHEMA 권한과 모든 테이블에 MODIFY 권한을 mkt-admins에게 부여하면 스키마 내에서 권한 부여를 관리할 수 있습니다."
     ],
     "explanation_ko": "유니티 카탈로그에서 객체 소유자는 해당 객체와 그 하위 객체에 대한 권한 관리에 대한 모든 권한을 갖습니다. 스키마의 소유권을 그룹으로 이전하면 작업 영역 수준 관리 권한 없이도 스키마 내에서 권한을 부여하고 취소할 수 있습니다.",
     "correction_note_ko": ""
@@ -5057,9 +5057,9 @@
     "correction_note_en": "",
     "text": "### 문제 133\n\n데이터세트는 Delta Live Tables을 사용하여 정의되었으며 기대 절을 포함합니다: CONSTRAINT valid_timestamp EXPECT (timestamp > '2020-01-01') ON VIOLATION FAIL UPDATE 이러한 제약 조건을 위반하는 데이터가 포함된 데이터의 배치이 처리될 때 예상되는 동작은 무엇입니까?",
     "choices": [
-      "A. Records that violate the expectation are dropped from the target dataset and recorded as invalid in the event log.",
+      "A. 기대치를 위반하는 레코드는 대상 데이터세트에서 제거되고 이벤트 로그에 유효하지 않은 것으로 기록됩니다.",
       "B. 기대치를 위반하는 기록으로 인해 작업이 실패합니다.",
-      "C. Records that violate the expectation are dropped from the target dataset and loaded into a quarantine table.",
+      "C. 기대치를 위반하는 레코드는 대상 데이터세트에서 제거되고 격리(quarantine) 테이블에 로드됩니다.",
       "D. 기대치를 위반하는 레코드는 대상 데이터 세트에 추가되고 이벤트 로그에 유효하지 않은 것으로 기록됩니다.",
       "E. 기대치를 위반하는 레코드는 대상 데이터세트에 추가되고 대상 데이터세트에 추가된 필드에서 유효하지 않은 것으로 플래그가 지정됩니다."
     ],
@@ -5067,9 +5067,9 @@
     "full_explanation": "",
     "text_ko": "데이터세트는 Delta Live Tables을 사용하여 정의되었으며 기대 절을 포함합니다: CONSTRAINT valid_timestamp EXPECT (timestamp > '2020-01-01') ON VIOLATION FAIL UPDATE 이러한 제약 조건을 위반하는 데이터가 포함된 데이터의 배치이 처리될 때 예상되는 동작은 무엇입니까?",
     "choices_ko": [
-      "A. Records that violate the expectation are dropped from the target dataset and recorded as invalid in the event log.",
+      "A. 기대치를 위반하는 레코드는 대상 데이터세트에서 제거되고 이벤트 로그에 유효하지 않은 것으로 기록됩니다.",
       "B. 기대치를 위반하는 기록으로 인해 작업이 실패합니다.",
-      "C. Records that violate the expectation are dropped from the target dataset and loaded into a quarantine table.",
+      "C. 기대치를 위반하는 레코드는 대상 데이터세트에서 제거되고 격리(quarantine) 테이블에 로드됩니다.",
       "D. 기대치를 위반하는 레코드는 대상 데이터 세트에 추가되고 이벤트 로그에 유효하지 않은 것으로 기록됩니다.",
       "E. 기대치를 위반하는 레코드는 대상 데이터세트에 추가되고 대상 데이터세트에 추가된 필드에서 유효하지 않은 것으로 플래그가 지정됩니다."
     ],
@@ -6143,21 +6143,21 @@
     "correction_note_en": "",
     "text": "### 문제 161\n\n엔지니어링 관리자는 Databricks SQL 쿼리을 사용하여 각 데이터 소스의 수집 대기 시간을 모니터링합니다. 관리자는 쿼리의 결과를 매일 확인하는데, 수동으로 쿼리를 매일 재실행하며 결과를 기다리고 있습니다. 다음 중 쿼리의 결과가 매일 업데이트되도록 관리자가 사용할 수 있는 접근 방식은 무엇입니까?",
     "choices": [
-      "A. They can schedule the query to refresh every 1 day from the SQL endpoint's page in Databricks SQL.",
-      "B. They can schedule the query to refresh every 12 hours from the SQL endpoint's page in Databricks SQL.",
-      "C. They can schedule the query to refresh every 1 day from the query's page in Databricks SQL.",
-      "D. They can schedule the query to run every 1 day from the Jobs UI.",
-      "E. They can schedule the query to run every 12 hours from the Jobs UI."
+      "A. Databricks SQL의 SQL 엔드포인트 페이지에서 쿼리를 1일마다 새로 고침하도록 예약할 수 있습니다.",
+      "B. Databricks SQL의 SQL 엔드포인트 페이지에서 쿼리를 12시간마다 새로 고침하도록 예약할 수 있습니다.",
+      "C. Databricks SQL의 쿼리 페이지에서 쿼리를 1일마다 새로 고침하도록 예약할 수 있습니다.",
+      "D. Jobs UI에서 쿼리를 1일마다 실행하도록 예약할 수 있습니다.",
+      "E. Jobs UI에서 쿼리를 12시간마다 실행하도록 예약할 수 있습니다."
     ],
     "explanation": "",
     "full_explanation": "",
     "text_ko": "엔지니어링 관리자는 Databricks SQL 쿼리을 사용하여 각 데이터 소스의 수집 대기 시간을 모니터링합니다. 관리자는 쿼리의 결과를 매일 확인하는데, 수동으로 쿼리를 매일 재실행하며 결과를 기다리고 있습니다. 다음 중 쿼리의 결과가 매일 업데이트되도록 관리자가 사용할 수 있는 접근 방식은 무엇입니까?",
     "choices_ko": [
-      "A. They can schedule the query to refresh every 1 day from the SQL endpoint's page in Databricks SQL.",
-      "B. They can schedule the query to refresh every 12 hours from the SQL endpoint's page in Databricks SQL.",
-      "C. They can schedule the query to refresh every 1 day from the query's page in Databricks SQL.",
-      "D. They can schedule the query to run every 1 day from the Jobs UI.",
-      "E. They can schedule the query to run every 12 hours from the Jobs UI."
+      "A. Databricks SQL의 SQL 엔드포인트 페이지에서 쿼리를 1일마다 새로 고침하도록 예약할 수 있습니다.",
+      "B. Databricks SQL의 SQL 엔드포인트 페이지에서 쿼리를 12시간마다 새로 고침하도록 예약할 수 있습니다.",
+      "C. Databricks SQL의 쿼리 페이지에서 쿼리를 1일마다 새로 고침하도록 예약할 수 있습니다.",
+      "D. Jobs UI에서 쿼리를 1일마다 실행하도록 예약할 수 있습니다.",
+      "E. Jobs UI에서 쿼리를 12시간마다 실행하도록 예약할 수 있습니다."
     ],
     "explanation_ko": "",
     "correction_note_ko": ""
@@ -6484,7 +6484,7 @@
     "correction_note_en": "",
     "text": "### 문제 170\n\n데이터 엔지니어가 이전 팀으로부터 데이터브릭스 파이프라인을 상속받았습니다. 파이프라인에는 SLAs가 없으며 초기 조사에서 Spark에서 메모리 유출이 확인되었습니다. 이러한 런타임 증가로 인해 비용도 증가합니다. 데이터 엔지니어는 비용을 크게 늘리지 않고 런타임을 줄여야 합니다. 이 문제를 해결하려면 데이터 엔지니어가 먼저 무엇을 해야 합니까?",
     "choices": [
-      "A. Tweak the \"spark.sql.shuffle.partitions\" configuration.",
+      "A. \"spark.sql.shuffle.partitions\" 구성을 조정합니다.",
       "B. 요구 사항에 맞게 클러스터에서 자동 크기 조정을 활성화합니다.",
       "C. 광자 지원 실행 엔진을 사용합니다.",
       "D. 클러스터가 메모리 최적화 노드 유형을 사용하는지 확인하세요."
@@ -6493,7 +6493,7 @@
     "full_explanation": "Spark의 메모리 유출은 비효율적인 셔플링으로 인해 자주 발생합니다. 첫 번째 단계는 셔플 파티션 수를 제어하는 ​​Spark.sql.shuffle.partitions 구성을 조정하는 것입니다. 이 설정을 최적화하면 셔플 오버헤드와 메모리 유출이 줄어들어 비용을 크게 늘리지 않고도 성능이 향상됩니다.",
     "text_ko": "데이터 엔지니어가 이전 팀으로부터 데이터브릭스 파이프라인을 상속받았습니다. 파이프라인에는 SLAs가 없으며 초기 조사에서 Spark에서 메모리 유출이 확인되었습니다. 이러한 런타임 증가로 인해 비용도 증가합니다. 데이터 엔지니어는 비용을 크게 늘리지 않고 런타임을 줄여야 합니다. 이 문제를 해결하려면 데이터 엔지니어가 먼저 무엇을 해야 합니까?",
     "choices_ko": [
-      "A. Tweak the \"spark.sql.shuffle.partitions\" configuration.",
+      "A. \"spark.sql.shuffle.partitions\" 구성을 조정합니다.",
       "B. 요구 사항에 맞게 클러스터에서 자동 크기 조정을 활성화합니다.",
       "C. 광자 지원 실행 엔진을 사용합니다.",
       "D. 클러스터가 메모리 최적화 노드 유형을 사용하는지 확인하세요."
@@ -6900,19 +6900,19 @@
     "correction_note_en": "",
     "text": "### 문제 181\n\n데이터브릭스에서 AutoLoader의 기능은 무엇인가요?",
     "choices": [
-      "A. Auto Loader automatically ingests and processes new files from cloud storage, handling both batch and streaming data with support for schema evolution.",
-      "B. Auto Loader automatically ingests and processes new files from cloud storage, handling batch and streaming data with no support for schema evolution.",
-      "C. Auto Loader automatically ingests and processes new files from cloud storage, handling only streaming data with no support for schema evolution.",
-      "D. Auto Loader automatically ingests and processes new files from cloud storage, handling batch data with support for schema evolution."
+      "A. Auto Loader는 클라우드 스토리지에서 새 파일을 자동으로 수집 및 처리하며, 스키마 진화(schema evolution)를 지원하면서 배치 데이터와 스트리밍 데이터를 모두 처리합니다.",
+      "B. Auto Loader는 클라우드 스토리지에서 새 파일을 자동으로 수집 및 처리하며, 스키마 진화를 지원하지 않고 배치 데이터와 스트리밍 데이터를 처리합니다.",
+      "C. Auto Loader는 클라우드 스토리지에서 새 파일을 자동으로 수집 및 처리하며, 스키마 진화를 지원하지 않고 스트리밍 데이터만 처리합니다.",
+      "D. Auto Loader는 클라우드 스토리지에서 새 파일을 자동으로 수집 및 처리하며, 스키마 진화를 지원하면서 배치 데이터를 처리합니다."
     ],
     "explanation": "데이터브릭스의 오토 로더은 클라우드 스토리지에서 새 파일을 자동으로 수집하고, 배치 및 스트리밍 수집을 모두 지원하고, 스키마 진화를 처리하므로 확장 가능한 파이프라인에 이상적입니다.",
     "full_explanation": "데이터브릭스의 오토 로더은 클라우드 스토리지에서 새 파일을 자동으로 수집하고, 배치 및 스트리밍 수집을 모두 지원하고, 스키마 진화를 처리하므로 확장 가능한 파이프라인에 이상적입니다.",
     "text_ko": "데이터브릭스에서 AutoLoader의 기능은 무엇인가요?",
     "choices_ko": [
-      "A. Auto Loader automatically ingests and processes new files from cloud storage, handling both batch and streaming data with support for schema evolution.",
-      "B. Auto Loader automatically ingests and processes new files from cloud storage, handling batch and streaming data with no support for schema evolution.",
-      "C. Auto Loader automatically ingests and processes new files from cloud storage, handling only streaming data with no support for schema evolution.",
-      "D. Auto Loader automatically ingests and processes new files from cloud storage, handling batch data with support for schema evolution."
+      "A. Auto Loader는 클라우드 스토리지에서 새 파일을 자동으로 수집 및 처리하며, 스키마 진화(schema evolution)를 지원하면서 배치 데이터와 스트리밍 데이터를 모두 처리합니다.",
+      "B. Auto Loader는 클라우드 스토리지에서 새 파일을 자동으로 수집 및 처리하며, 스키마 진화를 지원하지 않고 배치 데이터와 스트리밍 데이터를 처리합니다.",
+      "C. Auto Loader는 클라우드 스토리지에서 새 파일을 자동으로 수집 및 처리하며, 스키마 진화를 지원하지 않고 스트리밍 데이터만 처리합니다.",
+      "D. Auto Loader는 클라우드 스토리지에서 새 파일을 자동으로 수집 및 처리하며, 스키마 진화를 지원하면서 배치 데이터를 처리합니다."
     ],
     "explanation_ko": "데이터브릭스의 오토 로더은 클라우드 스토리지에서 새 파일을 자동으로 수집하고, 배치 및 스트리밍 수집을 모두 지원하고, 스키마 진화를 처리하므로 확장 가능한 파이프라인에 이상적입니다.",
     "correction_note_ko": ""
@@ -7014,18 +7014,18 @@
     "correction_note_en": "",
     "text": "### 문제 184\n\n데이터 엔지니어는 전자 상거래 거래 Delta 테이블에 대한 데이터 레이아웃과 쿼리 성능을 최적화해야 합니다. 테이블은 시간 기반 쿼리에 도움이 되지만 카디널리티가 높은 열인 사용자 통계 \"customer_id\"에 대한 검색을 최적화하지 않는 날짜 열인 \"purchase_date\"로 분할됩니다. 테이블은 일반적으로 특정 날짜 범위 내에서 \"customer_id\"에 대한 필터를 사용하여 쿼리되지만 이 데이터는 각 파티션의 여러 파일에 분산되어 있으므로 전체 파티션 검색이 발생하고 런타임 및 비용이 증가합니다. 데이터 엔지니어는 효율적인 읽기를 위해 데이터 레이아웃을 어떻게 최적화해야 합니까?",
     "choices": [
-      "A. Alter table implementing liquid clustering on \"customer_id\" while keeping the existing partitioning.",
-      "B. Alter the table implementing liquid clustering by \"customer_id\" and \"purchase_date\".",
-      "C. Alter the table to partition by \"customer_id\".",
+      "A. 기존 파티셔닝을 유지하면서 \"customer_id\"에 리퀴드 클러스터링을 적용하도록 테이블을 변경합니다.",
+      "B. \"customer_id\"와 \"purchase_date\"로 리퀴드 클러스터링을 적용하도록 테이블을 변경합니다.",
+      "C. \"customer_id\"로 파티션하도록 테이블을 변경합니다.",
       "D. 성능을 위해 빈번한 읽기가 캐시되도록 클러스터에서 델타 캐싱을 활성화합니다."
     ],
     "explanation": "쿼리는 purchase_date 범위 내에서 customer_id로 필터링하므로 purchase_date로만 분할하면 파티션 전체에서 비효율적인 스캔이 발생합니다. 올바른 최적화는 customer_id 및 purchase_date 모두에서 리퀴드 클러스터링를 사용하는 것입니다. 이는 데이터를 동적으로 재구성하여 두 차원 모두에 대해 최적화하고 높은 카디널리티 정적 파티셔닝의 단점을 방지합니다.",
     "full_explanation": "쿼리는 purchase_date 범위 내에서 customer_id로 필터링하므로 purchase_date로만 분할하면 파티션 전체에서 비효율적인 스캔이 발생합니다. 올바른 최적화는 customer_id 및 purchase_date 모두에서 리퀴드 클러스터링를 사용하는 것입니다. 이는 데이터를 동적으로 재구성하여 두 차원 모두에 대해 최적화하고 높은 카디널리티 정적 파티셔닝의 단점을 방지합니다.",
     "text_ko": "데이터 엔지니어는 전자 상거래 거래 Delta 테이블에 대한 데이터 레이아웃과 쿼리 성능을 최적화해야 합니다. 테이블은 시간 기반 쿼리에 도움이 되지만 카디널리티가 높은 열인 사용자 통계 \"customer_id\"에 대한 검색을 최적화하지 않는 날짜 열인 \"purchase_date\"로 분할됩니다. 테이블은 일반적으로 특정 날짜 범위 내에서 \"customer_id\"에 대한 필터를 사용하여 쿼리되지만 이 데이터는 각 파티션의 여러 파일에 분산되어 있으므로 전체 파티션 검색이 발생하고 런타임 및 비용이 증가합니다. 데이터 엔지니어는 효율적인 읽기를 위해 데이터 레이아웃을 어떻게 최적화해야 합니까?",
     "choices_ko": [
-      "A. Alter table implementing liquid clustering on \"customer_id\" while keeping the existing partitioning.",
-      "B. Alter the table implementing liquid clustering by \"customer_id\" and \"purchase_date\".",
-      "C. Alter the table to partition by \"customer_id\".",
+      "A. 기존 파티셔닝을 유지하면서 \"customer_id\"에 리퀴드 클러스터링을 적용하도록 테이블을 변경합니다.",
+      "B. \"customer_id\"와 \"purchase_date\"로 리퀴드 클러스터링을 적용하도록 테이블을 변경합니다.",
+      "C. \"customer_id\"로 파티션하도록 테이블을 변경합니다.",
       "D. 성능을 위해 빈번한 읽기가 캐시되도록 클러스터에서 델타 캐싱을 활성화합니다."
     ],
     "explanation_ko": "쿼리는 purchase_date 범위 내에서 customer_id로 필터링하므로 purchase_date로만 분할하면 파티션 전체에서 비효율적인 스캔이 발생합니다. 올바른 최적화는 customer_id 및 purchase_date 모두에서 리퀴드 클러스터링를 사용하는 것입니다. 이는 데이터를 동적으로 재구성하여 두 차원 모두에 대해 최적화하고 높은 카디널리티 정적 파티셔닝의 단점을 방지합니다.",
@@ -7208,18 +7208,18 @@
     "correction_note_en": "",
     "text": "### 문제 189\n\n데이터 엔지니어는 포괄적인 보고서를 위해 온-프레미스 PostgreSQL 데이터베이스의 판매 데이터를 Azure Synapse의 고객 데이터와 결합해야 합니다. 목표는 데이터 중복을 방지하고 최신 정보를 보장하는 것입니다. 데이터 엔지니어는 데이터브릭스를 사용하여 이를 어떻게 달성해야 합니까?",
     "choices": [
-      "A. Export data from both sources to CSV files and upload them to Databricks",
+      "A. 두 소스의 데이터를 CSV 파일로 내보내 데이터브릭스에 업로드합니다.",
       "B. 레이크하우스 페더레이션을 사용하여 두 데이터 소스를 모두 쿼리 직접",
-      "C. Manually synchronize data from both sources into a single database",
+      "C. 두 소스의 데이터를 단일 데이터베이스로 수동으로 동기화합니다.",
       "D. 데이터브릭스에 데이터를 수집하기 위한 사용자 정의 ETL 파이프라인 개발"
     ],
     "explanation": "레이크하우스 페더레이션을 사용하면 데이터브릭스가 데이터를 복제하지 않고 PostgreSQL 및 Azure Synapse와 같은 외부 데이터 소스를 직접 쿼리할 수 있습니다. 이렇게 하면 보고서에서 항상 최신 정보를 사용하는 동시에 데이터 이동에 따른 오버헤드와 비용을 피할 수 있습니다.",
     "full_explanation": "레이크하우스 페더레이션을 사용하면 데이터브릭스가 데이터를 복제하지 않고 PostgreSQL 및 Azure Synapse와 같은 외부 데이터 소스를 직접 쿼리할 수 있습니다. 이렇게 하면 보고서에서 항상 최신 정보를 사용하는 동시에 데이터 이동에 따른 오버헤드와 비용을 피할 수 있습니다.",
     "text_ko": "데이터 엔지니어는 포괄적인 보고서를 위해 온-프레미스 PostgreSQL 데이터베이스의 판매 데이터를 Azure Synapse의 고객 데이터와 결합해야 합니다. 목표는 데이터 중복을 방지하고 최신 정보를 보장하는 것입니다. 데이터 엔지니어는 데이터브릭스를 사용하여 이를 어떻게 달성해야 합니까?",
     "choices_ko": [
-      "A. Export data from both sources to CSV files and upload them to Databricks",
+      "A. 두 소스의 데이터를 CSV 파일로 내보내 데이터브릭스에 업로드합니다.",
       "B. 레이크하우스 페더레이션을 사용하여 두 데이터 소스를 모두 쿼리 직접",
-      "C. Manually synchronize data from both sources into a single database",
+      "C. 두 소스의 데이터를 단일 데이터베이스로 수동으로 동기화합니다.",
       "D. 데이터브릭스에 데이터를 수집하기 위한 사용자 정의 ETL 파이프라인 개발"
     ],
     "explanation_ko": "레이크하우스 페더레이션을 사용하면 데이터브릭스가 데이터를 복제하지 않고 PostgreSQL 및 Azure Synapse와 같은 외부 데이터 소스를 직접 쿼리할 수 있습니다. 이렇게 하면 보고서에서 항상 최신 정보를 사용하는 동시에 데이터 이동에 따른 오버헤드와 비용을 피할 수 있습니다.",
@@ -7327,7 +7327,7 @@
     "choices": [
       "A. 유니티 카탈로그가 메타데이터와 기본 데이터 수명주기를 모두 관리하도록 테이블을 관리합니다.",
       "B. 파일 레이아웃을 완전히 제어하기 위해 외부 볼륨을 가리키는 LOCATION가 있는 외부 테이블입니다.",
-      "C. Foreign tables federated from an external catalog to delegate optimization to the source system.",
+      "C. 외부 카탈로그에서 페더레이션된 외래(foreign) 테이블로, 최적화를 소스 시스템에 위임합니다.",
       "D. 테이블 수준 거버넌스 및 수명 주기 결합을 방지하기 위한 파일에 대한 임시 보기입니다."
     ],
     "explanation": "관리되는 테이블을 사용하면 유니티 카탈로그 및 데이터브릭스가 메타데이터와 기본 데이터 스토리지를 모두 제어하여 플랫폼 관리 정책에 따라 테이블이 삭제될 때 자동 최적화, 단순화된 수명 주기 관리 및 데이터 파일 정리가 가능합니다.",
@@ -7336,7 +7336,7 @@
     "choices_ko": [
       "A. 유니티 카탈로그가 메타데이터와 기본 데이터 수명주기를 모두 관리하도록 테이블을 관리합니다.",
       "B. 파일 레이아웃을 완전히 제어하기 위해 외부 볼륨을 가리키는 LOCATION가 있는 외부 테이블입니다.",
-      "C. Foreign tables federated from an external catalog to delegate optimization to the source system.",
+      "C. 외부 카탈로그에서 페더레이션된 외래(foreign) 테이블로, 최적화를 소스 시스템에 위임합니다.",
       "D. 테이블 수준 거버넌스 및 수명 주기 결합을 방지하기 위한 파일에 대한 임시 보기입니다."
     ],
     "explanation_ko": "관리되는 테이블을 사용하면 유니티 카탈로그 및 데이터브릭스가 메타데이터와 기본 데이터 스토리지를 모두 제어하여 플랫폼 관리 정책에 따라 테이블이 삭제될 때 자동 최적화, 단순화된 수명 주기 관리 및 데이터 파일 정리가 가능합니다.",
@@ -7363,8 +7363,8 @@
     "text": "### 문제 193\n\n데이터 엔지니어는 다양한 데이터 소스에 연결된 여러 외부 테이블을 관리합니다. 데이터 엔지니어는 이러한 외부 테이블을 효율적으로 관리하고 특정 외부 테이블에 액세스하는 데 필요한 권한만 사용자에게 부여되기를 원합니다. 데이터 엔지니어는 이러한 외부 테이블에 대한 액세스를 어떻게 관리해야 합니까?",
     "choices": [
       "A. 컨테이너 수준에서 Azure Blob Storage 권한을 설정하여 모든 외부 테이블에 대한 액세스를 허용합니다.",
-      "B. Create a single user role with full access to all external tables and assign it to all users.",
-      "C. Grant permissions on the Databricks workspace level, which will automatically apply to all external tables.",
+      "B. 모든 외부 테이블에 대한 전체 액세스 권한을 가진 단일 사용자 역할을 생성하여 모든 사용자에게 할당합니다.",
+      "C. 데이터브릭스 워크스페이스 수준에서 권한을 부여하면 모든 외부 테이블에 자동으로 적용됩니다.",
       "D. 유니티 카탈로그를 사용하여 각 외부 테이블에 대한 접근 제어 및 권한을 개별적으로 관리하세요."
     ],
     "explanation": "올바른 접근 방식은 유니티 카탈로그를 사용하여 각 외부 테이블에 대한 세분화된 액세스 제어 및 권한을 개별적으로 관리하는 것입니다. 유니티 카탈로그는 거버넌스를 중앙 집중화하고 광범위한 스토리지 또는 작업 공간 수준 권한을 부여하는 대신 사용자가 필요한 특정 외부 테이블에만 액세스할 수 있도록 보장합니다.",
@@ -7372,8 +7372,8 @@
     "text_ko": "데이터 엔지니어는 다양한 데이터 소스에 연결된 여러 외부 테이블을 관리합니다. 데이터 엔지니어는 이러한 외부 테이블을 효율적으로 관리하고 특정 외부 테이블에 액세스하는 데 필요한 권한만 사용자에게 부여되기를 원합니다. 데이터 엔지니어는 이러한 외부 테이블에 대한 액세스를 어떻게 관리해야 합니까?",
     "choices_ko": [
       "A. 컨테이너 수준에서 Azure Blob Storage 권한을 설정하여 모든 외부 테이블에 대한 액세스를 허용합니다.",
-      "B. Create a single user role with full access to all external tables and assign it to all users.",
-      "C. Grant permissions on the Databricks workspace level, which will automatically apply to all external tables.",
+      "B. 모든 외부 테이블에 대한 전체 액세스 권한을 가진 단일 사용자 역할을 생성하여 모든 사용자에게 할당합니다.",
+      "C. 데이터브릭스 워크스페이스 수준에서 권한을 부여하면 모든 외부 테이블에 자동으로 적용됩니다.",
       "D. 유니티 카탈로그를 사용하여 각 외부 테이블에 대한 접근 제어 및 권한을 개별적으로 관리하세요."
     ],
     "explanation_ko": "올바른 접근 방식은 유니티 카탈로그를 사용하여 각 외부 테이블에 대한 세분화된 액세스 제어 및 권한을 개별적으로 관리하는 것입니다. 유니티 카탈로그는 거버넌스를 중앙 집중화하고 광범위한 스토리지 또는 작업 공간 수준 권한을 부여하는 대신 사용자가 필요한 특정 외부 테이블에만 액세스할 수 있도록 보장합니다.",
@@ -7441,7 +7441,7 @@
     "text": "### 문제 195\n\n다음 중 CREATE TABLE AS SELECT 문을 사용할 때 CSV 대신 Parquet에서 외부 테이블을 생성할 때의 이점을 설명하는 것은 무엇입니까?",
     "choices": [
       "A. Parquet 파일은 분할 가능",
-      "B. CREATE TABLE AS SELECT statements cannot be used on files",
+      "B. CREATE TABLE AS SELECT 문은 파일에 사용할 수 없습니다.",
       "C. Parquet 파일에는 잘 정의된 스키마가 있습니다.",
       "D. Parquet 파일에는 최적화 기능이 있습니다",
       "E. Parquet 파일은 델타 테이블이 됩니다."
@@ -7451,7 +7451,7 @@
     "text_ko": "다음 중 CREATE TABLE AS SELECT 문을 사용할 때 CSV 대신 Parquet에서 외부 테이블을 생성할 때의 이점을 설명하는 것은 무엇입니까?",
     "choices_ko": [
       "A. Parquet 파일은 분할 가능",
-      "B. CREATE TABLE AS SELECT statements cannot be used on files",
+      "B. CREATE TABLE AS SELECT 문은 파일에 사용할 수 없습니다.",
       "C. Parquet 파일에는 잘 정의된 스키마가 있습니다.",
       "D. Parquet 파일에는 최적화 기능이 있습니다",
       "E. Parquet 파일은 델타 테이블이 됩니다."
@@ -7482,7 +7482,7 @@
       "A. 계보 기능을 사용하면 보고서에서만 테이블이 사용되는 위치를 강조하는 그래프를 시각화할 수 있습니다.",
       "B. 계보 기능을 사용하면 테이블이 노트북에서만 사용되는 곳을 강조하는 그래프를 시각화할 수 있습니다.",
       "C. 계보 기능을 사용하면 테이블이 노트북, 기타 테이블 및 보고서에서 사용되는 위치를 포함하여 모든 종속성을 보여주는 그래프를 시각화할 수 있습니다.",
-      "D. Do not use the lineage feature as it only tracks activity from the last 3 months and will not provide full details on dependencies."
+      "D. 계보 기능은 최근 3개월의 활동만 추적하고 종속성에 대한 전체 세부 정보를 제공하지 않으므로 사용하지 마세요."
     ],
     "explanation": "유니티 카탈로그의 계보 기능은 데이터 종속성에 대한 완전한 시각화를 제공하여 테이블이 노트북, 보고서 및 기타 테이블에서 어떻게 사용되는지 보여줍니다. 이는 거버넌스 및 감사를 위한 데이터 사용량, 종속성, 영향 분석을 추적하는 데 도움이 됩니다.",
     "full_explanation": "유니티 카탈로그의 계보 기능은 데이터 종속성에 대한 완전한 시각화를 제공하여 테이블이 노트북, 보고서 및 기타 테이블에서 어떻게 사용되는지 보여줍니다. 이는 거버넌스 및 감사를 위한 데이터 사용량, 종속성, 영향 분석을 추적하는 데 도움이 됩니다.",
@@ -7491,7 +7491,7 @@
       "A. 계보 기능을 사용하면 보고서에서만 테이블이 사용되는 위치를 강조하는 그래프를 시각화할 수 있습니다.",
       "B. 계보 기능을 사용하면 테이블이 노트북에서만 사용되는 곳을 강조하는 그래프를 시각화할 수 있습니다.",
       "C. 계보 기능을 사용하면 테이블이 노트북, 기타 테이블 및 보고서에서 사용되는 위치를 포함하여 모든 종속성을 보여주는 그래프를 시각화할 수 있습니다.",
-      "D. Do not use the lineage feature as it only tracks activity from the last 3 months and will not provide full details on dependencies."
+      "D. 계보 기능은 최근 3개월의 활동만 추적하고 종속성에 대한 전체 세부 정보를 제공하지 않으므로 사용하지 마세요."
     ],
     "explanation_ko": "유니티 카탈로그의 계보 기능은 데이터 종속성에 대한 완전한 시각화를 제공하여 테이블이 노트북, 보고서 및 기타 테이블에서 어떻게 사용되는지 보여줍니다. 이는 거버넌스 및 감사를 위한 데이터 사용량, 종속성, 영향 분석을 추적하는 데 도움이 됩니다.",
     "correction_note_ko": ""
@@ -7716,7 +7716,7 @@
       "A. 열 포함 날짜/시간 로드, 처리 ID",
       "B. 비즈니스 규칙 및 변환",
       "C. 광범위한 데이터 정리 수행",
-      "D. Aggregate data from multiple sources"
+      "D. 여러 소스의 데이터를 집계합니다."
     ],
     "explanation": "브론즈 계층은 최소한의 변환을 통해 수집된 원시 데이터를 저장하며 일반적으로 추적성 및 감사를 위해 로드 날짜/시간 및 프로세스 ID와 같은 메타데이터 열을 추가합니다.",
     "full_explanation": "브론즈 계층은 최소한의 변환을 통해 수집된 원시 데이터를 저장하며 일반적으로 추적성 및 감사를 위해 로드 날짜/시간 및 프로세스 ID와 같은 메타데이터 열을 추가합니다.",
@@ -7725,7 +7725,7 @@
       "A. 열 포함 날짜/시간 로드, 처리 ID",
       "B. 비즈니스 규칙 및 변환",
       "C. 광범위한 데이터 정리 수행",
-      "D. Aggregate data from multiple sources"
+      "D. 여러 소스의 데이터를 집계합니다."
     ],
     "explanation_ko": "브론즈 계층은 최소한의 변환을 통해 수집된 원시 데이터를 저장하며 일반적으로 추적성 및 감사를 위해 로드 날짜/시간 및 프로세스 ID와 같은 메타데이터 열을 추가합니다.",
     "correction_note_ko": ""
@@ -8139,7 +8139,7 @@
     "text": "### 문제 213\n\n데이터 엔지니어는 로컬 IDE에서 PySpark 수집 파이프라인을 구축하고 있으며 규모에 맞게 원격 데이터브릭스 클러스터에서 대규모 데이터프레임 변환을 실행하는 동시에 비즈니스 로직을 로컬에서 단계별로 실행해야 합니다. 작업공간은 데이터브릭스 런타임 15.4 LTS을 실행하는 유니티 카탈로그 및 클러스터를 사용합니다. 엔지니어는 UDFs도 등록할 계획입니다. Databricks Connect를 사용하여 개발하는 동안 런타임 문제를 방지하려면 데이터 엔지니어가 무엇을 해야 합니까?",
     "choices": [
       "A. UDF을 사용할 때 로컬 Python 마이너 버전을 클러스터의 Python 마이너 버전과 일치시키고, 클러스터의 런타임 버전과 호환되는 Databricks Connect 패키지를 사용하세요.",
-      "B. Use any local Python version as long as the PySpark minor version matches, because the cluster's Python version is isolated from the client.",
+      "B. 클러스터의 Python 버전은 클라이언트와 격리되어 있으므로, PySpark 마이너 버전만 일치하면 어떤 로컬 Python 버전이든 사용할 수 있습니다.",
       "C. Databricks Connect는 할당 또는 공유 클러스터를 지원하지 않으므로 서버리스을 사용하십시오.",
       "D. Databricks Connect를 통한 원격 실행과 충돌하므로 작업 공간에서 유니티 카탈로그를 비활성화합니다."
     ],
@@ -8148,7 +8148,7 @@
     "text_ko": "데이터 엔지니어는 로컬 IDE에서 PySpark 수집 파이프라인을 구축하고 있으며 규모에 맞게 원격 데이터브릭스 클러스터에서 대규모 데이터프레임 변환을 실행하는 동시에 비즈니스 로직을 로컬에서 단계별로 실행해야 합니다. 작업공간은 데이터브릭스 런타임 15.4 LTS을 실행하는 유니티 카탈로그 및 클러스터를 사용합니다. 엔지니어는 UDFs도 등록할 계획입니다. Databricks Connect를 사용하여 개발하는 동안 런타임 문제를 방지하려면 데이터 엔지니어가 무엇을 해야 합니까?",
     "choices_ko": [
       "A. UDF을 사용할 때 로컬 Python 마이너 버전을 클러스터의 Python 마이너 버전과 일치시키고, 클러스터의 런타임 버전과 호환되는 Databricks Connect 패키지를 사용하세요.",
-      "B. Use any local Python version as long as the PySpark minor version matches, because the cluster's Python version is isolated from the client.",
+      "B. 클러스터의 Python 버전은 클라이언트와 격리되어 있으므로, PySpark 마이너 버전만 일치하면 어떤 로컬 Python 버전이든 사용할 수 있습니다.",
       "C. Databricks Connect는 할당 또는 공유 클러스터를 지원하지 않으므로 서버리스을 사용하십시오.",
       "D. Databricks Connect를 통한 원격 실행과 충돌하므로 작업 공간에서 유니티 카탈로그를 비활성화합니다."
     ],
@@ -8254,8 +8254,8 @@
     "correction_note_en": "",
     "text": "### 문제 216\n\n데이터 엔지니어가 기존 프로젝트에 참여했으며 프로젝트 저장소에 다음 쿼리가 표시됩니다. CREATE STREAMING LIVE TABLE loyal_customers AS SELECT customer_id - FROM STREAM(LIVE.customers) WHERE loyalty_level = 'high'; 다음 중 쿼리에 STREAM 기능이 포함된 이유를 설명한 것은 무엇입니까?",
     "choices": [
-      "A. The STREAM function is not needed and will cause an error.",
-      "B. The table being created is a live table.",
+      "A. STREAM 함수는 필요하지 않으며 오류를 발생시킵니다.",
+      "B. 생성되는 테이블은 라이브 테이블입니다.",
       "C. 고객 테이블은 스트리밍 라이브 테이블입니다.",
       "D. 고객 테이블은 PySpark 데이터프레임의 구조화 스트리밍 쿼리에 대한 참조입니다.",
       "E. 고객 테이블의 데이터는 마지막 실행 이후 업데이트되었습니다."
@@ -8264,8 +8264,8 @@
     "full_explanation": "",
     "text_ko": "데이터 엔지니어가 기존 프로젝트에 참여했으며 프로젝트 저장소에 다음 쿼리가 표시됩니다. CREATE STREAMING LIVE TABLE loyal_customers AS SELECT customer_id - FROM STREAM(LIVE.customers) WHERE loyalty_level = 'high'; 다음 중 쿼리에 STREAM 기능이 포함된 이유를 설명한 것은 무엇입니까?",
     "choices_ko": [
-      "A. The STREAM function is not needed and will cause an error.",
-      "B. The table being created is a live table.",
+      "A. STREAM 함수는 필요하지 않으며 오류를 발생시킵니다.",
+      "B. 생성되는 테이블은 라이브 테이블입니다.",
       "C. 고객 테이블은 스트리밍 라이브 테이블입니다.",
       "D. 고객 테이블은 PySpark 데이터프레임의 구조화 스트리밍 쿼리에 대한 참조입니다.",
       "E. 고객 테이블의 데이터는 마지막 실행 이후 업데이트되었습니다."
@@ -8447,19 +8447,19 @@
     "correction_note_en": "",
     "text": "### 문제 221\n\n데이터 엔지니어는 Azure Data Lake Storage(ADLS) 위치에 저장된 데이터를 참조하는 데이터브릭스에 외부 테이블을 만들려고 합니다. 목표는 데이터브릭스이 외부 데이터를 데이터브릭스 관리 스토리지로 이동하지 않고도 이 외부 데이터에 액세스하고 쿼리할 수 있도록 하는 것입니다. 외부 테이블을 성공적으로 생성하려면 데이터 엔지니어가 어떤 단계를 수행해야 합니까?",
     "choices": [
-      "A. Use the CREATE MANAGED TABLE statement and specify the LOCATION clause with the path to the external data.",
-      "B. CREATE UNMANAGED TABLE statement without specifying a LOCATION clause.",
-      "C. Use the CREATE TABLE statement and specify the LOCATION clause with the path to the external data.",
-      "D. CREATE EXTERNAL TABLE statement without specifying a LOCATION clause."
+      "A. CREATE MANAGED TABLE 문을 사용하고 외부 데이터의 경로를 지정하는 LOCATION 절을 명시합니다.",
+      "B. LOCATION 절을 지정하지 않고 CREATE UNMANAGED TABLE 문을 사용합니다.",
+      "C. CREATE TABLE 문을 사용하고 외부 데이터의 경로를 지정하는 LOCATION 절을 명시합니다.",
+      "D. LOCATION 절을 지정하지 않고 CREATE EXTERNAL TABLE 문을 사용합니다."
     ],
     "explanation": "데이터브릭스 관리형 스토리지 외부에 저장된 데이터를 참조하려면 엔지니어는 데이터브릭스 스토리지로 이동하지 않고 ADLS 데이터를 가리키는 관리되지 않는(외부) 테이블을 생성하는 CREATE TABLE ... LOCATION '경로'를 사용해야 합니다.",
     "full_explanation": "데이터브릭스 관리형 스토리지 외부에 저장된 데이터를 참조하려면 엔지니어는 데이터브릭스 스토리지로 이동하지 않고 ADLS 데이터를 가리키는 관리되지 않는(외부) 테이블을 생성하는 CREATE TABLE ... LOCATION '경로'를 사용해야 합니다.",
     "text_ko": "데이터 엔지니어는 Azure Data Lake Storage(ADLS) 위치에 저장된 데이터를 참조하는 데이터브릭스에 외부 테이블을 만들려고 합니다. 목표는 데이터브릭스이 외부 데이터를 데이터브릭스 관리 스토리지로 이동하지 않고도 이 외부 데이터에 액세스하고 쿼리할 수 있도록 하는 것입니다. 외부 테이블을 성공적으로 생성하려면 데이터 엔지니어가 어떤 단계를 수행해야 합니까?",
     "choices_ko": [
-      "A. Use the CREATE MANAGED TABLE statement and specify the LOCATION clause with the path to the external data.",
-      "B. CREATE UNMANAGED TABLE statement without specifying a LOCATION clause.",
-      "C. Use the CREATE TABLE statement and specify the LOCATION clause with the path to the external data.",
-      "D. CREATE EXTERNAL TABLE statement without specifying a LOCATION clause."
+      "A. CREATE MANAGED TABLE 문을 사용하고 외부 데이터의 경로를 지정하는 LOCATION 절을 명시합니다.",
+      "B. LOCATION 절을 지정하지 않고 CREATE UNMANAGED TABLE 문을 사용합니다.",
+      "C. CREATE TABLE 문을 사용하고 외부 데이터의 경로를 지정하는 LOCATION 절을 명시합니다.",
+      "D. LOCATION 절을 지정하지 않고 CREATE EXTERNAL TABLE 문을 사용합니다."
     ],
     "explanation_ko": "데이터브릭스 관리형 스토리지 외부에 저장된 데이터를 참조하려면 엔지니어는 데이터브릭스 스토리지로 이동하지 않고 ADLS 데이터를 가리키는 관리되지 않는(외부) 테이블을 생성하는 CREATE TABLE ... LOCATION '경로'를 사용해야 합니다.",
     "correction_note_ko": ""

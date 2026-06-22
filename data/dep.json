@@ -1302,11 +1302,11 @@
   {
     "text": "### 📝 문제 78 (78/127) 📚\n\n데이터 엔지니어는 Spark 의 MEMORY_ONLY 저장 레벨을 사용하고 있습니다. 캐싱된 테이블이 최적의 성능을 발휘하지 못하고 있음을 나타내는 지표로 Spark UI 의 Storage 탭에서 데이터 엔지니어가 무엇을 찾아야 합니까?",
     "choices": [
-      "A. The number of Cached Partitions> the number of Spark Partitions",
-      "B. Size on Disk is < Size in Memory",
-      "C. The RDD Block Name included the '' annotation signaling failure to cache",
-      "D. Size on Disk is> 0",
-      "E. On Heap Memory Usage is within 75% of off Heap Memory usage"
+      "A. 캐시된 파티션(Cached Partitions) 수 > Spark 파티션 수",
+      "B. 디스크 크기(Size on Disk)가 메모리 크기(Size in Memory)보다 작음",
+      "C. RDD 블록 이름에 캐시 실패를 나타내는 '' 주석이 포함됨",
+      "D. 디스크 크기(Size on Disk)가 0보다 큼",
+      "E. On Heap 메모리 사용량이 Off Heap 메모리 사용량의 75% 이내"
     ],
     "is_multi": false,
     "code": "",
@@ -1386,11 +1386,11 @@
   {
     "text": "### 📝 문제 83 (83/127) 📚\n\nSpill(스필)은 다양한 wide transformation(광범위 변환)을 실행하는 결과로 발생합니다. 그러나 spill을 진단하려면 주요 지표(proactively look for key indicators)를 적극적으로 찾아야 합니다. Spark UI 에서 파티션이 디스크로 spilling 되고 있음을 나타내는 두 가지 주요 지표는 어디에 있나요?",
     "choices": [
-      "A. Executor's detail screen and Executor's log files",
-      "B. Stage's detail screen and Executor's log files",
-      "C. Stage's detail screen and Query's detail screen",
-      "D. Query's detail screen and Job's detail screen",
-      "E. Driver's and Executor's log files"
+      "A. Executor의 세부 정보 화면과 Executor의 로그 파일",
+      "B. Stage의 세부 정보 화면과 Executor의 로그 파일",
+      "C. Stage의 세부 정보 화면과 Query의 세부 정보 화면",
+      "D. Query의 세부 정보 화면과 Job의 세부 정보 화면",
+      "E. Driver와 Executor의 로그 파일"
     ],
     "is_multi": false,
     "code": "",

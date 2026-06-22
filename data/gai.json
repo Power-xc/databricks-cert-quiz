@@ -477,9 +477,9 @@
     "text": "### 📝 문제 29 (29/75) 📚\n\nAI 개발자 팀은 코드 생성 사용 사례에서 뛰어난 성능을 발휘하도록 오픈-웨이트(open-weight) 모델을 파인튜닝(fine-tune)하려고 합니다. 그들은 시작할 가장 적합한 모델을 선택하려고 노력하고 있습니다. 모델 호스팅 비용을 최소화하고자 하며, Hugging Face 모델 카드(model cards)와 스페이스(spaces)를 사용하여 모델을 탐색하고 있습니다. 팀이 선택을 위해 집중해야 할 두 가지 모델 속성(attributes)과 지표(metrics)는 무엇입니까?",
     "choices": [
       "A. MTEB Leaderboard",
-      "B. Number of model parameters",
+      "B. 모델 파라미터 수",
       "C. Chatbot Arena Leaderboard",
-      "D. Number of model downloads last month",
+      "D. 지난달 모델 다운로드 수",
       "E. Big Code Models Leaderboard"
     ],
     "is_multi": true,
