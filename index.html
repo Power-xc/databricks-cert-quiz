@@ -83,6 +83,8 @@
     .continue-btn:hover { background: rgba(56,139,253,.08); }
     .notes-btn { background: rgba(139,92,246,.1); color: var(--purple); border: 1.5px solid rgba(139,92,246,.45); }
     .notes-btn:hover { background: rgba(139,92,246,.16); }
+    .review-btn { background: rgba(248,81,73,.1); color: var(--danger); border: 1.5px solid rgba(248,81,73,.45); }
+    .review-btn:hover { background: rgba(248,81,73,.16); }
     .study-panel { margin: 0 0 28px; padding: 18px; border: 1.5px solid var(--border); border-radius: var(--radius); background: var(--surface2); }
     .study-panel-title { margin-bottom: 12px; color: var(--sub); font-size: .78rem; font-weight: 800; letter-spacing: .07em; }
     .study-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
@@ -335,6 +337,7 @@
         새로 시작
       </button>
       <button class="start-btn continue-btn hidden" id="continue-btn">이어 풀기</button>
+      <button class="start-btn review-btn hidden" id="review-btn">🔁 오답노트</button>
       <button class="start-btn notes-btn" id="notes-btn">🧠 핵심 암기 노트</button>
     </div>
   </div>
@@ -505,6 +508,7 @@ const state = {
   answers: {},
   results: {},
   exam: 'dea', mode: 'order',
+  review: false, // 오답노트(오답만 풀기) 세션 여부 — true면 진행상황을 저장하지 않는다
 };
 const THEME_KEY = 'databricks-cert-quiz-theme';
 const PROGRESS_KEY = 'databricks-cert-quiz-progress-v2';
@@ -782,8 +786,26 @@ function renderHistorySummary() {
   $('history-last').textContent = examHistory?.lastStudiedAt
     ? new Date(examHistory.lastStudiedAt).toLocaleDateString('ko-KR', { month: 'numeric', day: 'numeric' })
     : '-';
+  updateReviewButton();
+}
+// 마지막 시도가 오답이었던 문제의 id 집합 — 오답노트 풀 대상
+function getWrongIds(exam) {
+  const examHistory = readHistory()[exam];
+  const questions = examHistory?.questions && typeof examHistory.questions === 'object' ? examHistory.questions : {};
+  return new Set(Object.entries(questions)
+    .filter(([, item]) => item && item.lastResult === false)
+    .map(([id]) => Number(id)));
+}
+function updateReviewButton() {
+  const wrongCount = getWrongIds(state.exam).size;
+  const button = $('review-btn');
+  if (!wrongCount) { hide(button); return; }
+  button.textContent = `🔁 오답노트 · ${wrongCount}문제`;
+  show(button);
 }
 function saveProgress() {
+  // 오답노트 세션은 전체 진행상황을 덮어쓰지 않는다 (히스토리 기록은 recordAttempt가 별도로 담당)
+  if (state.review) return;
   if (!state.questions.length) return;
   const progresses = readProgresses();
   progresses[state.exam] = {
@@ -1082,6 +1104,7 @@ function restoreProgress(saved, questions) {
   return true;
 }
 async function startQuiz(resume = false) {
+  state.review = false;
   state.idx = 0; state.answers = {}; state.results = {};
   hide(setupView); show(quizView);
   show(loadingEl); hide(quizContent);
@@ -1105,13 +1128,43 @@ async function startQuiz(resume = false) {
   saveProgress();
 }
 
+// ── 오답노트(오답만 풀기) ──────────────────────────────────────────────────
+async function startReviewQuiz() {
+  state.review = true;
+  state.idx = 0; state.answers = {}; state.results = {};
+  hide(setupView); show(quizView);
+  show(loadingEl); hide(quizContent);
+
+  try {
+    const qs = await loadExam(state.exam);
+    const wrongIds = getWrongIds(state.exam);
+    const pool = qs.filter(question => wrongIds.has(question.id));
+    if (!pool.length) {
+      state.review = false;
+      hide(quizView); show(setupView);
+      alert('다시 풀 오답이 없어요. 먼저 문제를 풀고 틀린 문제가 생기면 오답노트가 열려요.');
+      return;
+    }
+    state.questions = state.mode === 'random' ? shuffle(pool) : pool;
+  } catch (error) {
+    state.review = false;
+    hide(quizView); show(setupView);
+    alert(error instanceof Error ? error.message : '문제를 불러오는 중 오류가 발생했습니다.');
+    return;
+  }
+
+  hide(loadingEl); show(quizContent);
+  render();
+}
+
 // ── 완료 요약 ─────────────────────────────────────────────────────────────
 function showSummary() {
   const { questions, results, exam } = state;
   const total   = questions.length;
   const correct = Object.values(results).filter(v => v === true).length;
   const wrong   = Object.values(results).filter(v => v === false).length;
-  $('summary-exam-label').textContent = EXAM_LABELS[exam] || exam.toUpperCase();
+  const examLabel = EXAM_LABELS[exam] || exam.toUpperCase();
+  $('summary-exam-label').textContent = state.review ? `${examLabel} · 🔁 오답노트` : examLabel;
   $('sum-total').textContent   = total;
   $('sum-correct').textContent = correct;
   $('sum-wrong').textContent   = wrong;
@@ -1122,12 +1175,13 @@ function showSummary() {
 // ── 이벤트 ──────────────────────────────────────────────────────────────
 $('start-btn').addEventListener('click', () => startQuiz(false));
 $('continue-btn').addEventListener('click', () => startQuiz(true));
+$('review-btn').addEventListener('click', () => startReviewQuiz());
 $('notes-btn').addEventListener('click', () => { hide(setupView); show(notesView); });
 $('notes-home-btn').addEventListener('click', () => { hide(notesView); show(setupView); renderHistorySummary(); });
 $('theme-toggle').addEventListener('click', () => {
   applyTheme(document.documentElement.dataset.theme === 'light' ? 'dark' : 'light');
 });
-$('home-btn').addEventListener('click', () => { saveProgress(); hide(quizView); show(setupView); updateContinueButton(); renderHistorySummary(); });
+$('home-btn').addEventListener('click', () => { saveProgress(); state.review = false; hide(quizView); show(setupView); updateContinueButton(); renderHistorySummary(); });
 $('check-btn').addEventListener('click', checkAnswer);
 
 $('prev-btn').addEventListener('click', () => {
@@ -1143,8 +1197,12 @@ $('jump-btn').addEventListener('click', () => {
   if (!isNaN(v)) { state.idx = Math.max(0, Math.min(v - 1, state.questions.length - 1)); saveProgress(); render(); }
 });
 $('jump-input').addEventListener('keydown', e => { if (e.key === 'Enter') $('jump-btn').click(); });
-$('retry-btn').addEventListener('click', () => { clearProgress(state.exam); hide(summaryView); show(setupView); renderHistorySummary(); });
-$('summary-home-btn').addEventListener('click', () => { hide(summaryView); show(setupView); updateContinueButton(); renderHistorySummary(); });
+$('retry-btn').addEventListener('click', () => {
+  // 오답노트 세션이면 줄어든 오답만 다시 푼다 (전체 진행상황은 건드리지 않음)
+  if (state.review) { hide(summaryView); startReviewQuiz(); return; }
+  clearProgress(state.exam); hide(summaryView); show(setupView); renderHistorySummary();
+});
+$('summary-home-btn').addEventListener('click', () => { state.review = false; hide(summaryView); show(setupView); updateContinueButton(); renderHistorySummary(); });
 
 // 키보드 단축키
 document.addEventListener('keydown', e => {
