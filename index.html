@@ -321,6 +321,14 @@
       </div>
     </div>
 
+    <div class="field-group">
+      <div class="field-label">학습 방식</div>
+      <div class="btn-group" id="exammode-group">
+        <button class="seg-btn active" data-value="study">📝 학습 모드<span class="btn-label">한 문제씩 바로 채점·해설</span></button>
+        <button class="seg-btn" data-value="exam">🎯 시험 모드<span class="btn-label">전체를 풀고 마지막에 채점</span></button>
+      </div>
+    </div>
+
     <div class="study-panel">
       <div class="study-panel-title">내 학습 기록 · 이 브라우저에 자동 저장</div>
       <div class="study-grid">
@@ -492,6 +500,7 @@
       </div>
     </div>
     <div class="summary-actions">
+      <button class="start-btn review-btn hidden" id="review-wrong-btn">🔁 틀린 문제만 풀기</button>
       <button class="start-btn" id="retry-btn">
         <svg viewBox="0 0 20 20" fill="currentColor" style="width:16px;height:16px"><path fill-rule="evenodd" d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z" clip-rule="evenodd"/></svg>
         다시 풀기
@@ -508,6 +517,7 @@ const state = {
   answers: {},
   results: {},
   exam: 'dea', mode: 'order',
+  examMode: 'study', // 'study'=즉시 채점 / 'exam'=전체 풀고 마지막에 채점
   review: false, // 오답노트(오답만 풀기) 세션 여부 — true면 진행상황을 저장하지 않는다
 };
 const THEME_KEY = 'databricks-cert-quiz-theme';
@@ -812,6 +822,7 @@ function saveProgress() {
     version: 2,
     total: state.questions.length,
     mode: state.mode,
+    examMode: state.examMode,
     idx: state.idx,
     order: state.questions.map(question => question.id),
     answers: state.answers,
@@ -868,6 +879,7 @@ function setupBtnGroup(groupId, onChange) {
 }
 setupBtnGroup('exam-group', v => { state.exam = v; updateContinueButton(); renderHistorySummary(); });
 setupBtnGroup('mode-group', v => { state.mode = v; });
+setupBtnGroup('exammode-group', v => { state.examMode = v === 'exam' ? 'exam' : 'study'; });
 
 // ── 캐시 & 로드 ──────────────────────────────────────────────────────────
 const dataCache = {};
@@ -919,16 +931,21 @@ function render() {
   const { questions, idx, answers, results } = state;
   const q = questions[idx];
   const n = questions.length;
-  const answered = Object.keys(results).length;
-  const correct  = Object.values(results).filter(v => v === true).length;
+  // 시험 모드(오답노트 제외)는 끝나기 전까지 채점하지 않는다 — 응답 수만 표시
+  const isExam = state.examMode === 'exam' && !state.review;
+  const answered = isExam
+    ? questions.reduce((sum, _, i) => sum + (answers[i] && answers[i].length ? 1 : 0), 0)
+    : Object.keys(results).length;
+  const correct = Object.values(results).filter(v => v === true).length;
 
   // 헤더
   $('pos-text').textContent = `${idx + 1} / ${n}`;
   $('prog-fill').style.width = `${Math.round(answered / n * 100)}%`;
-  $('stats-row').innerHTML =
-    `<span>진행 <b>${answered}/${n}</b></span>` +
-    `<span class="stat-correct">정답 <b>${correct}</b></span>` +
-    `<span class="stat-wrong">오답 <b>${answered - correct}</b></span>`;
+  $('stats-row').innerHTML = isExam
+    ? `<span>🎯 시험 모드</span><span>응답 <b>${answered}/${n}</b></span>`
+    : `<span>진행 <b>${answered}/${n}</b></span>` +
+      `<span class="stat-correct">정답 <b>${correct}</b></span>` +
+      `<span class="stat-wrong">오답 <b>${answered - correct}</b></span>`;
 
   // 타입 배지
   const badge = $('q-type-badge');
@@ -1056,6 +1073,15 @@ function render() {
     hide($('explain-box'));
   }
 
+  // 시험 모드는 즉시 채점 UI를 숨긴다 (마지막에 일괄 채점)
+  if (isExam) {
+    $('check-btn').classList.add('hidden');
+    msgEl.className = 'result-msg';
+    hide($('explain-box'));
+  } else {
+    $('check-btn').classList.remove('hidden');
+  }
+
   // 네비
   $('jump-input').value       = '';
   $('jump-input').placeholder = `1–${n}`;
@@ -1090,6 +1116,38 @@ function checkAnswer() {
   render();
 }
 
+// ── 시험 모드: 선택 캡처 & 일괄 채점 ──────────────────────────────────────
+// 현재 화면의 선택을 answers에 저장 (시험 모드는 즉시 채점하지 않으므로 이동 시 보존)
+function captureSelection() {
+  const selected = Array.from(document.querySelectorAll('#choices-container input'))
+    .filter(i => i.checked).map(i => i.value);
+  state.answers[state.idx] = selected;
+}
+// 시험 종료 시 전체를 한 번에 채점 (무응답=오답, 정답 데이터 없으면 null)
+function gradeExam() {
+  state.questions.forEach((q, i) => {
+    const selected = Array.isArray(state.answers[i]) ? state.answers[i] : [];
+    if (!q.answerLetters) {
+      state.results[i] = null;
+      return;
+    }
+    state.results[i] = selected.length
+      ? JSON.stringify([...selected].sort()) === JSON.stringify([...q.answerLetters].sort())
+      : false;
+    recordAttempt(q.id, state.results[i]);
+  });
+}
+// 주어진 문제 묶음만 즉시 채점(학습) 방식으로 다시 풀이 — 오답노트/틀린 것만 풀기 공통 진입점
+function enterReview(pool) {
+  if (!pool.length) return;
+  state.review = true;
+  state.idx = 0; state.answers = {}; state.results = {};
+  state.questions = pool;
+  hide(setupView); hide(summaryView); show(quizView);
+  hide(loadingEl); show(quizContent);
+  render();
+}
+
 // ── 시작 ─────────────────────────────────────────────────────────────────
 function restoreProgress(saved, questions) {
   if (!saved || saved.version !== 2 || saved.total !== questions.length || !Array.isArray(saved.order)) return false;
@@ -1099,6 +1157,7 @@ function restoreProgress(saved, questions) {
   state.questions = saved.order.map(id => byId.get(id));
   state.idx = saved.idx;
   state.mode = saved.mode === 'random' ? 'random' : 'order';
+  state.examMode = saved.examMode === 'exam' ? 'exam' : 'study';
   state.answers = saved.answers && typeof saved.answers === 'object' && !Array.isArray(saved.answers) ? saved.answers : {};
   state.results = saved.results && typeof saved.results === 'object' && !Array.isArray(saved.results) ? saved.results : {};
   return true;
@@ -1128,33 +1187,26 @@ async function startQuiz(resume = false) {
   saveProgress();
 }
 
-// ── 오답노트(오답만 풀기) ──────────────────────────────────────────────────
+// ── 오답노트(누적 오답만 풀기) ─────────────────────────────────────────────
 async function startReviewQuiz() {
-  state.review = true;
-  state.idx = 0; state.answers = {}; state.results = {};
   hide(setupView); show(quizView);
   show(loadingEl); hide(quizContent);
 
   try {
     const qs = await loadExam(state.exam);
     const wrongIds = getWrongIds(state.exam);
-    const pool = qs.filter(question => wrongIds.has(question.id));
+    let pool = qs.filter(question => wrongIds.has(question.id));
     if (!pool.length) {
-      state.review = false;
       hide(quizView); show(setupView);
       alert('다시 풀 오답이 없어요. 먼저 문제를 풀고 틀린 문제가 생기면 오답노트가 열려요.');
       return;
     }
-    state.questions = state.mode === 'random' ? shuffle(pool) : pool;
+    pool = state.mode === 'random' ? shuffle(pool) : pool;
+    enterReview(pool);
   } catch (error) {
-    state.review = false;
     hide(quizView); show(setupView);
     alert(error instanceof Error ? error.message : '문제를 불러오는 중 오류가 발생했습니다.');
-    return;
   }
-
-  hide(loadingEl); show(quizContent);
-  render();
 }
 
 // ── 완료 요약 ─────────────────────────────────────────────────────────────
@@ -1164,10 +1216,15 @@ function showSummary() {
   const correct = Object.values(results).filter(v => v === true).length;
   const wrong   = Object.values(results).filter(v => v === false).length;
   const examLabel = EXAM_LABELS[exam] || exam.toUpperCase();
-  $('summary-exam-label').textContent = state.review ? `${examLabel} · 🔁 오답노트` : examLabel;
+  const suffix = state.review ? ' · 🔁 오답노트' : (state.examMode === 'exam' ? ' · 🎯 시험 모드' : '');
+  $('summary-exam-label').textContent = `${examLabel}${suffix}`;
   $('sum-total').textContent   = total;
   $('sum-correct').textContent = correct;
   $('sum-wrong').textContent   = wrong;
+  // 이번 세션에서 틀린 문제가 있으면 "틀린 문제만 풀기" 버튼 노출
+  const reviewWrongBtn = $('review-wrong-btn');
+  if (wrong > 0) { reviewWrongBtn.textContent = `🔁 틀린 ${wrong}문제만 풀기`; show(reviewWrongBtn); }
+  else hide(reviewWrongBtn);
   saveProgress();
   hide(quizView); show(summaryView);
 }
@@ -1181,20 +1238,32 @@ $('notes-home-btn').addEventListener('click', () => { hide(notesView); show(setu
 $('theme-toggle').addEventListener('click', () => {
   applyTheme(document.documentElement.dataset.theme === 'light' ? 'dark' : 'light');
 });
-$('home-btn').addEventListener('click', () => { saveProgress(); state.review = false; hide(quizView); show(setupView); updateContinueButton(); renderHistorySummary(); });
+$('home-btn').addEventListener('click', () => { if (state.examMode === 'exam' && !state.review) captureSelection(); saveProgress(); state.review = false; hide(quizView); show(setupView); updateContinueButton(); renderHistorySummary(); });
 $('check-btn').addEventListener('click', checkAnswer);
 
+// 시험 모드(오답노트 제외)는 화면 이동 전에 현재 선택을 보존한다
+function inExamFlow() { return state.examMode === 'exam' && !state.review; }
 $('prev-btn').addEventListener('click', () => {
+  if (inExamFlow()) captureSelection();
   if (state.idx > 0) { state.idx--; saveProgress(); render(); }
 });
 $('next-btn').addEventListener('click', () => {
   const n = state.questions.length;
+  if (inExamFlow()) captureSelection();
   if (state.idx < n - 1) { state.idx++; saveProgress(); render(); }
-  else showSummary();
+  else { if (inExamFlow()) gradeExam(); showSummary(); }
 });
 $('jump-btn').addEventListener('click', () => {
   const v = parseInt($('jump-input').value, 10);
-  if (!isNaN(v)) { state.idx = Math.max(0, Math.min(v - 1, state.questions.length - 1)); saveProgress(); render(); }
+  if (!isNaN(v)) {
+    if (inExamFlow()) captureSelection();
+    state.idx = Math.max(0, Math.min(v - 1, state.questions.length - 1)); saveProgress(); render();
+  }
+});
+$('review-wrong-btn').addEventListener('click', () => {
+  // 방금 끝낸 세션에서 틀린 문제만 모아 다시 풀이
+  const wrongPool = state.questions.filter((_, i) => state.results[i] === false);
+  enterReview(wrongPool);
 });
 $('jump-input').addEventListener('keydown', e => { if (e.key === 'Enter') $('jump-btn').click(); });
 $('retry-btn').addEventListener('click', () => {
@@ -1214,7 +1283,8 @@ document.addEventListener('keydown', e => {
   if (e.key === 'ArrowLeft')  $('prev-btn').click();
   if (e.key === 'ArrowRight') $('next-btn').click();
   if (e.key === 'Enter') {
-    if (!$('check-btn').disabled) checkAnswer();
+    if (inExamFlow()) $('next-btn').click();
+    else if (!$('check-btn').disabled) checkAnswer();
     else $('next-btn').click();
   }
   if (/^[A-Ea-e]$/.test(e.key)) {
