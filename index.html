@@ -85,6 +85,20 @@
     .notes-btn:hover { background: rgba(139,92,246,.16); }
     .review-btn { background: rgba(248,81,73,.1); color: var(--danger); border: 1.5px solid rgba(248,81,73,.45); }
     .review-btn:hover { background: rgba(248,81,73,.16); }
+    .sync-btn { background: rgba(56,139,253,.08); color: var(--accent); border: 1.5px solid rgba(56,139,253,.4); }
+    .sync-btn:hover { background: rgba(56,139,253,.15); }
+
+    /* ── 기기 간 동기화 ─────────────────────────────── */
+    .sync-section { margin-bottom: 22px; padding: 20px; border: 1.5px solid var(--border); border-radius: 13px; background: var(--surface2); }
+    .sync-section h2 { font-size: 1rem; margin-bottom: 6px; }
+    .sync-section p { color: var(--sub); font-size: .86rem; margin-bottom: 14px; line-height: 1.6; }
+    .sync-area { width: 100%; min-height: 92px; resize: vertical; padding: 12px 14px; border-radius: 10px; border: 1.5px solid var(--border); background: var(--surface); color: var(--text); font: .8rem/1.5 'SF Mono','Consolas',monospace; word-break: break-all; }
+    .sync-area:focus { outline: none; border-color: var(--accent); }
+    .sync-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+    .sync-msg { margin-top: 12px; font-size: .88rem; font-weight: 600; display: none; }
+    .sync-msg.show { display: block; }
+    .sync-msg.ok { color: var(--success); }
+    .sync-msg.ng { color: var(--danger); }
     .study-panel { margin: 0 0 28px; padding: 18px; border: 1.5px solid var(--border); border-radius: var(--radius); background: var(--surface2); }
     .study-panel-title { margin-bottom: 12px; color: var(--sub); font-size: .78rem; font-weight: 800; letter-spacing: .07em; }
     .study-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
@@ -347,6 +361,7 @@
       <button class="start-btn continue-btn hidden" id="continue-btn">이어 풀기</button>
       <button class="start-btn review-btn hidden" id="review-btn">🔁 오답노트</button>
       <button class="start-btn notes-btn" id="notes-btn">🧠 핵심 암기 노트</button>
+      <button class="start-btn sync-btn" id="sync-btn">🔄 기기 동기화</button>
     </div>
   </div>
 
@@ -428,6 +443,41 @@
       </section>
     </div>
     <div class="term-update"><strong>용어 업데이트:</strong> 예전 문제의 <b>Delta Live Tables (DLT)</b>는 현재 <b>Lakeflow Spark Declarative Pipelines</b>, Workflows의 Job 기능은 <b>Lakeflow Jobs</b>라는 이름을 사용해. 시험 덤프의 구 명칭과 현재 문서 명칭을 둘 다 알아두는 게 좋아.</div>
+  </div>
+
+  <!-- ── 기기 간 동기화 ─────────────────────────────── -->
+  <div class="card notes-card hidden" id="sync-view">
+    <div class="notes-header">
+      <div>
+        <div class="notes-title">🔄 기기 간 동기화</div>
+        <div class="notes-sub">폰에서 내보낸 코드를 노트북에서 가져오면 오답노트·학습 기록이 합쳐집니다 (로그인 없이 동작).</div>
+      </div>
+      <button class="home-btn" id="sync-home-btn">← 홈</button>
+    </div>
+
+    <section class="sync-section">
+      <h2>📤 이 기기 기록 내보내기</h2>
+      <p>이 기기(브라우저)의 학습 기록을 코드/링크로 만듭니다. 카톡·메모로 다른 기기에 전달하세요.</p>
+      <button class="start-btn sync-btn" id="sync-export-btn">내 기록 코드 만들기</button>
+      <div id="sync-export-result" class="hidden">
+        <textarea class="sync-area" id="sync-code-out" readonly style="margin-top:14px"></textarea>
+        <div class="sync-actions">
+          <button class="start-btn sync-btn" id="sync-copy-code-btn">📋 코드 복사</button>
+          <button class="start-btn sync-btn" id="sync-copy-link-btn">🔗 공유 링크 복사</button>
+        </div>
+        <div class="sync-msg" id="sync-export-msg"></div>
+      </div>
+    </section>
+
+    <section class="sync-section">
+      <h2>📥 다른 기기 기록 가져오기</h2>
+      <p>전달받은 코드(또는 공유 링크)를 붙여넣고 가져오면 현재 기기 기록과 합쳐집니다. 같은 문항은 더 최근에 푼 결과를 따릅니다.</p>
+      <textarea class="sync-area" id="sync-code-in" placeholder="여기에 코드나 링크를 붙여넣으세요"></textarea>
+      <div class="sync-actions">
+        <button class="start-btn" id="sync-import-btn">가져와서 합치기</button>
+      </div>
+      <div class="sync-msg" id="sync-import-msg"></div>
+    </section>
   </div>
 
   <!-- ── 퀴즈 화면 ─────────────────────────────────── -->
@@ -812,6 +862,106 @@ function updateReviewButton() {
   if (!wrongCount) { hide(button); return; }
   button.textContent = `🔁 오답노트 · ${wrongCount}문제`;
   show(button);
+}
+
+// ── 기기 간 동기화 (백엔드 없이 코드/링크로 학습 기록 이동) ──────────────────
+const SYNC_PREFIX = 'sync='; // 공유 링크의 해시 파라미터
+// 학습 기록(history)을 base64url 코드로 인코딩
+function encodeSync() {
+  const payload = { v: 1, kind: 'dbquiz-history', history: readHistory() };
+  const b64 = btoa(unescape(encodeURIComponent(JSON.stringify(payload))));
+  return b64.replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+}
+// 코드(또는 링크)를 history 객체로 디코딩
+function decodeSync(input) {
+  const raw = String(input || '').trim();
+  if (!raw) throw new Error('코드가 비어 있어요.');
+  const code = raw.includes(SYNC_PREFIX) ? raw.slice(raw.lastIndexOf(SYNC_PREFIX) + SYNC_PREFIX.length).trim() : raw;
+  let b64 = code.replace(/-/g, '+').replace(/_/g, '/');
+  while (b64.length % 4) b64 += '=';
+  let payload;
+  try {
+    payload = JSON.parse(decodeURIComponent(escape(atob(b64))));
+  } catch {
+    throw new Error('형식이 올바른 동기화 코드가 아니에요.');
+  }
+  if (!payload || payload.kind !== 'dbquiz-history' || typeof payload.history !== 'object' || Array.isArray(payload.history)) {
+    throw new Error('형식이 올바른 동기화 코드가 아니에요.');
+  }
+  return payload.history;
+}
+// 들어온 기록을 로컬과 병합 — 같은 문항은 lastStudiedAt이 더 최근인 쪽을 채택(스냅샷 중복 합산 방지)
+function mergeHistory(incoming) {
+  const local = readHistory();
+  let merged = 0;
+  Object.entries(incoming).forEach(([exam, examData]) => {
+    if (!examData || typeof examData !== 'object' || Array.isArray(examData)) return;
+    const inQ = examData.questions && typeof examData.questions === 'object' ? examData.questions : {};
+    const localExam = local[exam] && typeof local[exam] === 'object' && !Array.isArray(local[exam]) ? local[exam] : {};
+    const localQ = localExam.questions && typeof localExam.questions === 'object' && !Array.isArray(localExam.questions) ? localExam.questions : {};
+    Object.entries(inQ).forEach(([id, rec]) => {
+      if (!rec || typeof rec !== 'object') return;
+      const cur = localQ[id];
+      if (!cur || String(rec.lastStudiedAt || '') > String(cur.lastStudiedAt || '')) {
+        localQ[id] = rec;
+        merged += 1;
+      }
+    });
+    const lastStudiedAt = [localExam.lastStudiedAt, examData.lastStudiedAt].filter(Boolean).sort().pop() || '';
+    local[exam] = { ...localExam, questions: localQ, lastStudiedAt };
+  });
+  try {
+    localStorage.setItem(HISTORY_KEY, JSON.stringify(local));
+  } catch {
+    throw new Error('저장 공간이 부족해 가져오기에 실패했어요.');
+  }
+  renderHistorySummary();
+  updateContinueButton();
+  return merged;
+}
+function syncLink(code) {
+  return `${location.origin}${location.pathname}#${SYNC_PREFIX}${code}`;
+}
+async function copyText(text) {
+  try {
+    if (navigator.clipboard && window.isSecureContext) {
+      await navigator.clipboard.writeText(text);
+      return true;
+    }
+  } catch { /* 폴백으로 진행 */ }
+  try {
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    const ok = document.execCommand('copy');
+    document.body.removeChild(ta);
+    return ok;
+  } catch {
+    return false;
+  }
+}
+function setSyncMsg(id, text, ok) {
+  const el = $(id);
+  el.textContent = text;
+  el.className = `sync-msg show ${ok ? 'ok' : 'ng'}`;
+}
+// 공유 링크로 열렸으면 가져오기 제안
+function checkSyncHash() {
+  const match = location.hash.match(/sync=([^&]+)/);
+  if (!match) return;
+  try {
+    const incoming = decodeSync(match[1]);
+    if (confirm('다른 기기의 학습 기록을 가져올까요? 현재 기기 기록과 합쳐집니다.')) {
+      const count = mergeHistory(incoming);
+      alert(`가져왔어요. 문항 ${count}개 반영 완료 — 이제 오답노트에서 이어서 풀 수 있어요.`);
+    }
+  } catch (error) {
+    alert(`동기화 링크를 읽지 못했어요: ${error.message || ''}`);
+  }
+  history.replaceState(null, '', location.pathname + location.search);
 }
 function saveProgress() {
   // 오답노트 세션은 전체 진행상황을 덮어쓰지 않는다 (히스토리 기록은 recordAttempt가 별도로 담당)
@@ -1235,6 +1385,37 @@ $('continue-btn').addEventListener('click', () => startQuiz(true));
 $('review-btn').addEventListener('click', () => startReviewQuiz());
 $('notes-btn').addEventListener('click', () => { hide(setupView); show(notesView); });
 $('notes-home-btn').addEventListener('click', () => { hide(notesView); show(setupView); renderHistorySummary(); });
+$('sync-btn').addEventListener('click', () => {
+  hide(setupView); show($('sync-view'));
+  hide($('sync-export-result'));
+  $('sync-export-msg').className = 'sync-msg';
+  $('sync-import-msg').className = 'sync-msg';
+});
+$('sync-home-btn').addEventListener('click', () => { hide($('sync-view')); show(setupView); renderHistorySummary(); });
+$('sync-export-btn').addEventListener('click', () => {
+  const code = encodeSync();
+  $('sync-code-out').value = code;
+  show($('sync-export-result'));
+  $('sync-export-msg').className = 'sync-msg';
+});
+$('sync-copy-code-btn').addEventListener('click', async () => {
+  const ok = await copyText($('sync-code-out').value);
+  setSyncMsg('sync-export-msg', ok ? '코드를 복사했어요. 다른 기기에 붙여넣어 가져오세요.' : '복사 실패 — 코드를 길게 눌러 직접 복사해 주세요.', ok);
+});
+$('sync-copy-link-btn').addEventListener('click', async () => {
+  const ok = await copyText(syncLink($('sync-code-out').value));
+  setSyncMsg('sync-export-msg', ok ? '공유 링크를 복사했어요. 다른 기기에서 그 링크를 열면 바로 합쳐집니다.' : '복사 실패 — 코드 복사를 이용해 주세요.', ok);
+});
+$('sync-import-btn').addEventListener('click', () => {
+  try {
+    const incoming = decodeSync($('sync-code-in').value);
+    const count = mergeHistory(incoming);
+    setSyncMsg('sync-import-msg', `가져왔어요. 문항 ${count}개 반영 완료 — 홈의 오답노트에서 이어서 풀 수 있어요.`, true);
+    $('sync-code-in').value = '';
+  } catch (error) {
+    setSyncMsg('sync-import-msg', error.message || '가져오기에 실패했어요.', false);
+  }
+});
 $('theme-toggle').addEventListener('click', () => {
   applyTheme(document.documentElement.dataset.theme === 'light' ? 'dark' : 'light');
 });
@@ -1303,8 +1484,9 @@ try {
   savedTheme = 'dark';
 }
 applyTheme(savedTheme);
-updateContinueButton();
 migrateProgressToHistory();
+checkSyncHash();
+updateContinueButton();
 renderHistorySummary();
 </script>
 </body>
